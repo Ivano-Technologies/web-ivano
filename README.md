@@ -39,18 +39,19 @@ npm run build
 | `/` | Home — Magnific Pass 1 |
 | `/products` | Product family + client-work cards (outbound, new tab) |
 | `/services` | Five MoA clusters |
-| `/about` | Mission, Abuja, RC 8736090, PDF download |
-| `/contact` | Form → `hi@ivanotechnologies.com` (mailto fallback on Preview) |
+| `/about` | Mission, Abuja Nigeria, RC 8736090, PDF download |
+| `/contact` | Form → `hi@ivanotechnologies.com` (mailto) |
 | `/privacy` `/terms` `/cookies` | Light legal stubs |
 | `/company-profile.pdf` | Downloadable company profile |
 
 ## Contact form
 
-Preview uses a **mailto fallback** to `hi@ivanotechnologies.com`. Submitting opens the visitor’s email client with Name / Email / Subject / Message. A mail API (e.g. Resend) can replace this later without changing the fields.
+The contact form opens a **mailto** to `hi@ivanotechnologies.com` with Name / Email / Subject / Message. A mail API (e.g. Resend) can replace this later without changing the fields.
 
 ## Brand locks
 
 - Wordmark only — no red “i” tile / logo mark
+- Favicon: Design IV1 set — navy square for tabs (`favicon-32-navy` + `mark-on-navy-square.svg`), transparent PNGs for icons/PWA, no orange
 - Palette: bg `#141B26`–`#1A2230` · footer `#0F141C` · accent `#E0442E` / `#E8553A` · body `#9AA3AE` · borders `#2A3342`
 - Type: Exo headings + Montserrat body (`next/font`)
 - No Kompleet teal · no cream chrome
@@ -68,4 +69,4 @@ Preview uses a **mailto fallback** to `hi@ivanotechnologies.com`. Submitting ope
 
 ## Design source of truth
 
-Magnific Pass 1 comps (HTML + `ivano.css` + `art/` + screenshots). Company-profile PDF Pass 1 type/wordmark polish is a soft Design follow-up and is not blocking for this scaffold.
+Magnific Pass 1 comps (HTML + `ivano.css` + `art/` + screenshots). Public download: `/company-profile.pdf`.
