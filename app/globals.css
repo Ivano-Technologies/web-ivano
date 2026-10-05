@@ -28,7 +28,7 @@
   --motion-fast: 200ms;
   --motion-base: 280ms;
   --motion-enter: 520ms;
-  --motion-globe: 32s; /* one canvas longitude revolution */
+  --motion-globe: 45s; /* one canvas longitude revolution; ~8 deg/s */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.45, 0, 0.55, 1);
   --ease-linear: linear;
@@ -438,6 +438,10 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   z-index: 0;
+}
+/* Hide baked markers/land once the live canvas is projecting, so dots cannot drift. */
+.hero-globe.is-live .globe-svg-art {
+  visibility: hidden;
 }
 .globe-svg-art svg {
   display: block;
