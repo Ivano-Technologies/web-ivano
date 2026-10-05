@@ -84,7 +84,7 @@ export function SiteHeader() {
         >
           <Image
             src="/favicon.svg"
-            alt=""
+            alt={SITE.name}
             width={44}
             height={44}
             unoptimized
