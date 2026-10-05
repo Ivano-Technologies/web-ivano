@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { createMetadata } from "@/lib/metadata";
-import { SITE } from "@/lib/site";
+import { SITE, SOCIAL_LINKS } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Contact",
@@ -41,15 +41,21 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <dt>Social</dt>
-                  <dd>
-                    <a
-                      className="contact-plain"
-                      href={SITE.socialHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {SITE.socialHandle}
-                    </a>
+                  <dd className="social-list">
+                    {SOCIAL_LINKS.map((link) => (
+                      <a
+                        key={link.href}
+                        className="contact-plain"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={
+                          link.name === "X" ? "X / Twitter" : link.name
+                        }
+                      >
+                        {link.label}
+                      </a>
+                    ))}
                   </dd>
                 </div>
                 <div>

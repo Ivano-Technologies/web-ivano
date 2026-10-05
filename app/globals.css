@@ -1196,6 +1196,15 @@ section { padding: 2.5rem 0; position: relative; }
   text-decoration: none;
 }
 .contact-aside a.contact-plain:hover { color: var(--white); }
+.contact-aside .social-list {
+  display: grid;
+  gap: 0.45rem;
+}
+.contact-aside .social-list a {
+  display: block;
+  width: fit-content;
+  min-height: 32px;
+}
 .contact-pdf { margin-top: 1.35rem; }
 
 .legal-box {

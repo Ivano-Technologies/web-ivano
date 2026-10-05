@@ -38,6 +38,24 @@ export const FOOTER_EXPLORE = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+export const SOCIAL_LINKS = [
+  {
+    name: "X",
+    label: "@techivano",
+    href: "https://x.com/techivano",
+  },
+  {
+    name: "Instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/techivano/",
+  },
+  {
+    name: "YouTube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@techivano",
+  },
+] as const;
+
 export const LEGAL_LINKS = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },

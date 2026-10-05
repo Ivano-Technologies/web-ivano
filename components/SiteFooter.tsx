@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FOOTER_EXPLORE, LEGAL_LINKS, SITE } from "@/lib/site";
+import { FOOTER_EXPLORE, LEGAL_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -33,9 +33,17 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Connect</h4>
-            <a href={SITE.socialHref} target="_blank" rel="noopener noreferrer">
-              {SITE.socialHandle}
-            </a>
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name === "X" ? "X / Twitter" : link.name}
+              >
+                {link.label}
+              </a>
+            ))}
             <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
             <Link href="/contact">{SITE.officeLine}</Link>
           </div>
