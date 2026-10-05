@@ -99,10 +99,14 @@ img { max-width: 100%; display: block; }
   height: 44px;
   display: block;
   flex-shrink: 0;
+  max-width: none;
   object-fit: contain;
-  object-position: center center;
-  /* IV1 glyph sits high in the 512 canvas; nudge so ink mass sits on the 44px optical center. */
-  transform: translateY(7px);
+  /* Horizontal lock: Accepted in PR #16. Ink mass is ~0.6px left of tile center. */
+  object-position: 50% 50%;
+  /* IV1 ink lives in the upper 512 canvas (bbox y ~14%–61%, mass centroid ~35%).
+     7px overshot and hugged the bottom of the 44px tile. 6px puts the mass on
+     the vertical optical midline with even air above the caps and below the V. */
+  transform: translateY(6px);
 }
 
 .comp-banner { display: none; }
