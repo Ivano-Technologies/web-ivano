@@ -19,9 +19,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy" data-reveal>
-            <p className="brand-lockup">{SITE.name}</p>
-            <p className="brand-tagline">International IT solutions</p>
-            <h1>Global IT solutions for modern businesses</h1>
+            <h1>Intelligent solutions for modern businesses</h1>
             <p className="lede">
               We build software products and deliver technology services —
               finance tools, operations systems, and trusted client platforms.
