@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HeroChips } from "@/components/HeroChips";
-import { HeroGlobe } from "@/components/HeroGlobe";
+import { HeroGlobeArt } from "@/components/HeroGlobeArt";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductThumb } from "@/components/ProductThumb";
 import { createMetadata } from "@/lib/metadata";
@@ -36,7 +36,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-art">
-            <HeroGlobe />
+            <HeroGlobeArt />
             <HeroChips />
           </div>
         </div>
