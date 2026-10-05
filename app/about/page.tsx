@@ -29,7 +29,7 @@ export default function AboutPage() {
           <p className="about-where">{SITE.addressFull}.</p>
           <div className="explore-panels">
             <div className="explore-panel warm" data-reveal>
-              <h3>Abuja – FCT</h3>
+              <h3>Abuja Nigeria</h3>
               <p>Wuse 2 office · registered Nigerian company.</p>
             </div>
             <div className="explore-panel cool" data-reveal>

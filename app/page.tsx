@@ -171,7 +171,7 @@ export default function HomePage() {
         <div className="wrap">
           <p className="trust">
             IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 Jan 2026 ·
-            Abuja – FCT
+            Abuja Nigeria
           </p>
           <div className="cta-band">
             <h2>Ready to work with Ivano?</h2>

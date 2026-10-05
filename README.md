@@ -39,7 +39,7 @@ npm run build
 | `/` | Home — Magnific Pass 1 |
 | `/products` | Product family + client-work cards (outbound, new tab) |
 | `/services` | Five MoA clusters |
-| `/about` | Mission, Abuja, RC 8736090, PDF download |
+| `/about` | Mission, Abuja Nigeria, RC 8736090, PDF download |
 | `/contact` | Form → `hi@ivanotechnologies.com` (mailto) |
 | `/privacy` `/terms` `/cookies` | Light legal stubs |
 | `/company-profile.pdf` | Downloadable company profile |
