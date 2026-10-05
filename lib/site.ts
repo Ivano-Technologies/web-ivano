@@ -1,5 +1,8 @@
 export const CONTACT_EMAIL = "hi@ivanotechnologies.com";
 
+/** Kezie lock: never FCT or dashed forms (not "Abuja – FCT", not "Abuja-FCT"). */
+export const LOCATION = "Abuja Nigeria";
+
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
@@ -14,10 +17,11 @@ export const SITE = {
   socialHref: "https://x.com/techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
-  addressShort: "Shop B18, Saham Plaza, Wuse 2, Abuja Nigeria",
+  location: LOCATION,
+  addressShort: `Shop B18, Saham Plaza, Wuse 2, ${LOCATION}`,
   addressFull:
-    "Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, Abuja Nigeria",
-  officeLine: "Office · Wuse 2, Abuja Nigeria",
+    `Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, ${LOCATION}`,
+  officeLine: `Office · Wuse 2, ${LOCATION}`,
   pdfHref: "/company-profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
