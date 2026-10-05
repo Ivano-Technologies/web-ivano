@@ -547,9 +547,11 @@ section { padding: 3.75rem 0; position: relative; }
 .footer-brand .logo { color: var(--white); }
 .footer-brand .logo span { color: var(--muted); }
 .footer-brand p { margin-top: 0.75rem; font-size: 0.86rem; max-width: 22rem; color: var(--muted); }
-.footer-cta-mini, .footer-cta-link {
+.footer-cta-mini, .footer-cta-link,
+.site-footer a.footer-cta-mini,
+.site-footer a.footer-cta-link {
   display: inline-flex; align-items: center; gap: 0.35rem;
-  margin-top: 0.85rem;
+  margin-top: 0.85rem; margin-bottom: 0; width: fit-content;
   background: transparent !important; color: var(--white) !important;
   padding: 0 !important; border: 0;
   font-size: 0.86rem !important; font-weight: 600; text-decoration: none !important;
@@ -693,7 +695,9 @@ section { padding: 3.75rem 0; position: relative; }
   font-family: var(--font-display);
 }
 
-.cta-follow { margin-top: 2.75rem; }
+.card-grid, .contact-grid, .explore-panels, .cluster, .form, .contact-aside, .cta-band, .legal-box {
+  min-width: 0;
+}
 
 .about-narrow { max-width: 720px; margin-inline: auto; }
 .about-copy h2 {
