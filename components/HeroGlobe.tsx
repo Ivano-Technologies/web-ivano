@@ -5,8 +5,10 @@ import {
   drawOrthographicGlobe,
   GLOBE_CENTER_LAT,
   GLOBE_CENTER_LON,
+  GLOBE_MAX_FRAME_MS,
   GLOBE_TURN_DEG,
   globePeriodMs,
+  wrapLon,
 } from "@/lib/orthographicGlobe";
 
 type HeroGlobeProps = {
@@ -36,12 +38,13 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
       if (!node) {
         return;
       }
-      const offscreen = node.dataset.visible !== "true";
+      const offscreen = node.dataset.visible === "false";
       const paused = media.matches || document.hidden || offscreen;
       const wasPaused = pausedRef.current;
       pausedRef.current = paused;
       node.classList.toggle("is-paused", paused);
       node.classList.toggle("is-static-art", media.matches);
+      node.classList.toggle("is-live", !media.matches);
       if (paused) {
         stopLoop();
         if (!media.matches) {
@@ -57,9 +60,9 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
       if (media.matches) {
         return GLOBE_CENTER_LON;
       }
-      return (
+      return wrapLon(
         GLOBE_CENTER_LON +
-        (GLOBE_TURN_DEG * (elapsed % periodMs)) / periodMs
+          (GLOBE_TURN_DEG * (elapsed % periodMs)) / periodMs,
       );
     }
 
@@ -88,7 +91,7 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
     }
 
     function tick(now: number): void {
-      const dt = now - last;
+      const dt = Math.min(Math.max(0, now - last), GLOBE_MAX_FRAME_MS);
       last = now;
       if (!pausedRef.current && !media.matches) {
         elapsed += dt;
@@ -124,7 +127,7 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
         root.dataset.visible = entry.isIntersecting ? "true" : "false";
         syncPause();
       },
-      { threshold: 0.15 },
+      { threshold: 0 },
     );
     observer.observe(root);
     root.dataset.visible = "true";
