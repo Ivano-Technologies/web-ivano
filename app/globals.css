@@ -99,10 +99,13 @@ img { max-width: 100%; display: block; }
   height: 44px;
   display: block;
   flex-shrink: 0;
+  max-width: none;
   object-fit: contain;
-  object-position: center center;
-  /* IV1 glyph sits high in the 512 canvas; nudge so ink mass sits on the 44px optical center. */
-  transform: translateY(7px);
+  /* Horizontal lock: Accepted in PR #16 / #21. Do not change. */
+  object-position: 50% 50%;
+  /* 6px: Coco ~6px air above / ~16–17px below (too high).
+     11px: ~17px above / ~6px below (too low). Midpoint 8.5px. */
+  transform: translateY(8.5px);
 }
 
 .comp-banner { display: none; }
