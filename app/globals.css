@@ -101,12 +101,11 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
   max-width: none;
   object-fit: contain;
-  /* Horizontal lock: Accepted in PR #16. Ink mass is ~0.6px left of tile center. */
+  /* Horizontal lock: Accepted in PR #16 / #21. Do not change. */
   object-position: 50% 50%;
-  /* IV1 ink lives in the upper 512 canvas (bbox y ~14%–61%, mass centroid ~35%).
-     7px overshot and hugged the bottom of the 44px tile. 6px puts the mass on
-     the vertical optical midline with even air above the caps and below the V. */
-  transform: translateY(6px);
+  /* Coco FAIL on PR #21: at 44px the ~21px glyph sat rows ~7–27 (~6px navy
+     above vs ~16–17px below) — center ~5px too high. 6px + 5px = 11px. */
+  transform: translateY(11px);
 }
 
 .comp-banner { display: none; }
