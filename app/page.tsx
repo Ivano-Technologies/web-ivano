@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeroChips } from "@/components/HeroChips";
 import { HeroGlobeArt } from "@/components/HeroGlobeArt";
@@ -144,12 +145,13 @@ export default function HomePage() {
             <p className="muted">Organisations we’ve built for.</p>
           </div>
           <div className="clients-row">
-            <div
-              className="client-tile"
-              aria-label="JUO Campaign logo placeholder"
-            >
-              JUO
-              <small>Logo placeholder</small>
+            <div className="client-tile client-tile--mark">
+              <Image
+                src="/clients/juo-mark-mono-white.png"
+                alt="John Upan Odey Campaign"
+                width={62}
+                height={44}
+              />
             </div>
             <div
               className="client-tile"

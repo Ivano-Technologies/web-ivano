@@ -84,15 +84,25 @@ img { max-width: 100%; display: block; }
 .nav-brand {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   text-decoration: none !important;
+  width: 44px;
+  height: 44px;
   min-height: 44px;
+  overflow: hidden;
+  border-radius: 18.75%;
+  background: var(--bg);
 }
 .nav-brand img {
   width: 44px;
   height: 44px;
   display: block;
   flex-shrink: 0;
+  object-fit: contain;
+  object-position: center center;
+  /* IV1 glyph sits high in the 512 canvas; nudge so ink mass sits on the 44px optical center. */
+  transform: translateY(7px);
 }
 
 .comp-banner { display: none; }
@@ -1069,6 +1079,19 @@ section { padding: 2.5rem 0; position: relative; }
   margin-top: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+.client-tile--mark {
+  filter: none;
+  opacity: 1;
+}
+.client-tile--mark::before {
+  content: none;
+  display: none;
+}
+.client-tile--mark img {
+  width: auto;
+  height: 44px;
+  object-fit: contain;
 }
 
 .trust {
