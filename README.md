@@ -51,6 +51,7 @@ The contact form opens a **mailto** to `hi@ivanotechnologies.com` with Name / Em
 ## Brand locks
 
 - Wordmark only — no red “i” tile / logo mark
+- Favicon: IV1 Primary mark (navy `#141B26` + grey `#5C6673`), no orange
 - Palette: bg `#141B26`–`#1A2230` · footer `#0F141C` · accent `#E0442E` / `#E8553A` · body `#9AA3AE` · borders `#2A3342`
 - Type: Exo headings + Montserrat body (`next/font`)
 - No Kompleet teal · no cream chrome
