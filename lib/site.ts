@@ -3,6 +3,10 @@ export const CONTACT_EMAIL = "hi@ivanotechnologies.com";
 /** Kezie lock: never FCT or dashed forms (not "Abuja – FCT", not "Abuja-FCT"). */
 export const LOCATION = "Abuja Nigeria";
 
+/** Home hero tagline — sub line under the H1, not the H1 itself. */
+export const HERO_TAGLINE =
+  "Intelligent products and services for modern businesses";
+
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
