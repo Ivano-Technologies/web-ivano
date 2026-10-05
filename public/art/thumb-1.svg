@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121A26"/><stop offset="1" stop-color="#1E2C3C"/></linearGradient>
+<radialGradient id="gl" cx=".62" cy=".42" r=".55"><stop offset="0" stop-color="#E0442E" stop-opacity="0.35"/><stop offset="1" stop-color="#E0442E" stop-opacity="0"/></radialGradient>
+<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#0F141C" stop-opacity="0"/><stop offset="1" stop-color="#0F141C" stop-opacity=".8"/></linearGradient>
+<linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="#C8D4E0" stop-opacity="0"/><stop offset=".5" stop-color="#C8D4E0" stop-opacity=".7"/><stop offset="1" stop-color="#C8D4E0" stop-opacity="0"/></linearGradient>
+<filter id="g" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+  <feColorMatrix values="0 0 0 0 0.6  0 0 0 0 0.65  0 0 0 0 0.7  0 0 0 0.08 0"/>
+</filter>
+</defs>
+<rect width="800" height="600" fill="url(#b)"/>
+<rect width="800" height="600" fill="url(#gl)"/>
+<rect x="110" y="410" width="26" height="60" fill="#9AA3AE" fill-opacity="0.080" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="162" y="380" width="26" height="90" fill="#9AA3AE" fill-opacity="0.092" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="214" y="390" width="26" height="80" fill="#9AA3AE" fill-opacity="0.104" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="266" y="340" width="26" height="130" fill="#9AA3AE" fill-opacity="0.116" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="318" y="350" width="26" height="120" fill="#9AA3AE" fill-opacity="0.128" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="370" y="300" width="26" height="170" fill="#9AA3AE" fill-opacity="0.140" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="422" y="310" width="26" height="160" fill="#9AA3AE" fill-opacity="0.152" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="474" y="260" width="26" height="210" fill="#9AA3AE" fill-opacity="0.164" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="526" y="270" width="26" height="200" fill="#9AA3AE" fill-opacity="0.176" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="578" y="210" width="26" height="260" fill="#9AA3AE" fill-opacity="0.188" stroke="#9AA3AE" stroke-opacity=".25"/><rect x="630" y="220" width="26" height="250" fill="#9AA3AE" fill-opacity="0.200" stroke="#9AA3AE" stroke-opacity=".25"/><path d="M123,380 L175,350 L227,360 L279,310 L331,320 L383,270 L435,280 L487,230 L539,240 L591,180 L643,190" fill="none" stroke="#E8553A" stroke-width="3"/>
+<circle cx="643" cy="190" r="7" fill="#E8553A"/><circle cx="643" cy="190" r="22" fill="#E0442E" opacity=".25"/>
+<line x1="80" y1="470" x2="720" y2="470" stroke="url(#ln)"/>
+<rect width="800" height="600" fill="url(#fade)"/>
+<rect width="800" height="600" filter="url(#g)"/>
+</svg>

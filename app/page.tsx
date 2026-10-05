@@ -1,0 +1,191 @@
+import Link from "next/link";
+import { ProductCard } from "@/components/ProductCard";
+import { createMetadata } from "@/lib/metadata";
+import { HOME_CLIENT_CARDS, HOME_PRODUCT_THUMBS } from "@/lib/products";
+import { SITE } from "@/lib/site";
+
+export const metadata = createMetadata({
+  title: SITE.name,
+  description: SITE.description,
+  path: "/",
+});
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="hero">
+        <div className="wrap hero-grid">
+          <div>
+            <span className="eyebrow">Ivano Technologies Ltd · Abuja</span>
+            <h1>Technology for African businesses</h1>
+            <p className="lede">
+              We build software products and deliver technology services from
+              Abuja — finance tools, operations systems, and trusted client
+              work.
+            </p>
+            <div className="hero-actions">
+              <Link className="btn btn-primary" href="/contact">
+                Talk to us
+              </Link>
+              <Link className="btn btn-secondary" href="/products">
+                See products
+              </Link>
+            </div>
+            <div className="hero-dots" aria-hidden="true">
+              <span className="on" />
+              <span />
+              <span />
+            </div>
+          </div>
+          <div className="hero-art" aria-hidden="true">
+            <div className="label">Systems · Abuja</div>
+            <div className="chips">
+              <span className="chip">Kompleet</span>
+              <span className="chip">PMS · EAM</span>
+              <span className="chip">Client systems</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="wrap">
+          <div className="section-head row">
+            <div>
+              <h2>Products &amp; systems</h2>
+            </div>
+            <p>
+              Our product family and selected client platforms — each on its
+              own host.
+            </p>
+          </div>
+          <div className="thumb-grid">
+            {HOME_PRODUCT_THUMBS.map((product) => (
+              <article className="thumb-card" key={product.name}>
+                <div
+                  className={`thumb-media ${product.thumb ?? ""}`}
+                  aria-hidden="true"
+                />
+                <div className="cap">
+                  <h3>{product.name}</h3>
+                  <p>{product.homeDescription}</p>
+                  <div className="cta-row">
+                    <a
+                      href={product.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {product.cta} →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="card-grid cols-2" style={{ marginTop: "1.15rem" }}>
+            {HOME_CLIENT_CARDS.map((product) => (
+              <ProductCard key={product.name} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="explore">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Explore</h2>
+            <p>How we work — and what we deliver beyond the product family.</p>
+          </div>
+          <div className="explore-panels">
+            <div className="explore-panel warm">
+              <h3>How we work</h3>
+              <p>
+                Local markets first. Honest product. Loud brand here — quiet
+                credit on client deliverables.
+              </p>
+            </div>
+            <div className="explore-panel cool">
+              <h3>Services</h3>
+              <p>
+                Build, secure &amp; run, advise, grow, and supply — products
+                and services under one company.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="feature-band">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Principles</h2>
+            <p>Three commitments behind every product and engagement.</p>
+          </div>
+          <div className="principles">
+            <div className="principle">
+              <div className="ico" />
+              <h3>Built for local markets</h3>
+              <p>
+                Designed around how Nigerian and African businesses actually
+                operate.
+              </p>
+            </div>
+            <div className="principle">
+              <div className="ico" />
+              <h3>Ship honest product</h3>
+              <p>Clear tools, no theatre — real systems, not lifestyle stock.</p>
+            </div>
+            <div className="principle">
+              <div className="ico" />
+              <h3>Loud here, quiet elsewhere</h3>
+              <p>
+                Subtle credit on client deliverables; full brand on this site.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="clients">
+        <div className="wrap">
+          <div className="section-head" style={{ marginBottom: 0 }}>
+            <h2>Selected clients</h2>
+            <p className="muted">Organisations we’ve built for.</p>
+          </div>
+          <div className="clients-row">
+            <div
+              className="client-tile"
+              aria-label="JUO Campaign logo placeholder"
+            >
+              JUO
+              <small>Logo placeholder</small>
+            </div>
+            <div
+              className="client-tile"
+              aria-label="NMDPRA logo placeholder"
+            >
+              NMDPRA
+              <small>Logo placeholder</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="wrap">
+          <p className="trust">
+            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 Jan 2026 ·
+            Abuja – FCT
+          </p>
+          <div className="cta-band">
+            <h2>Ready to work with Ivano?</h2>
+            <p>Partnerships, product enquiries, and project briefs.</p>
+            <Link className="btn btn-primary" href="/contact">
+              Contact us
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
