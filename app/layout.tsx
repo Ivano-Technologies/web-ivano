@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Exo, Montserrat } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
 import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StickyContact } from "@/components/StickyContact";
+import { CANONICAL_ORIGIN, isPreviewDeployment } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -23,12 +25,16 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(CANONICAL_ORIGIN),
   title: {
     default: SITE.name,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
   applicationName: SITE.name,
+  robots: isPreviewDeployment()
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -69,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${exo.variable} ${montserrat.variable}`}>
       <body>
+        <JsonLd />
         <a className="skip-link" href="#main">
           Skip to content
         </a>
