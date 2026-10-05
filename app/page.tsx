@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { HeroChips } from "@/components/HeroChips";
+import { HeroGlobe } from "@/components/HeroGlobe";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductThumb } from "@/components/ProductThumb";
 import { createMetadata } from "@/lib/metadata";
 import { HOME_CLIENT_CARDS, HOME_PRODUCT_THUMBS } from "@/lib/products";
 import { SITE } from "@/lib/site";
@@ -15,13 +18,13 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="wrap hero-grid">
-          <div>
-            <span className="eyebrow">Ivano Technologies Ltd · Abuja</span>
-            <h1>Technology for African businesses</h1>
+          <div className="hero-copy" data-reveal>
+            <p className="brand-lockup">{SITE.name}</p>
+            <p className="brand-tagline">International IT solutions</p>
+            <h1>Global IT solutions for modern businesses</h1>
             <p className="lede">
-              We build software products and deliver technology services from
-              Abuja — finance tools, operations systems, and trusted client
-              work.
+              We build software products and deliver technology services —
+              finance tools, operations systems, and trusted client platforms.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href="/contact">
@@ -31,24 +34,15 @@ export default function HomePage() {
                 See products
               </Link>
             </div>
-            <div className="hero-dots" aria-hidden="true">
-              <span className="on" />
-              <span />
-              <span />
-            </div>
           </div>
-          <div className="hero-art" aria-hidden="true">
-            <div className="label">Systems · Abuja</div>
-            <div className="chips">
-              <span className="chip">Kompleet</span>
-              <span className="chip">PMS · EAM</span>
-              <span className="chip">Client systems</span>
-            </div>
+          <div className="hero-art">
+            <HeroGlobe />
+            <HeroChips />
           </div>
         </div>
       </section>
 
-      <section>
+      <section id="products">
         <div className="wrap">
           <div className="section-head row">
             <div>
@@ -61,11 +55,13 @@ export default function HomePage() {
           </div>
           <div className="thumb-grid">
             {HOME_PRODUCT_THUMBS.map((product) => (
-              <article className="thumb-card" key={product.name}>
-                <div
-                  className={`thumb-media ${product.thumb ?? ""}`}
-                  aria-hidden="true"
-                />
+              <article
+                className="thumb-card"
+                data-highlight={product.highlight}
+                data-reveal
+                key={product.name}
+              >
+                <ProductThumb variant={product.thumb} />
                 <div className="cap">
                   <h3>{product.name}</h3>
                   <p>{product.homeDescription}</p>
@@ -97,14 +93,14 @@ export default function HomePage() {
             <p>How we work — and what we deliver beyond the product family.</p>
           </div>
           <div className="explore-panels">
-            <div className="explore-panel warm">
+            <div className="explore-panel warm" data-reveal>
               <h3>How we work</h3>
               <p>
-                Local markets first. Honest product. Loud brand here — quiet
-                credit on client deliverables.
+                Honest product. Loud brand here — quiet credit on client
+                deliverables.
               </p>
             </div>
-            <div className="explore-panel cool">
+            <div className="explore-panel cool" data-reveal>
               <h3>Services</h3>
               <p>
                 Build, secure &amp; run, advise, grow, and supply — products
@@ -122,20 +118,20 @@ export default function HomePage() {
             <p>Three commitments behind every product and engagement.</p>
           </div>
           <div className="principles">
-            <div className="principle">
+            <div className="principle" data-reveal>
               <div className="ico" />
-              <h3>Built for local markets</h3>
+              <h3>Craft over theatre</h3>
               <p>
-                Designed around how Nigerian and African businesses actually
-                operate.
+                Designed around how businesses actually operate — clear
+                systems, real constraints.
               </p>
             </div>
-            <div className="principle">
+            <div className="principle" data-reveal>
               <div className="ico" />
               <h3>Ship honest product</h3>
               <p>Clear tools, no theatre — real systems, not lifestyle stock.</p>
             </div>
-            <div className="principle">
+            <div className="principle" data-reveal>
               <div className="ico" />
               <h3>Loud here, quiet elsewhere</h3>
               <p>

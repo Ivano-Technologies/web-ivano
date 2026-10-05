@@ -45,7 +45,7 @@ export default function ServicesPage() {
         <div className="wrap">
           <div className="card-grid cols-2">
             {CLUSTERS.map((cluster) => (
-              <article className="cluster" key={cluster.title}>
+              <article className="cluster" data-reveal key={cluster.title}>
                 <h3>{cluster.title}</h3>
                 <p>{cluster.copy}</p>
               </article>

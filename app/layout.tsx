@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Exo, Montserrat } from "next/font/google";
+import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { StickyContact } from "@/components/StickyContact";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -46,6 +48,8 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <StickyContact />
+        <MotionEffects />
       </body>
     </html>
   );

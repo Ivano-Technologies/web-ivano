@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link className="logo" href="/">
-              Ivano<span>Technologies</span>
+              {SITE.name}
             </Link>
             <p>{SITE.tagline}</p>
             <Link className="footer-cta-link" href="/contact">
