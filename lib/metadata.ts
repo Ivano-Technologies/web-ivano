@@ -1,15 +1,6 @@
 import type { Metadata } from "next";
+import { canonicalUrl, CANONICAL_ORIGIN } from "./seo";
 import { SITE } from "./site";
-
-function siteOrigin(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL;
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-  return "http://localhost:3000";
-}
 
 export function createMetadata({
   title,
@@ -20,12 +11,12 @@ export function createMetadata({
   description: string;
   path: string;
 }): Metadata {
-  const origin = siteOrigin();
-  const url = `${origin}${path}`;
+  const url = canonicalUrl(path);
   const isHome = title === SITE.name;
   const displayTitle = isHome ? SITE.name : `${title} · ${SITE.name}`;
 
   return {
+    metadataBase: new URL(CANONICAL_ORIGIN),
     title: isHome ? { absolute: SITE.name } : title,
     description,
     alternates: { canonical: url },

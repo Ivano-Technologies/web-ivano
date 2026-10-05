@@ -167,7 +167,7 @@ export default function HomePage() {
       <section>
         <div className="wrap">
           <p className="trust">
-            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 Jan 2026 ·
+            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 Jan 2026 ·{" "}
             {SITE.location}
           </p>
           <div className="cta-band">
