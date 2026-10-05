@@ -435,22 +435,44 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border-radius: 50%;
 }
-.globe-sphere svg {
+/* Polar spin is longitude on the canvas. Never rotateZ/rotateY the baked SVG disk. */
+.globe-svg-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.globe-svg-art svg {
   display: block;
   width: 100%;
   height: auto;
 }
 .globe-sphere #globe-spin {
-  transform-box: view-box;
-  transform-origin: 50% 50%;
-  animation: globe-rev var(--motion-globe) var(--ease-linear) infinite;
-  will-change: transform;
+  transform: none;
 }
-@keyframes globe-rev {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.globe-spin-canvas {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
-.hero-globe.is-paused #globe-spin { animation-play-state: paused; }
+.globe-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(154, 163, 174, 0.13), rgba(154, 163, 174, 0.03) 50%, transparent 72%),
+    radial-gradient(circle at 50% 50%, transparent 70%, rgba(10, 14, 20, 0.38) 90%, rgba(5, 7, 10, 0.75) 100%);
+}
+.hero-globe.is-static-art .globe-spin-canvas,
+.hero-globe.is-static-art .globe-shade {
+  display: none;
+}
+.hero-globe.is-static-art .globe-svg-art {
+  position: relative;
+}
 
 .hero-art-overlay {
   position: static;
@@ -1429,6 +1451,13 @@ section { padding: 2.5rem 0; position: relative; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .globe-spin-canvas,
+  .globe-shade {
+    display: none !important;
+  }
+  .globe-svg-art {
+    position: relative;
   }
   .globe-sphere #globe-spin {
     animation: none !important;
