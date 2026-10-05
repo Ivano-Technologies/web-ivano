@@ -28,7 +28,7 @@
   --motion-fast: 200ms;
   --motion-base: 280ms;
   --motion-enter: 520ms;
-  --motion-globe: 32s;
+  --motion-globe: 32s; /* one canvas longitude revolution */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.45, 0, 0.55, 1);
   --ease-linear: linear;
