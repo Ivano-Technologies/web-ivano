@@ -53,9 +53,6 @@ export function ContactForm() {
 
   return (
     <form className="form" onSubmit={handleSubmit} noValidate>
-      <p className="muted form-note">
-        Form destination: {CONTACT_EMAIL} (mailto fallback for Preview)
-      </p>
       <div className="hp" aria-hidden="true">
         <label>
           Company
@@ -108,14 +105,15 @@ export function ContactForm() {
       </button>
       {status === "sent" ? (
         <p className="form-status" role="status">
-          Preview uses a mailto fallback.{" "}
+          Thanks. If your email client did not open,{" "}
           {mailtoHref ? (
             <a id="contact-mailto" href={mailtoHref}>
-              Open email to {CONTACT_EMAIL}
+              send to {CONTACT_EMAIL}
             </a>
           ) : (
-            <>Write us at {CONTACT_EMAIL}.</>
+            <>write us at {CONTACT_EMAIL}</>
           )}
+          .
         </p>
       ) : null}
       {status === "error" ? (
