@@ -10,14 +10,26 @@ function readField(form: FormData, name: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function buildMailto(
+  name: string,
+  email: string,
+  subject: string,
+  message: string,
+): string {
+  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [mailtoHref, setMailtoHref] = useState<string | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const honeypot = readField(form, "company");
     if (honeypot.length > 0) {
+      setMailtoHref(null);
       setStatus("sent");
       return;
     }
@@ -28,19 +40,13 @@ export function ContactForm() {
     const message = readField(form, "message");
 
     if (!name || !email || !subject || !message) {
+      setMailtoHref(null);
       setStatus("error");
       return;
     }
 
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setMailtoHref(buildMailto(name, email, subject, message));
     setStatus("sent");
-    const link = document.createElement("a");
-    link.href = mailto;
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
   }
 
   return (
@@ -100,8 +106,14 @@ export function ContactForm() {
       </button>
       {status === "sent" ? (
         <p className="form-status" role="status">
-          Your email client should open a message to {CONTACT_EMAIL}. If it
-          does not, write us directly at that address.
+          Preview uses a mailto fallback.{" "}
+          {mailtoHref ? (
+            <a id="contact-mailto" href={mailtoHref}>
+              Open email to {CONTACT_EMAIL}
+            </a>
+          ) : (
+            <>Write us at {CONTACT_EMAIL}.</>
+          )}
         </p>
       ) : null}
       {status === "error" ? (
