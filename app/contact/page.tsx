@@ -34,13 +34,16 @@ export default function ContactPage() {
                 <div>
                   <dt>Phone</dt>
                   <dd>
-                    <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
+                    <a className="contact-plain" href={SITE.phoneHref}>
+                      {SITE.phoneDisplay}
+                    </a>
                   </dd>
                 </div>
                 <div>
                   <dt>Social</dt>
                   <dd>
                     <a
+                      className="contact-plain"
                       href={SITE.socialHref}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -58,7 +61,7 @@ export default function ContactPage() {
                   <dd>{SITE.addressFull.replace(", Nigeria", "")}</dd>
                 </div>
               </dl>
-              <p style={{ marginTop: "1.35rem" }}>
+              <p className="contact-pdf">
                 <a href={SITE.pdfHref} download>
                   Download company profile (PDF) →
                 </a>

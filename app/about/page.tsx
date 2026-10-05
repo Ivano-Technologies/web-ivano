@@ -20,13 +20,13 @@ export default function AboutPage() {
       <section>
         <div className="wrap about-narrow about-copy">
           <h2>What we build</h2>
-          <p>
+          <p className="about-build">
             SaaS products (Kompleet, PMS, NRCS EAM) and client platforms
             (campaigns, compliance dashboards), backed by consulting and
             managed services.
           </p>
           <h2>Where we are</h2>
-          <p>{SITE.addressFull}</p>
+          <p className="about-where">{SITE.addressFull}.</p>
           <div className="explore-panels">
             <div className="explore-panel warm">
               <h3>Abuja – FCT</h3>
@@ -50,6 +50,9 @@ export default function AboutPage() {
             <a className="btn btn-primary" href={SITE.pdfHref} download>
               Download company profile (PDF)
             </a>
+          </p>
+          <p className="muted about-pdf-note">
+            PDF includes full CAC certificate, services summary, and contact.
           </p>
         </div>
       </section>
