@@ -103,9 +103,9 @@ img { max-width: 100%; display: block; }
   object-fit: contain;
   /* Horizontal lock: Accepted in PR #16 / #21. Do not change. */
   object-position: 50% 50%;
-  /* Coco FAIL on PR #21: at 44px the ~21px glyph sat rows ~7–27 (~6px navy
-     above vs ~16–17px below) — center ~5px too high. 6px + 5px = 11px. */
-  transform: translateY(11px);
+  /* 6px: Coco ~6px air above / ~16–17px below (too high).
+     11px: ~17px above / ~6px below (too low). Midpoint 8.5px. */
+  transform: translateY(8.5px);
 }
 
 .comp-banner { display: none; }
