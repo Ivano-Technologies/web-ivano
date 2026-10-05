@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A1210"/><stop offset="0.45" stop-color="#3A1E12"/><stop offset="0.7" stop-color="#6B2E16"/><stop offset="1" stop-color="#120E0C"/></linearGradient>
+<radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E8893A" stop-opacity="0.75"/><stop offset=".4" stop-color="#E8893A" stop-opacity="0.30"/><stop offset="1" stop-color="#E8893A" stop-opacity="0"/></radialGradient>
+<filter id="g" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+  <feColorMatrix values="0 0 0 0 0.6  0 0 0 0 0.65  0 0 0 0 0.7  0 0 0 0.09 0"/>
+</filter>
+</defs>
+<rect width="1000" height="600" fill="url(#s)"/>
+<circle cx="640" cy="330" r="380" fill="url(#sun)"/>
+<circle cx="640" cy="330" r="46" fill="#FFD2A0" opacity=".75"/><rect x="0" y="329" width="1000" height="1.5" fill="#FFB070" opacity=".35"/>
+<path d="M0,600 L0,333 L56,380 L111,385 L167,357 L222,357 L278,389 L333,344 L389,356 L444,393 L500,365 L556,340 L611,381 L667,399 L722,353 L778,342 L833,381 L889,352 L944,341 L1000,372 L1000,600 Z" fill="#2A1610" fill-opacity="0.9"/><path d="M0,600 L0,410 L38,439 L77,431 L115,400 L154,419 L192,451 L231,434 L269,415 L308,434 L346,434 L385,401 L423,437 L462,462 L500,427 L538,413 L577,445 L615,451 L654,419 L692,433 L731,449 L769,412 L808,424 L846,440 L885,447 L923,408 L962,438 L1000,473 L1000,600 Z" fill="#1A0F0B" fill-opacity="1"/><path d="M0,600 L0,501 L29,506 L59,525 L88,494 L118,510 L147,533 L176,497 L206,502 L235,512 L265,519 L294,498 L324,503 L353,535 L382,499 L412,504 L441,519 L471,526 L500,502 L529,505 L559,523 L588,507 L618,504 L647,519 L676,508 L706,505 L735,501 L765,533 L794,501 L824,500 L853,512 L882,516 L912,495 L941,497 L971,530 L1000,510 L1000,600 Z" fill="#0E0A09" fill-opacity="1"/>
+<rect width="1000" height="600" filter="url(#g)"/>
+</svg>
