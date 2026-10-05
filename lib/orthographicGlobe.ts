@@ -6,12 +6,12 @@ export const GLOBE_CENTER_LON = 18;
 export const GLOBE_CENTER_LAT = 2;
 export const GLOBE_PERIOD_FALLBACK_MS = 32_000;
 
-const LAND_FILL = "#6B7585";
+const LAND_FILL = "#84909E";
 const LAND_DARK = "#5C6673";
-const LAND_LIGHT = "#8A93A0";
-const GRID_STROKE = "rgba(154, 163, 174, 0.30)";
+const LAND_LIGHT = "#9AA3AE";
+const GRID_STROKE = "rgba(154, 163, 174, 0.28)";
 const MARKER_FILL = "rgba(224, 68, 46, 0.92)";
-const MARKER_RING = "rgba(224, 68, 46, 0.30)";
+const MARKER_RING = "rgba(224, 68, 46, 0.45)";
 const RIM_STROKE = "rgba(154, 163, 174, 0.16)";
 
 const MARKERS: ReadonlyArray<readonly [number, number]> = [
@@ -358,9 +358,9 @@ function drawMarkers(
   cy: number,
   radius: number,
 ): void {
-  const core = Math.max(2.4, radius * 0.0108);
-  const ring = Math.max(5.4, radius * 0.0242);
-  ctx.lineWidth = Math.max(0.9, radius * 0.0031);
+  const core = Math.max(2.8, radius * (6 / 372));
+  const ring = Math.max(5.8, radius * (12.5 / 372));
+  ctx.lineWidth = Math.max(1, radius * (1.2 / 372));
 
   for (const [lon, lat] of MARKERS) {
     const pt = project(lon, lat, lambda0, phi0, cx, cy, radius);

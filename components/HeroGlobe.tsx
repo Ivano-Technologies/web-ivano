@@ -8,7 +8,11 @@ import {
   globePeriodMs,
 } from "@/lib/orthographicGlobe";
 
-export function HeroGlobe() {
+type HeroGlobeProps = {
+  markup: string;
+};
+
+export function HeroGlobe({ markup }: HeroGlobeProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pausedRef = useRef(true);
@@ -36,9 +40,12 @@ export function HeroGlobe() {
       const wasPaused = pausedRef.current;
       pausedRef.current = paused;
       node.classList.toggle("is-paused", paused);
+      node.classList.toggle("is-static-art", media.matches);
       if (paused) {
         stopLoop();
-        paint(currentLon());
+        if (!media.matches) {
+          paint(currentLon());
+        }
       } else if (wasPaused) {
         last = performance.now();
         startLoop();
@@ -120,15 +127,19 @@ export function HeroGlobe() {
     syncPause();
 
     const resize = new ResizeObserver(() => {
-      paint(currentLon());
+      if (!media.matches) {
+        paint(currentLon());
+      }
     });
     resize.observe(root);
 
     document.addEventListener("visibilitychange", syncPause);
     media.addEventListener("change", syncPause);
 
-    paint(currentLon());
-    startLoop();
+    if (!media.matches) {
+      paint(currentLon());
+      startLoop();
+    }
 
     return () => {
       stopLoop();
@@ -143,6 +154,10 @@ export function HeroGlobe() {
     <div ref={rootRef} className="hero-globe" aria-hidden="true">
       <div className="globe-atmosphere" />
       <div className="globe-sphere">
+        <div
+          className="globe-svg-art"
+          dangerouslySetInnerHTML={{ __html: markup }}
+        />
         <canvas ref={canvasRef} className="globe-spin-canvas" />
         <div className="globe-shade" />
       </div>
