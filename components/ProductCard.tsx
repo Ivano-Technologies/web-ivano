@@ -1,3 +1,4 @@
+import { ProductThumb } from "@/components/ProductThumb";
 import type { Product } from "@/lib/products";
 
 type ProductCardProps = {
@@ -13,16 +14,20 @@ export function ProductCard({
 }: ProductCardProps) {
   const badgeClass =
     product.badge === "client" ? "badge badge-client" : "badge badge-product";
+  const thumbVariant = showThumb
+    ? product.thumb
+    : product.badge === "client"
+      ? "client"
+      : undefined;
 
   return (
-    <article className={featured ? "card featured" : "card"}>
+    <article
+      className={featured ? "card featured" : "card"}
+      data-highlight={product.highlight}
+      data-reveal
+    >
       <span className={badgeClass}>{product.badgeLabel}</span>
-      {showThumb && product.thumb ? (
-        <div
-          className={`thumb-media ${product.thumb} card-thumb`}
-          aria-hidden="true"
-        />
-      ) : null}
+      {thumbVariant ? <ProductThumb variant={thumbVariant} /> : null}
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <div className="cta-row">

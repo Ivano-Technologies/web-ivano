@@ -4,9 +4,9 @@ export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
   rc: "RC 8736090",
-  tagline: "Technology products and services for African businesses. Based in Abuja.",
+  tagline: "Technology products and services, built to ship.",
   description:
-    "Ivano Technologies builds software products and delivers technology services from Abuja — finance tools, operations systems, and trusted client work.",
+    "Ivano Technologies builds software products and delivers technology services — finance tools, operations systems, and trusted client platforms.",
   email: CONTACT_EMAIL,
   phoneDisplay: "+234 806 784 4858",
   phoneHref: "tel:+2348067844858",
@@ -17,7 +17,7 @@ export const SITE = {
   addressShort: "Shop B18, Saham Plaza, Wuse 2, Abuja – FCT",
   addressFull:
     "Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, Abuja – FCT, Nigeria",
-  officeLine: "Office · Wuse 2",
+  officeLine: "Office · Wuse 2, Abuja",
   pdfHref: "/company-profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
@@ -25,10 +25,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/", label: "Home", hideSm: false },
-  { href: "/products", label: "Products", hideSm: true },
-  { href: "/services", label: "Services", hideSm: true },
-  { href: "/about", label: "About", hideSm: true },
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
 ] as const;
 
 export const FOOTER_EXPLORE = [
@@ -36,6 +36,24 @@ export const FOOTER_EXPLORE = [
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+export const SOCIAL_LINKS = [
+  {
+    name: "X",
+    label: "@techivano",
+    href: "https://x.com/techivano",
+  },
+  {
+    name: "Instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/techivano/",
+  },
+  {
+    name: "YouTube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@techivano",
+  },
 ] as const;
 
 export const LEGAL_LINKS = [

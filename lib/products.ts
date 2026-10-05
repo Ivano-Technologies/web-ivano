@@ -1,7 +1,10 @@
 export type ProductBadge = "product" | "client";
 
+export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
+
 export type Product = {
   name: string;
+  highlight: ProductHighlight;
   badge: ProductBadge;
   badgeLabel: string;
   description: string;
@@ -20,6 +23,7 @@ export type HomeProduct = Product & {
 export const PRODUCTS: Product[] = [
   {
     name: "Kompleet",
+    highlight: "kompleet",
     badge: "product",
     badgeLabel: "Product · Flagship",
     description:
@@ -33,6 +37,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     name: "Ivano PMS",
+    highlight: "pms",
     badge: "product",
     badgeLabel: "Product",
     description:
@@ -45,6 +50,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     name: "NRCS EAM",
+    highlight: "nrcs",
     badge: "product",
     badgeLabel: "Product",
     description:
@@ -57,6 +63,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     name: "JUO Campaign",
+    highlight: "client",
     badge: "client",
     badgeLabel: "Client work",
     description: "Campaign website for the John Upan Odey organisation.",
@@ -65,6 +72,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     name: "NMDPRA Dashboard",
+    highlight: "client",
     badge: "client",
     badgeLabel: "Client work",
     description:
