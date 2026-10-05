@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
@@ -75,8 +76,20 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap nav">
-        <Link className="logo" href="/" onClick={close}>
-          {SITE.name}
+        <Link
+          className="nav-brand"
+          href="/"
+          onClick={close}
+          aria-label={SITE.name}
+        >
+          <Image
+            src="/favicon.svg"
+            alt=""
+            width={32}
+            height={32}
+            unoptimized
+            priority
+          />
         </Link>
         <nav className="nav-links" aria-label="Primary">
           {NAV_LINKS.map((link) => (
