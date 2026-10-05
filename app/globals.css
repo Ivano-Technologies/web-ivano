@@ -1066,6 +1066,19 @@ section { padding: 2.5rem 0; position: relative; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+.client-tile--mark {
+  filter: none;
+  opacity: 1;
+}
+.client-tile--mark::before {
+  content: none;
+  display: none;
+}
+.client-tile--mark img {
+  width: auto;
+  height: 44px;
+  object-fit: contain;
+}
 
 .trust {
   text-align: center;
