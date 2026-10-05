@@ -435,22 +435,20 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border-radius: 50%;
 }
-.globe-sphere svg {
+.globe-spin-canvas {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-.globe-sphere #globe-spin {
-  transform-box: view-box;
-  transform-origin: 50% 50%;
-  animation: globe-rev var(--motion-globe) var(--ease-linear) infinite;
-  will-change: transform;
+.globe-shade {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(154, 163, 174, 0.13), rgba(154, 163, 174, 0.03) 50%, transparent 72%),
+    radial-gradient(circle at 50% 50%, transparent 70%, rgba(10, 14, 20, 0.38) 90%, rgba(5, 7, 10, 0.75) 100%);
 }
-@keyframes globe-rev {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.hero-globe.is-paused #globe-spin { animation-play-state: paused; }
 
 .hero-art-overlay {
   position: static;
@@ -1430,8 +1428,7 @@ section { padding: 2.5rem 0; position: relative; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .globe-sphere #globe-spin {
-    animation: none !important;
+  .globe-spin-canvas {
     transform: none;
   }
   [data-reveal] {
