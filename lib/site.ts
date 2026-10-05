@@ -14,10 +14,10 @@ export const SITE = {
   socialHref: "https://x.com/techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
-  addressShort: "Shop B18, Saham Plaza, Wuse 2, Abuja – FCT",
+  addressShort: "Shop B18, Saham Plaza, Wuse 2, Abuja Nigeria",
   addressFull:
-    "Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, Abuja – FCT, Nigeria",
-  officeLine: "Office · Wuse 2, Abuja",
+    "Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, Abuja Nigeria",
+  officeLine: "Office · Wuse 2, Abuja Nigeria",
   pdfHref: "/company-profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",

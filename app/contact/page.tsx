@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <dt>Office</dt>
-                  <dd>{SITE.addressFull.replace(", Nigeria", "")}</dd>
+                  <dd>{SITE.addressFull}</dd>
                 </div>
               </dl>
               <p className="contact-pdf">

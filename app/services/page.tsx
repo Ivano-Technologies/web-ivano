@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Services",
   description:
-    "Beyond products, Ivano delivers end-to-end technology services under our CAC objects of business.",
+    "Beyond products, Ivano delivers end to end technology services under our CAC objects of business.",
   path: "/services",
 });
 
@@ -21,7 +21,7 @@ const CLUSTERS = [
   },
   {
     title: "Advise",
-    copy: "Technology consulting, general consultancy & BPO, training and capacity-building.",
+    copy: "Technology consulting, general consultancy & BPO, training and capacity building.",
   },
   {
     title: "Grow",
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Products and services"
-        lede="Beyond our SaaS family, Ivano delivers end-to-end technology services under our CAC objects of business."
+        lede="Beyond our SaaS family, Ivano delivers end to end technology services under our CAC objects of business."
       />
       <section>
         <div className="wrap">

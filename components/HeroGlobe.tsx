@@ -5,6 +5,7 @@ import {
   drawOrthographicGlobe,
   GLOBE_CENTER_LAT,
   GLOBE_CENTER_LON,
+  GLOBE_TURN_DEG,
   globePeriodMs,
 } from "@/lib/orthographicGlobe";
 
@@ -56,7 +57,10 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
       if (media.matches) {
         return GLOBE_CENTER_LON;
       }
-      return GLOBE_CENTER_LON + (360 * (elapsed % periodMs)) / periodMs;
+      return (
+        GLOBE_CENTER_LON +
+        (GLOBE_TURN_DEG * (elapsed % periodMs)) / periodMs
+      );
     }
 
     function paint(centerLon: number): void {

@@ -4,7 +4,9 @@ const DEG = Math.PI / 180;
 
 export const GLOBE_CENTER_LON = 18;
 export const GLOBE_CENTER_LAT = 2;
+/** Wall-clock milliseconds for one 360° longitude revolution. */
 export const GLOBE_PERIOD_FALLBACK_MS = 32_000;
+export const GLOBE_TURN_DEG = 360;
 
 const LAND_FILL = "#84909E";
 const LAND_DARK = "#5C6673";
@@ -29,6 +31,25 @@ type LandFile = {
 
 const land = worldLand as LandFile;
 
+/** Parse a CSS duration token (`32s`, `32000ms`, or unitless seconds). */
+export function parseCssDurationMs(raw: string, fallbackMs: number): number {
+  const value = raw.trim().toLowerCase();
+  if (!value) {
+    return fallbackMs;
+  }
+  const n = Number.parseFloat(value);
+  if (!Number.isFinite(n) || n <= 0) {
+    return fallbackMs;
+  }
+  if (value.endsWith("ms")) {
+    return n;
+  }
+  if (value.endsWith("s")) {
+    return n * 1000;
+  }
+  return n <= 180 ? n * 1000 : n;
+}
+
 export function globePeriodMs(): number {
   if (typeof window === "undefined") {
     return GLOBE_PERIOD_FALLBACK_MS;
@@ -36,11 +57,11 @@ export function globePeriodMs(): number {
   const raw = getComputedStyle(document.documentElement)
     .getPropertyValue("--motion-globe")
     .trim();
-  const seconds = Number.parseFloat(raw);
-  if (!Number.isFinite(seconds) || seconds <= 0) {
+  const parsed = parseCssDurationMs(raw, GLOBE_PERIOD_FALLBACK_MS);
+  if (parsed < 8_000 || parsed > 120_000) {
     return GLOBE_PERIOD_FALLBACK_MS;
   }
-  return seconds * 1000;
+  return parsed;
 }
 
 function cosineToCenter(
@@ -128,6 +149,37 @@ function horizonPoint(
   return project(loLon, loLat, lambda0, phi0, cx, cy, radius);
 }
 
+function nearLimb(
+  pt: { x: number; y: number },
+  cx: number,
+  cy: number,
+  radius: number,
+): boolean {
+  return Math.abs(Math.hypot(pt.x - cx, pt.y - cy) - radius) < radius * 0.05;
+}
+
+function arcAlongLimb(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  radius: number,
+  from: { x: number; y: number },
+  to: { x: number; y: number },
+): void {
+  const a0 = Math.atan2(from.y - cy, from.x - cx);
+  const a1 = Math.atan2(to.y - cy, to.x - cx);
+  let delta = a1 - a0;
+  if (delta > Math.PI) {
+    delta -= 2 * Math.PI;
+  } else if (delta < -Math.PI) {
+    delta += 2 * Math.PI;
+  }
+  if (Math.abs(delta) < 0.02 || Math.abs(delta) > Math.PI * 0.75) {
+    return;
+  }
+  ctx.arc(cx, cy, radius, a0, a0 + delta, delta < 0);
+}
+
 function traceRing(
   ctx: CanvasRenderingContext2D,
   ring: number[],
@@ -142,6 +194,9 @@ function traceRing(
   }
 
   let started = false;
+  let drew = false;
+  let entryPt: { x: number; y: number } | null = null;
+  let lastPt: { x: number; y: number } | null = null;
   let prevLon = ring[0];
   let prevLat = ring[1];
   if (prevLon === undefined || prevLat === undefined) {
@@ -156,10 +211,33 @@ function traceRing(
   const move = (x: number, y: number): void => {
     if (started) {
       ctx.lineTo(x, y);
+    } else {
+      ctx.moveTo(x, y);
+      started = true;
+      entryPt = { x, y };
+    }
+    lastPt = { x, y };
+    drew = true;
+  };
+
+  const endSubpath = (): void => {
+    if (!started) {
+      entryPt = null;
+      lastPt = null;
       return;
     }
-    ctx.moveTo(x, y);
-    started = true;
+    if (
+      entryPt &&
+      lastPt &&
+      nearLimb(entryPt, cx, cy, radius) &&
+      nearLimb(lastPt, cx, cy, radius)
+    ) {
+      arcAlongLimb(ctx, cx, cy, radius, lastPt, entryPt);
+    }
+    ctx.closePath();
+    started = false;
+    entryPt = null;
+    lastPt = null;
   };
 
   for (let i = 2; i <= ring.length; i += 2) {
@@ -177,6 +255,7 @@ function traceRing(
       dLon += 360;
     }
     if (Math.abs(dLon) > 90) {
+      endSubpath();
       prevLon = lon;
       prevLat = lat;
       prevPt = wrap
@@ -194,6 +273,7 @@ function traceRing(
         Math.hypot(pt.x - prevPt.x, pt.y - prevPt.y) >
         radius * 1.15
       ) {
+        endSubpath();
         prevLon = lon;
         prevLat = lat;
         prevPt = pt;
@@ -231,6 +311,7 @@ function traceRing(
       if (edge) {
         move(edge.x, edge.y);
       }
+      endSubpath();
     }
 
     prevLon = lon;
@@ -238,10 +319,8 @@ function traceRing(
     prevPt = pt;
   }
 
-  if (started) {
-    ctx.closePath();
-  }
-  return started;
+  endSubpath();
+  return drew;
 }
 
 function drawLand(
