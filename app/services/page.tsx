@@ -51,7 +51,7 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
-          <div className="cta-band" style={{ marginTop: "2.75rem" }}>
+          <div className="cta-band cta-follow">
             <h2>Discuss a project</h2>
             <p>
               Tell us what you need — we’ll respond from {SITE.email}.

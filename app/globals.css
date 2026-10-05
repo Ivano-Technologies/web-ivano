@@ -526,7 +526,7 @@ section { padding: 3.75rem 0; position: relative; }
 .contact-aside h3 { font-size: 0.95rem; margin-bottom: 1rem; color: var(--white); font-weight: 600; }
 .contact-aside dl { display: grid; gap: 0.85rem; }
 .contact-aside dt { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.contact-aside dd { font-size: 0.92rem; color: var(--body); margin: 0.12rem 0 0; }
+.contact-aside dd { font-size: 0.92rem; color: var(--body); margin: 0.12rem 0 0; overflow-wrap: anywhere; }
 .contact-aside a { color: var(--accent-hot); }
 
 /* Footer — multi-column dark */
@@ -547,9 +547,11 @@ section { padding: 3.75rem 0; position: relative; }
 .footer-brand .logo { color: var(--white); }
 .footer-brand .logo span { color: var(--muted); }
 .footer-brand p { margin-top: 0.75rem; font-size: 0.86rem; max-width: 22rem; color: var(--muted); }
-.footer-cta-mini, .footer-cta-link {
+.footer-cta-mini, .footer-cta-link,
+.site-footer a.footer-cta-mini,
+.site-footer a.footer-cta-link {
   display: inline-flex; align-items: center; gap: 0.35rem;
-  margin-top: 0.85rem;
+  margin-top: 0.85rem; margin-bottom: 0; width: fit-content;
   background: transparent !important; color: var(--white) !important;
   padding: 0 !important; border: 0;
   font-size: 0.86rem !important; font-weight: 600; text-decoration: none !important;
@@ -686,8 +688,15 @@ section { padding: 3.75rem 0; position: relative; }
   outline-offset: 3px;
 }
 
+.cluster {
+  height: 100%;
+}
 .cluster h3 {
   font-family: var(--font-display);
+}
+
+.card-grid, .contact-grid, .explore-panels, .cluster, .form, .contact-aside, .cta-band, .legal-box {
+  min-width: 0;
 }
 
 .about-narrow { max-width: 720px; margin-inline: auto; }
@@ -699,10 +708,45 @@ section { padding: 3.75rem 0; position: relative; }
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
 }
-.about-copy p { color: var(--body); margin-bottom: 1.5rem; }
+.about-copy .about-build {
+  color: var(--body);
+  margin-bottom: 1.5rem;
+}
+.about-copy .about-where {
+  color: var(--body);
+  margin-bottom: 0;
+}
 .about-copy .explore-panels { margin: 1.75rem 0 0.5rem; }
 .about-copy .explore-panel { min-height: 180px; }
-.about-download { margin-top: 1.85rem; }
+.about-copy .explore-panel p { margin-bottom: 0; max-width: 28ch; }
+.about-download { margin-top: 1.85rem; margin-bottom: 0; }
+.about-pdf-note {
+  margin-top: 0.65rem;
+  font-size: 0.82rem;
+}
+
+.page-hero .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.form > .btn { width: 100%; }
+.contact-pdf { margin-top: 1.35rem; }
+.contact-aside h3 {
+  font-family: var(--font-display);
+}
+.contact-aside a.contact-plain {
+  color: var(--body);
+  text-decoration: none;
+}
+.contact-aside a.contact-plain:hover {
+  color: var(--white);
+}
+
+@media (max-width: 720px) {
+  .about-download .btn { width: 100%; }
+  .about-copy .explore-panel { min-height: 180px; }
+}
 
 .form-note { margin-bottom: 0.15rem; }
 .hp {

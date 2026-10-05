@@ -45,8 +45,10 @@ export function ContactForm() {
       return;
     }
 
-    setMailtoHref(buildMailto(name, email, subject, message));
+    const href = buildMailto(name, email, subject, message);
+    setMailtoHref(href);
     setStatus("sent");
+    window.location.assign(href);
   }
 
   return (
