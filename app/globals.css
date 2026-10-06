@@ -734,9 +734,14 @@ section { padding: 2.5rem 0; position: relative; }
   object-fit: cover;
   object-position: 0% 0%;
 }
+.thumb-card[data-highlight="kompleet"] .thumb-media {
+  /* Round 2: full 1280x800 shot, no side crop (matches PMS/NRCS full-frame look) */
+  aspect-ratio: 16 / 10;
+  background: #0F1520;
+}
 .thumb-card[data-highlight="kompleet"] .thumb-shot {
-  /* Kompleet: keep wordmark and headline, bring the invoice check into frame */
-  object-position: 12% 50%;
+  object-fit: cover;
+  object-position: 0% 0%;
 }
 .thumb-media.t1 { background: linear-gradient(160deg, #1A2838, #0E1520 70%); }
 .thumb-media.t2 { background: linear-gradient(145deg, #152030, #1E3548 50%, #0F1824); }
@@ -822,25 +827,26 @@ section { padding: 2.5rem 0; position: relative; }
 
 .bento { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
 @media (min-width: 1024px) {
+  /* Equal-height 3-up: no featured 2-row span, no flex-grow thumb zoom */
   .bento {
-    grid-template-columns: 1.2fr 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: repeat(3, 1fr);
   }
-  .bento .card.featured { grid-row: 1 / 3; }
   .bento .card.featured {
     background:
       radial-gradient(ellipse at 80% 0%, rgba(224, 68, 46, 0.12), transparent 50%),
       var(--bg-card);
   }
-  .bento .card.featured p { flex: 0 0 auto; }
   .bento .card.featured .thumb-media {
-    flex: 1 1 0;
-    aspect-ratio: auto;
-    min-height: 240px;
-    margin-bottom: 0.35rem !important;
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    flex: 0 0 auto;
+    min-height: 0;
   }
-  .bento .card.featured .thumb-shot { object-position: 0% 50%; }
-  .bento .card.featured .cta-row { margin-top: auto; padding-top: 0.15rem; }
+  .bento .card.featured .thumb-shot {
+    object-fit: cover;
+    object-position: 0% 0%;
+  }
+  .bento .card .cta-row { margin-top: auto; }
 }
 
 /* Mini-UI thumbs */
