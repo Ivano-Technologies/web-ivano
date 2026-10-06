@@ -165,7 +165,7 @@ export default function HomePage() {
           </p>
           <div className="cta-band">
             <h2>Ready to work with Ivano?</h2>
-            <p>Partnerships, product enquiries, and project briefs.</p>
+            <p>Partnerships, product enquiries and project briefs. We read every message.</p>
             <Link className="btn btn-primary" href="/contact">
               Contact us
             </Link>

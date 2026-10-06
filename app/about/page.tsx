@@ -33,7 +33,7 @@ export default function AboutPage() {
               <p>Wuse 2 office · registered Nigerian company.</p>
             </div>
             <div className="explore-panel cool" data-reveal>
-              <h3>Products + services</h3>
+              <h3>Products and services</h3>
               <p>
                 SaaS family, client platforms, consulting and managed
                 services.
