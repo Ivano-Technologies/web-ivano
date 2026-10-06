@@ -57,7 +57,7 @@ export default function HomePage() {
                 data-reveal
                 key={product.name}
               >
-                <ProductThumb variant={product.thumb} />
+                <ProductThumb src={product.image} />
                 <div className="cap">
                   <h3>{product.name}</h3>
                   <p>{product.homeDescription}</p>
