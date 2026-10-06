@@ -27,7 +27,7 @@ export default function ProductsPage() {
                 key={product.name}
                 product={product}
                 featured={product.featured === true}
-                showThumb={product.thumb !== undefined}
+                showThumb
               />
             ))}
           </div>

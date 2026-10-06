@@ -730,6 +730,10 @@ section { padding: 2.5rem 0; position: relative; }
   border-bottom: 1px solid var(--border);
   background: linear-gradient(160deg, #1A2838, #0E1520 70%);
 }
+.thumb-shot {
+  object-fit: cover;
+  object-position: top center;
+}
 .thumb-media.t1 { background: linear-gradient(160deg, #1A2838, #0E1520 70%); }
 .thumb-media.t2 { background: linear-gradient(145deg, #152030, #1E3548 50%, #0F1824); }
 .thumb-media.t3 { background: linear-gradient(180deg, #182030, #121820); }

@@ -14,11 +14,6 @@ export function ProductCard({
 }: ProductCardProps) {
   const badgeClass =
     product.badge === "client" ? "badge badge-client" : "badge badge-product";
-  const thumbVariant = showThumb
-    ? product.thumb
-    : product.badge === "client"
-      ? "client"
-      : undefined;
 
   return (
     <article
@@ -27,7 +22,9 @@ export function ProductCard({
       data-reveal
     >
       <span className={badgeClass}>{product.badgeLabel}</span>
-      {thumbVariant ? <ProductThumb variant={thumbVariant} /> : null}
+      {showThumb || product.badge === "client" ? (
+        <ProductThumb src={product.image} alt="" />
+      ) : null}
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <div className="cta-row">
