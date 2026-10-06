@@ -734,14 +734,16 @@ section { padding: 2.5rem 0; position: relative; }
   object-fit: cover;
   object-position: 0% 0%;
 }
-.thumb-card[data-highlight="kompleet"] .thumb-media {
-  /* Round 2: full 1280x800 shot, no side crop (matches PMS/NRCS full-frame look) */
+/* Home product thumbs: all three share the full 1280x800 frame so titles/CTAs line up */
+.thumb-card .thumb-media {
   aspect-ratio: 16 / 10;
-  background: #0F1520;
 }
-.thumb-card[data-highlight="kompleet"] .thumb-shot {
+.thumb-card .thumb-shot {
   object-fit: cover;
   object-position: 0% 0%;
+}
+.thumb-card[data-highlight="kompleet"] .thumb-media {
+  background: #0F1520;
 }
 .thumb-media.t1 { background: linear-gradient(160deg, #1A2838, #0E1520 70%); }
 .thumb-media.t2 { background: linear-gradient(145deg, #152030, #1E3548 50%, #0F1824); }
