@@ -13,7 +13,7 @@ export const SITE = {
   rc: "RC 8736090",
   tagline: "Technology products and services, built to ship.",
   description:
-    "Ivano Technologies builds software products and delivers technology services — finance tools, operations systems, and trusted client platforms.",
+    "Ivano Technologies builds software products and delivers technology services: finance tools, operations systems and trusted client platforms.",
   email: CONTACT_EMAIL,
   phoneDisplay: "+234 806 784 4858",
   phoneHref: "tel:+2348067844858",
