@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Ivano Technologies Ltd builds software products and delivers technology services — from SME finance to enterprise operations.",
+    "Ivano Technologies Ltd builds software products and delivers technology services, from SME finance to enterprise operations.",
   path: "/about",
 });
 
@@ -15,7 +15,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Who we are"
-        lede="Ivano Technologies Ltd builds software products and delivers technology services — from SME finance to enterprise operations and regulated sector systems."
+        lede="Ivano Technologies Ltd builds software products and delivers technology services, from SME finance to enterprise operations and regulated sector systems."
       />
       <section>
         <div className="wrap about-narrow about-copy">
@@ -33,7 +33,7 @@ export default function AboutPage() {
               <p>Wuse 2 office · registered Nigerian company.</p>
             </div>
             <div className="explore-panel cool" data-reveal>
-              <h3>Products + services</h3>
+              <h3>Products and services</h3>
               <p>
                 SaaS family, client platforms, consulting and managed
                 services.

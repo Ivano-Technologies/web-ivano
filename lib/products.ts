@@ -27,9 +27,9 @@ export const PRODUCTS: Product[] = [
     badge: "product",
     badgeLabel: "Product · Flagship",
     description:
-      "Tax and finance software for Nigerian SMEs — bank imports, Tax Act 2025 compliance, and NRS electronic invoicing.",
+      "Tax and finance software for Nigerian SMEs: bank imports, Tax Act 2025 compliance and NRS electronic invoicing.",
     homeDescription:
-      "Tax and finance software for Nigerian SMEs — bank imports, Tax Act 2025, NRS electronic invoicing.",
+      "Tax and finance software for Nigerian SMEs: bank imports, Tax Act 2025 compliance and NRS electronic invoicing.",
     href: "https://kompleet.techivano.com",
     cta: "Open Kompleet",
     thumb: "t1",
@@ -41,9 +41,9 @@ export const PRODUCTS: Product[] = [
     badge: "product",
     badgeLabel: "Product",
     description:
-      "Hospitality property management — bookings, guests, units, and channel messages.",
+      "Hospitality property management: bookings, guests, units and channel messages.",
     homeDescription:
-      "Hospitality property management — bookings, guests, units, and channel messages.",
+      "Hospitality property management: bookings, guests, units and channel messages.",
     href: "https://pms.techivano.com",
     cta: "Open PMS",
     thumb: "t2",
@@ -54,9 +54,9 @@ export const PRODUCTS: Product[] = [
     badge: "product",
     badgeLabel: "Product",
     description:
-      "Enterprise asset management — work orders, PM, inventory, compliance.",
+      "Enterprise asset management: assets, work orders, PM, inventory and compliance.",
     homeDescription:
-      "Enterprise asset management — assets, work orders, PM, inventory, compliance.",
+      "Enterprise asset management: assets, work orders, PM, inventory and compliance.",
     href: "https://nrcseam.techivano.com",
     cta: "Open NRCS EAM",
     thumb: "t3",

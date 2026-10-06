@@ -7,7 +7,7 @@ import { PRODUCTS } from "@/lib/products";
 export const metadata = createMetadata({
   title: "Products",
   description:
-    "Our product family and selected client systems — each hosted on its own domain.",
+    "Our product family and selected client systems, each hosted on its own domain.",
   path: "/products",
 });
 
@@ -17,7 +17,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="Product family"
-        lede="Software we build and run — plus selected client systems. Outbound links go to each product host."
+        lede="Software we build and run, plus selected client systems. Each product opens on its own site."
       />
       <section>
         <div className="wrap">
