@@ -6,22 +6,22 @@ import { SITE } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Services",
   description:
-    "Beyond products, Ivano delivers end to end technology services under our CAC objects of business.",
+    "Beyond products, Ivano delivers end to end technology services within our registered scope of business.",
   path: "/services",
 });
 
 const CLUSTERS = [
   {
     title: "Build",
-    copy: "Custom software, cloud platforms, AI & analytics, digital transformation, and R&D pilots.",
+    copy: "Custom software, cloud platforms, AI and analytics, digital transformation, and R&D pilots.",
   },
   {
-    title: "Secure & run",
-    copy: "Cybersecurity, managed IT & helpdesk, hardware and networking procurement & install.",
+    title: "Secure and run",
+    copy: "Cybersecurity, managed IT and helpdesk, hardware and networking procurement and install.",
   },
   {
     title: "Advise",
-    copy: "Technology consulting, general consultancy & BPO, training and capacity building.",
+    copy: "Technology consulting, general consultancy and BPO, training and capacity building.",
   },
   {
     title: "Grow",
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Products and services"
-        lede="Beyond our SaaS family, Ivano delivers end to end technology services under our CAC objects of business."
+        lede="Beyond our SaaS family, Ivano delivers end to end technology services within our registered scope of business."
       />
       <section>
         <div className="wrap">
@@ -54,7 +54,7 @@ export default function ServicesPage() {
           <div className="cta-band cta-follow">
             <h2>Discuss a project</h2>
             <p>
-              Tell us what you need — we’ll respond from {SITE.email}.
+              Tell us what you need. We’ll reply from {SITE.email}.
             </p>
             <Link className="btn btn-primary" href="/contact">
               Contact us
