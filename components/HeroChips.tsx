@@ -2,7 +2,7 @@
 
 const CHIPS = [
   { id: "kompleet", label: "Kompleet", targets: ["kompleet"] },
-  { id: "ops", label: "PMS · EAM", targets: ["pms", "nrcs"] },
+  { id: "ops", label: "PMS · NRCS EAM", targets: ["pms", "nrcs"] },
   { id: "client", label: "Client systems", targets: ["client"] },
 ] as const;
 

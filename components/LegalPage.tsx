@@ -23,7 +23,7 @@ export function LegalPage({ title, children }: Omit<LegalPageProps, "path">) {
       <PageHero
         eyebrow="Legal"
         title={title}
-        lede={`Light v1 stub — ownership of ${SITE.name} legal copy is still TBD.`}
+        lede={`Light v1 stub. Ownership of ${SITE.name} legal copy is still TBD.`}
       />
       <section>
         <div className="wrap legal-prose">{children}</div>

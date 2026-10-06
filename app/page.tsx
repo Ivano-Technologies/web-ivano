@@ -42,10 +42,10 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head row">
             <div>
-              <h2>Products &amp; systems</h2>
+              <h2>Products and systems</h2>
             </div>
             <p>
-              Our product family and selected client platforms — each on its
+              Our product family and selected client platforms, each on its
               own host.
             </p>
           </div>
@@ -86,21 +86,18 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <h2>Explore</h2>
-            <p>How we work — and what we deliver beyond the product family.</p>
+            <p>How we work, and what we deliver beyond the product family.</p>
           </div>
           <div className="explore-panels">
             <div className="explore-panel warm" data-reveal>
               <h3>How we work</h3>
-              <p>
-                Honest product. Loud brand here — quiet credit on client
-                deliverables.
-              </p>
+              <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
             </div>
             <div className="explore-panel cool" data-reveal>
               <h3>Services</h3>
               <p>
-                Build, secure &amp; run, advise, grow, and supply — products
-                and services under one company.
+                Build, secure and run, advise, grow and supply. Products and
+                services under one company.
               </p>
             </div>
           </div>
@@ -118,20 +115,20 @@ export default function HomePage() {
               <div className="ico" />
               <h3>Craft over theatre</h3>
               <p>
-                Designed around how businesses actually operate — clear
+                Designed around how businesses actually operate: clear
                 systems, real constraints.
               </p>
             </div>
             <div className="principle" data-reveal>
               <div className="ico" />
               <h3>Ship honest product</h3>
-              <p>Clear tools, no theatre — real systems, not lifestyle stock.</p>
+              <p>Clear tools and real systems, built for daily use.</p>
             </div>
             <div className="principle" data-reveal>
               <div className="ico" />
-              <h3>Loud here, quiet elsewhere</h3>
+              <h3>Your brand comes first</h3>
               <p>
-                Subtle credit on client deliverables; full brand on this site.
+                Work we deliver carries only a small Ivano credit.
               </p>
             </div>
           </div>
@@ -153,12 +150,8 @@ export default function HomePage() {
                 height={44}
               />
             </div>
-            <div
-              className="client-tile"
-              aria-label="NMDPRA logo placeholder"
-            >
+            <div className="client-tile">
               NMDPRA
-              <small>Logo placeholder</small>
             </div>
           </div>
         </div>
@@ -167,12 +160,12 @@ export default function HomePage() {
       <section>
         <div className="wrap">
           <p className="trust">
-            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 Jan 2026 ·{" "}
+            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 January 2026 ·{" "}
             {SITE.location}
           </p>
           <div className="cta-band">
             <h2>Ready to work with Ivano?</h2>
-            <p>Partnerships, product enquiries, and project briefs.</p>
+            <p>Partnerships, product enquiries and project briefs. We read every message.</p>
             <Link className="btn btn-primary" href="/contact">
               Contact us
             </Link>

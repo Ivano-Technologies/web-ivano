@@ -6,7 +6,7 @@ import { SITE, SOCIAL_LINKS } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Contact",
   description:
-    "Partnerships, product enquiries, and project briefs — we read every message.",
+    "Partnerships, product enquiries and project briefs. We read every message.",
   path: "/contact",
 });
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to Ivano"
-        lede="Partnerships, product enquiries, and project briefs — we read every message."
+        lede="Partnerships, product enquiries and project briefs. We read every message."
       />
       <section>
         <div className="wrap">
