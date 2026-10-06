@@ -732,7 +732,7 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .thumb-shot {
   object-fit: cover;
-  object-position: top center;
+  object-position: 0% 0%;
 }
 .thumb-media.t1 { background: linear-gradient(160deg, #1A2838, #0E1520 70%); }
 .thumb-media.t2 { background: linear-gradient(145deg, #152030, #1E3548 50%, #0F1824); }
@@ -771,7 +771,7 @@ section { padding: 2.5rem 0; position: relative; }
   align-items: center;
   min-height: 44px;
 }
-.card .cta-row { margin-top: 0.25rem; }
+.card .cta-row { margin-top: auto; }
 .principle .ico {
   width: 28px;
   height: 3px;
@@ -827,6 +827,12 @@ section { padding: 2.5rem 0; position: relative; }
     background:
       radial-gradient(ellipse at 80% 0%, rgba(224, 68, 46, 0.12), transparent 50%),
       var(--bg-card);
+  }
+  .bento .card.featured p { flex: 0 1 auto; }
+  .bento .card.featured .thumb-media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 160px;
   }
 }
 
