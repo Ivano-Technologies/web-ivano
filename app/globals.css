@@ -730,6 +730,21 @@ section { padding: 2.5rem 0; position: relative; }
   border-bottom: 1px solid var(--border);
   background: linear-gradient(160deg, #1A2838, #0E1520 70%);
 }
+.thumb-shot {
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+/* Home product thumbs: all three share the full 1280x800 frame so titles/CTAs line up */
+.thumb-card .thumb-media {
+  aspect-ratio: 16 / 10;
+}
+.thumb-card .thumb-shot {
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+.thumb-card[data-highlight="kompleet"] .thumb-media {
+  background: #0F1520;
+}
 .thumb-media.t1 { background: linear-gradient(160deg, #1A2838, #0E1520 70%); }
 .thumb-media.t2 { background: linear-gradient(145deg, #152030, #1E3548 50%, #0F1824); }
 .thumb-media.t3 { background: linear-gradient(180deg, #182030, #121820); }
@@ -767,7 +782,7 @@ section { padding: 2.5rem 0; position: relative; }
   align-items: center;
   min-height: 44px;
 }
-.card .cta-row { margin-top: 0.25rem; }
+.card .cta-row { margin-top: auto; }
 .principle .ico {
   width: 28px;
   height: 3px;
@@ -814,16 +829,26 @@ section { padding: 2.5rem 0; position: relative; }
 
 .bento { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
 @media (min-width: 1024px) {
+  /* Equal-height 3-up: no featured 2-row span, no flex-grow thumb zoom */
   .bento {
-    grid-template-columns: 1.2fr 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: repeat(3, 1fr);
   }
-  .bento .card.featured { grid-row: 1 / 3; }
   .bento .card.featured {
     background:
       radial-gradient(ellipse at 80% 0%, rgba(224, 68, 46, 0.12), transparent 50%),
       var(--bg-card);
   }
+  .bento .card.featured .thumb-media {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    flex: 0 0 auto;
+    min-height: 0;
+  }
+  .bento .card.featured .thumb-shot {
+    object-fit: cover;
+    object-position: 0% 0%;
+  }
+  .bento .card .cta-row { margin-top: auto; }
 }
 
 /* Mini-UI thumbs */
