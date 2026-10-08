@@ -10,13 +10,38 @@ export const GLOBE_TURN_DEG = 360;
 /** Cap rAF gaps so scroll/tab stalls cannot burst the spin. */
 export const GLOBE_MAX_FRAME_MS = 48;
 
-const LAND_FILL = "#84909E";
-const LAND_DARK = "#5C6673";
-const LAND_LIGHT = "#9AA3AE";
-const GRID_STROKE = "rgba(154, 163, 174, 0.28)";
-const MARKER_FILL = "rgba(224, 68, 46, 0.92)";
-const MARKER_RING = "rgba(224, 68, 46, 0.45)";
-const RIM_STROKE = "rgba(154, 163, 174, 0.16)";
+/* Pass 3: palette is themeable. Defaults are the live (dark) values, unchanged. */
+export type GlobePalette = {
+  ocean0: string;
+  ocean1: string;
+  ocean2: string;
+  land: string;
+  landDark: string;
+  landLight: string;
+  grid: string;
+  rim: string;
+  markerFill: string;
+  markerRing: string;
+};
+
+export const DARK_GLOBE_PALETTE: GlobePalette = {
+  ocean0: "#1A2432",
+  ocean1: "#141B26",
+  ocean2: "#0F141C",
+  land: "#84909E",
+  landDark: "#5C6673",
+  landLight: "#9AA3AE",
+  grid: "rgba(154, 163, 174, 0.28)",
+  rim: "rgba(154, 163, 174, 0.16)",
+  markerFill: "rgba(224, 68, 46, 0.92)",
+  markerRing: "rgba(224, 68, 46, 0.45)",
+};
+
+let PAL: GlobePalette = { ...DARK_GLOBE_PALETTE };
+
+export function setGlobePalette(palette: Partial<GlobePalette>): void {
+  PAL = { ...DARK_GLOBE_PALETTE, ...palette };
+}
 
 const MARKERS: ReadonlyArray<readonly [number, number]> = [
   [7.51, 9.1],
@@ -683,11 +708,11 @@ function drawLand(
     const sample = polygon[0];
     const sampleLat = sample?.[1] ?? 0;
     if (sampleLat > 55) {
-      ctx.fillStyle = LAND_LIGHT;
+      ctx.fillStyle = PAL.landLight;
     } else if (sampleLat < -20) {
-      ctx.fillStyle = LAND_DARK;
+      ctx.fillStyle = PAL.landDark;
     } else {
-      ctx.fillStyle = LAND_FILL;
+      ctx.fillStyle = PAL.land;
     }
     ctx.fill("evenodd");
   }
@@ -701,7 +726,7 @@ function drawGraticule(
   cy: number,
   radius: number,
 ): void {
-  ctx.strokeStyle = GRID_STROKE;
+  ctx.strokeStyle = PAL.grid;
   ctx.lineWidth = Math.max(0.7, radius * 0.0023);
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
@@ -781,11 +806,11 @@ function drawMarkers(
     }
     ctx.beginPath();
     ctx.arc(pt.x, pt.y, ring, 0, Math.PI * 2);
-    ctx.strokeStyle = MARKER_RING;
+    ctx.strokeStyle = PAL.markerRing;
     ctx.stroke();
     ctx.beginPath();
     ctx.arc(pt.x, pt.y, core, 0, Math.PI * 2);
-    ctx.fillStyle = MARKER_FILL;
+    ctx.fillStyle = PAL.markerFill;
     ctx.fill();
   }
 }
@@ -804,15 +829,15 @@ function drawOcean(
     cy,
     radius,
   );
-  gradient.addColorStop(0, "#1A2432");
-  gradient.addColorStop(0.5, "#141B26");
-  gradient.addColorStop(1, "#0F141C");
+  gradient.addColorStop(0, PAL.ocean0);
+  gradient.addColorStop(0.5, PAL.ocean1);
+  gradient.addColorStop(1, PAL.ocean2);
 
   ctx.beginPath();
   ctx.arc(cx, cy, radius, 0, Math.PI * 2);
   ctx.fillStyle = gradient;
   ctx.fill();
-  ctx.strokeStyle = RIM_STROKE;
+  ctx.strokeStyle = PAL.rim;
   ctx.lineWidth = Math.max(1, radius * 0.0032);
   ctx.stroke();
 }

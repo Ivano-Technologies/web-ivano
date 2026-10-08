@@ -1,5 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_EXPLORE, LEGAL_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
+
+/** Pass 3: Explore, Principles and Selected clients moved off Home into compact footer notes (live copy, word for word). */
+const FOOTER_PRINCIPLES = [
+  {
+    name: "Craft over theatre.",
+    text: "Designed around how businesses actually operate: clear systems, real constraints.",
+  },
+  {
+    name: "Ship honest product.",
+    text: "Clear tools and real systems, built for daily use.",
+  },
+  {
+    name: "Your brand comes first.",
+    text: "Work we deliver carries only a small Ivano credit.",
+  },
+] as const;
 
 export function SiteFooter() {
   return (
@@ -46,6 +63,47 @@ export function SiteFooter() {
             ))}
             <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
             <Link href="/contact">{SITE.officeLine}</Link>
+          </div>
+        </div>
+        <div className="footer-notes">
+          <div className="footer-note">
+            <h4>How we work</h4>
+            <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
+          </div>
+          <div className="footer-note">
+            <h4>Services</h4>
+            <p>
+              Build, secure and run, advise, grow and supply. Products and
+              services under one company.
+            </p>
+          </div>
+          <div className="footer-note">
+            <h4>Principles</h4>
+            <ul>
+              {FOOTER_PRINCIPLES.map((item) => (
+                <li key={item.name}>
+                  <strong>{item.name}</strong> {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="footer-note">
+            <h4>Selected clients</h4>
+            <ul className="footer-clients">
+              <li>
+                <Image
+                  src="/clients/juo-mark-mono-white.png"
+                  alt=""
+                  width={31}
+                  height={22}
+                />
+                <span>John Upan Odey Campaign</span>
+              </li>
+              <li>
+                <span>NMDPRA</span>
+              </li>
+            </ul>
+            <p>Organisations we’ve built for.</p>
           </div>
         </div>
         <div className="footer-bottom">
