@@ -29,7 +29,10 @@ export function ProductCard({
       <p>{product.description}</p>
       <div className="cta-row">
         <a href={product.href} target="_blank" rel="noopener noreferrer">
-          {product.cta} →
+          {product.cta}{" "}
+          <span className="cta-arrow" aria-hidden="true">
+            →
+          </span>
         </a>
       </div>
     </article>

@@ -7,9 +7,37 @@ import {
   GLOBE_CENTER_LON,
   GLOBE_MAX_FRAME_MS,
   GLOBE_TURN_DEG,
+  type GlobePalette,
   globePeriodMs,
+  setGlobePalette,
   wrapLon,
 } from "@/lib/orthographicGlobe";
+
+/** CSS custom properties (app/globals.css) that drive the canvas palette per theme. */
+const PALETTE_VARS: ReadonlyArray<readonly [keyof GlobePalette, string]> = [
+  ["ocean0", "--globe-ocean-0"],
+  ["ocean1", "--globe-ocean-1"],
+  ["ocean2", "--globe-ocean-2"],
+  ["land", "--globe-land"],
+  ["landDark", "--globe-land-dark"],
+  ["landLight", "--globe-land-light"],
+  ["grid", "--globe-grid"],
+  ["rim", "--globe-rim"],
+  ["markerFill", "--globe-marker"],
+  ["markerRing", "--globe-marker-ring"],
+];
+
+function readPalette(): void {
+  const styles = getComputedStyle(document.documentElement);
+  const palette: Partial<GlobePalette> = {};
+  for (const [key, cssVar] of PALETTE_VARS) {
+    const value = styles.getPropertyValue(cssVar).trim();
+    if (value) {
+      palette[key] = value;
+    }
+  }
+  setGlobePalette(palette);
+}
 
 type HeroGlobeProps = {
   markup: string;
@@ -28,6 +56,8 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
     }
 
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const scheme = window.matchMedia("(prefers-color-scheme: light)");
+    readPalette();
     const periodMs = globePeriodMs();
     let elapsed = 0;
     let last = performance.now();
@@ -143,6 +173,15 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
     document.addEventListener("visibilitychange", syncPause);
     media.addEventListener("change", syncPause);
 
+    // OS colour scheme change: re-read the palette and repaint without reload.
+    function repaint(): void {
+      readPalette();
+      if (!media.matches) {
+        paint(currentLon());
+      }
+    }
+    scheme.addEventListener("change", repaint);
+
     if (!media.matches) {
       paint(currentLon());
       startLoop();
@@ -154,6 +193,7 @@ export function HeroGlobe({ markup }: HeroGlobeProps) {
       resize.disconnect();
       document.removeEventListener("visibilitychange", syncPause);
       media.removeEventListener("change", syncPause);
+      scheme.removeEventListener("change", repaint);
     };
   }, []);
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Exo, Montserrat } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
@@ -65,6 +65,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+};
+
+/** Pass 3: dark navy is the default; light follows prefers-color-scheme. */
+export const viewport: Viewport = {
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
