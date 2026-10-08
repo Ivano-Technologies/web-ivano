@@ -1332,12 +1332,25 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 
 @media (min-width: 768px) {
-  /* Columns sized to content and spread edge to edge, so the two gaps match */
-  .footer-grid { grid-template-columns: auto auto auto; justify-content: space-between; }
+  /* Both footer rows (links and notes) share one fixed column width and gap,
+     centred, so the columns line up vertically. Text stays left aligned. */
+  .site-footer { --footer-col: 13.5rem; --footer-gap: 2rem; }
+  .footer-grid,
+  .footer-notes {
+    grid-template-columns: repeat(3, var(--footer-col));
+    column-gap: var(--footer-gap);
+    justify-content: center;
+  }
   .site-footer a { min-height: 0; margin-bottom: 0.4rem; }
 }
+@media (min-width: 1024px) {
+  .site-footer { --footer-col: 18rem; --footer-gap: 3rem; }
+}
+@media (min-width: 1280px) {
+  .site-footer { --footer-col: 20rem; --footer-gap: 4rem; }
+}
 
-/* Pass 3 footer notes: Principles, How we work, Services, Selected clients */
+/* Pass 3 footer notes: Principles, How we work, Selected clients */
 .footer-notes {
   display: grid;
   gap: 1.75rem;
@@ -1357,12 +1370,6 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 .footer-clients span { color: var(--p3-footer-strong); font-size: 0.82rem; font-weight: 600; }
-@media (min-width: 768px) {
-  .footer-notes { grid-template-columns: 1fr 1fr; }
-}
-@media (min-width: 1024px) {
-  .footer-notes { grid-template-columns: 1.7fr 1fr 1fr 1.1fr; gap: 2rem; }
-}
 
 .card-grid,
 .contact-grid,

@@ -72,13 +72,6 @@ export function SiteFooter() {
             <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
           </div>
           <div className="footer-note">
-            <h4>Services</h4>
-            <p>
-              Build, secure and run, advise, grow and supply. Products and
-              services under one company.
-            </p>
-          </div>
-          <div className="footer-note">
             <h4>Selected clients</h4>
             <ul className="footer-clients">
               <li>
