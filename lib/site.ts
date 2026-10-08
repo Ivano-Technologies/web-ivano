@@ -48,7 +48,7 @@ export const FOOTER_EXPLORE = [
 export const SOCIAL_LINKS = [
   {
     name: "X",
-    label: "@techivano",
+    label: "X",
     href: "https://x.com/techivano",
   },
   {

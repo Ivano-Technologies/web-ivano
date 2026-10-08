@@ -49,7 +49,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 aria-label={link.name === "X" ? "X / Twitter" : link.name}
               >
-                {link.name}
+                {link.label}
               </a>
             ))}
             <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
