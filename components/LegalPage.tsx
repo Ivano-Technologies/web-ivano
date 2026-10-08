@@ -6,8 +6,8 @@ import { SITE } from "@/lib/site";
 type LegalPageProps = {
   title: string;
   path: string;
-  /** Hero sub line. Pages without final copy keep the v1 default. */
-  lede?: string;
+  /** Hero sub line under the page title. */
+  lede: string;
   children: ReactNode;
 };
 
@@ -19,11 +19,9 @@ export function legalMetadata(title: string, path: string) {
   });
 }
 
-const DEFAULT_LEDE = `Light v1 stub. Ownership of ${SITE.name} legal copy is still TBD.`;
-
 export function LegalPage({
   title,
-  lede = DEFAULT_LEDE,
+  lede,
   children,
 }: Omit<LegalPageProps, "path">) {
   return (
