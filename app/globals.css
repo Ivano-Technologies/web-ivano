@@ -1334,7 +1334,8 @@ section { padding: 2.5rem 0; position: relative; }
 @media (min-width: 768px) {
   /* Both footer rows (links and notes) share one fixed column width and gap,
      centred, so the columns line up vertically. Text stays left aligned. */
-  .site-footer { --footer-col: 13.5rem; --footer-gap: 2rem; }
+  /* 768 to 1023: 14.25rem fits the widest item (client logo + name) on one line */
+  .site-footer { --footer-col: 14.25rem; --footer-gap: 1rem; }
   .footer-grid,
   .footer-notes {
     grid-template-columns: repeat(3, var(--footer-col));
@@ -1353,7 +1354,7 @@ section { padding: 2.5rem 0; position: relative; }
 /* Pass 3 footer notes: Principles, How we work, Selected clients */
 .footer-notes {
   display: grid;
-  gap: 1.75rem;
+  row-gap: 1.75rem;
   border-top: 1px solid var(--p3-footer-rule);
   padding: 1.75rem 0 2rem;
 }
