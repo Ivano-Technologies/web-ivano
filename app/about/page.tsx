@@ -47,7 +47,7 @@ export default function AboutPage() {
             </p>
           </div>
           <p className="about-download">
-            <a className="btn btn-primary" href={SITE.pdfHref} download>
+            <a className="btn btn-primary" href={SITE.pdfHref} download={SITE.pdfFilename}>
               Download company profile (PDF)
             </a>
           </p>
