@@ -49,9 +49,7 @@ export default function ContactPage() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={
-                          link.name === "X" ? "X / Twitter" : link.name
-                        }
+                        aria-label={link.name}
                       >
                         {link.label}
                       </a>
