@@ -25,7 +25,8 @@ export const SITE = {
   /** Kezie lock: no street address on the site, area and city only. */
   officeArea: `Wuse 2, ${LOCATION}`,
   officeLine: `Office · Wuse 2, ${LOCATION}`,
-  pdfHref: "/company-profile.pdf",
+  // ?v=2: fresh CDN cache key so the attachment filename header is served.
+  pdfHref: "/company-profile.pdf?v=2",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
