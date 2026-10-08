@@ -69,7 +69,11 @@ export function SiteFooter() {
           </div>
           <div className="footer-note">
             <h4>How we work</h4>
-            <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
+            <p>
+              Your brand leads.
+              <br />
+              Ours stays quiet on the work we deliver.
+            </p>
           </div>
           <div className="footer-note">
             <h4>Selected clients</h4>
