@@ -58,17 +58,6 @@ export function SiteFooter() {
         </div>
         <div className="footer-notes">
           <div className="footer-note">
-            <h4>How we work</h4>
-            <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
-          </div>
-          <div className="footer-note">
-            <h4>Services</h4>
-            <p>
-              Build, secure and run, advise, grow and supply. Products and
-              services under one company.
-            </p>
-          </div>
-          <div className="footer-note">
             <h4>Principles</h4>
             <ul>
               {FOOTER_PRINCIPLES.map((item) => (
@@ -77,6 +66,10 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="footer-note">
+            <h4>How we work</h4>
+            <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
           </div>
           <div className="footer-note">
             <h4>Selected clients</h4>
@@ -106,7 +99,6 @@ export function SiteFooter() {
               </Link>
             ))}
           </nav>
-          <span>{SITE.addressFull}</span>
         </div>
       </div>
     </footer>

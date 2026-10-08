@@ -26,7 +26,7 @@ export default function AboutPage() {
             managed services.
           </p>
           <h2>Where we are</h2>
-          <p className="about-where">{SITE.addressFull}.</p>
+          <p className="about-where">{SITE.officeArea}.</p>
           <div className="explore-panels">
             <div className="explore-panel warm" data-reveal>
               <h3>{SITE.location}</h3>
