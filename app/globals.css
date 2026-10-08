@@ -1332,12 +1332,11 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 
 @media (min-width: 768px) {
-  /* Both footer rows (links and notes) share one fixed column width and gap,
-     centred, so the columns line up vertically. Text stays left aligned. */
-  /* 768 to 1023: 14.25rem fits the widest item (client logo + name) on one line */
+  /* 768 to 1279: one grid of equal fixed columns, centred. Row 1 is How we
+     work, Company, Connect; row 2 is Selected clients and Explore from the
+     same left edge. Text stays left aligned. */
   .site-footer { --footer-col: 14.25rem; --footer-gap: 1rem; }
-  .footer-grid,
-  .footer-notes {
+  .footer-grid {
     grid-template-columns: repeat(3, var(--footer-col));
     column-gap: var(--footer-gap);
     justify-content: center;
@@ -1348,17 +1347,12 @@ section { padding: 2.5rem 0; position: relative; }
   .site-footer { --footer-col: 18rem; --footer-gap: 3rem; }
 }
 @media (min-width: 1280px) {
-  .site-footer { --footer-col: 20rem; --footer-gap: 4rem; }
+  /* One row of five, centred: a 300px How we work track so no bold lead
+     wraps, then content sized Company, Connect, Selected clients, Explore. */
+  .footer-grid { grid-template-columns: 300px auto auto auto auto; column-gap: 48px; }
 }
 
-/* Pass 3 footer notes: Principles, How we work, Selected clients */
-.footer-notes {
-  display: grid;
-  row-gap: 1.75rem;
-  border-top: 1px solid var(--p3-footer-rule);
-  padding: 1.75rem 0 2rem;
-}
-.footer-notes h4 { margin-bottom: 0.65rem; }
+/* Footer text columns: How we work and Selected clients */
 .footer-note p,
 .footer-note li {
   font-size: 0.82rem;
