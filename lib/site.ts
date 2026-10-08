@@ -26,6 +26,7 @@ export const SITE = {
   officeArea: `Wuse 2, ${LOCATION}`,
   officeLine: `Office · Wuse 2, ${LOCATION}`,
   pdfHref: "/company-profile.pdf",
+  pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
   copyright: "© 2026 Ivano Technologies Ltd · RC 8736090",

@@ -66,7 +66,7 @@ export default function ContactPage() {
                 </div>
               </dl>
               <p className="contact-pdf">
-                <a href={SITE.pdfHref} download>
+                <a href={SITE.pdfHref} download={SITE.pdfFilename}>
                   Download company profile (PDF) →
                 </a>
               </p>
