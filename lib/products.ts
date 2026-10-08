@@ -11,13 +11,15 @@ export type Product = {
   homeDescription?: string;
   href: string;
   cta: string;
-  thumb?: "t1" | "t2" | "t3";
+  image: string;
   featured?: boolean;
+  /** Show on the home product thumb grid */
+  homeThumb?: boolean;
 };
 
 export type HomeProduct = Product & {
-  thumb: NonNullable<Product["thumb"]>;
   homeDescription: string;
+  homeThumb: true;
 };
 
 export const PRODUCTS: Product[] = [
@@ -32,8 +34,9 @@ export const PRODUCTS: Product[] = [
       "Tax and finance software for Nigerian SMEs: bank imports, Tax Act 2025 compliance and NRS electronic invoicing.",
     href: "https://kompleet.techivano.com",
     cta: "Open Kompleet",
-    thumb: "t1",
+    image: "/products/kompleet-ui.png",
     featured: true,
+    homeThumb: true,
   },
   {
     name: "Ivano PMS",
@@ -46,7 +49,8 @@ export const PRODUCTS: Product[] = [
       "Hospitality property management: bookings, guests, units and channel messages.",
     href: "https://pms.techivano.com",
     cta: "Open PMS",
-    thumb: "t2",
+    image: "/products/pms-ui.png",
+    homeThumb: true,
   },
   {
     name: "NRCS EAM",
@@ -59,7 +63,8 @@ export const PRODUCTS: Product[] = [
       "Enterprise asset management: assets, work orders, PM, inventory and compliance.",
     href: "https://nrcseam.techivano.com",
     cta: "Open NRCS EAM",
-    thumb: "t3",
+    image: "/products/nrcs-eam-ui.png",
+    homeThumb: true,
   },
   {
     name: "JUO Campaign",
@@ -69,6 +74,7 @@ export const PRODUCTS: Product[] = [
     description: "Campaign website for the John Upan Odey organisation.",
     href: "https://www.votejohnupanodey.com",
     cta: "Visit site",
+    image: "/products/juo-ui.png",
   },
   {
     name: "NMDPRA Dashboard",
@@ -79,12 +85,13 @@ export const PRODUCTS: Product[] = [
       "Live survey and plain language compliance dashboard for NMDPRA.",
     href: "https://nmdpra-dashboard-techivano.vercel.app",
     cta: "Visit dashboard",
+    image: "/products/nmdpra-ui.png",
   },
 ];
 
 export const HOME_PRODUCT_THUMBS: HomeProduct[] = PRODUCTS.filter(
   (product): product is HomeProduct =>
-    product.thumb !== undefined && product.homeDescription !== undefined,
+    product.homeThumb === true && product.homeDescription !== undefined,
 );
 
 export const HOME_CLIENT_CARDS: Product[] = PRODUCTS.filter(
