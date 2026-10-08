@@ -45,6 +45,7 @@
   --p3-ink: #FFFFFF;
   --p3-ink-2: #9AA3AE;
   --p3-ink-3: #5C6673;
+  --p3-text-quiet: #8B95A1;      /* small quiet text on navy: 5.69:1 on #141B26 (was #5C6673, 2.97:1) */
   --p3-btn-bg: #C93A26;          /* was #E0442E (white 4.17:1), now 5.10:1 */
   --p3-btn-bg-hover: #B3321F;    /* hover goes darker, white 6.19:1 */
   --p3-btn-text: #FFFFFF;
@@ -733,13 +734,11 @@ section { padding: 2.5rem 0; position: relative; }
 /* Cards / thumbs */
 .thumb-grid,
 .card-grid,
-.principles,
 .explore-panels { display: grid; gap: 1.15rem; }
 
 .thumb-card,
 .card,
-.cluster,
-.principle {
+.cluster {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-card);
@@ -760,24 +759,17 @@ section { padding: 2.5rem 0; position: relative; }
   gap: 0.65rem;
   height: 100%;
 }
-.principle {
-  background: rgba(24, 31, 42, 0.85);
-  padding: 1.35rem 1.25rem;
-}
 .cluster {
   padding: 1.4rem;
-  border-top: 2px solid var(--accent);
   height: 100%;
 }
 
 .thumb-card:hover,
 .card:hover,
 .cluster:hover,
-.principle:hover,
 .thumb-card:has(:focus-visible),
 .card:has(:focus-visible),
 .cluster:has(:focus-visible),
-.principle:has(:focus-visible),
 .thumb-card.is-highlight,
 .card.is-highlight {
   transform: translateY(-4px);
@@ -827,7 +819,6 @@ section { padding: 2.5rem 0; position: relative; }
 .thumb-card .cap { padding: 1rem 1.05rem 1.15rem; }
 .thumb-card h3,
 .card h3,
-.principle h3,
 .cluster h3 {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -837,9 +828,7 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .thumb-card p { color: var(--body); font-size: 0.86rem; margin-bottom: 0.65rem; }
 .card p,
-.cluster p,
-.principle p { color: var(--body); font-size: 0.9rem; flex: 1; }
-.principle p { font-size: 0.88rem; }
+.cluster p { color: var(--body); font-size: 0.9rem; flex: 1; }
 .thumb-card .cta-row a,
 .card .cta-row a {
   font-weight: 600;
@@ -851,13 +840,6 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .card .cta-row { margin-top: auto; }
 .cta-arrow { color: inherit; }
-.principle .ico {
-  width: 28px;
-  height: 3px;
-  margin-bottom: 0.9rem;
-  background: var(--accent);
-  border-radius: 1px;
-}
 
 .badge {
   display: inline-block;
@@ -871,7 +853,8 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .badge-product {
   background: rgba(224, 68, 46, 0.12);
-  color: var(--accent-hot);
+  /* Pass 3 r2: was --accent-hot #E8553A (4.12:1 on the tinted badge); now 5.48:1 */
+  color: #F07A62;
   border: 1px solid rgba(224, 68, 46, 0.35);
 }
 .badge-client {
@@ -881,8 +864,7 @@ section { padding: 2.5rem 0; position: relative; }
 }
 
 @media (min-width: 768px) {
-  .thumb-grid,
-  .principles { grid-template-columns: repeat(2, 1fr); }
+  .thumb-grid { grid-template-columns: repeat(2, 1fr); }
   .card-grid.cols-2,
   .explore-panels { grid-template-columns: 1fr 1fr; }
   .thumb-card .cta-row a,
@@ -891,7 +873,6 @@ section { padding: 2.5rem 0; position: relative; }
 
 @media (min-width: 1024px) {
   .thumb-grid { grid-template-columns: repeat(3, 1fr); }
-  .principles { grid-template-columns: repeat(3, 1fr); }
   .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -1062,14 +1043,7 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .mini-doc-page .mini-line { height: 14%; }
 
-/* Feature / explore */
-.feature-band {
-  background:
-    radial-gradient(ellipse 60% 50% at 90% 0%, rgba(224, 68, 46, 0.08), transparent 55%),
-    linear-gradient(180deg, #121820 0%, var(--bg-elev) 100%);
-  border-block: 1px solid var(--border);
-}
-.explore { padding-top: 1rem; }
+/* Explore panels (About) */
 .explore-panel {
   position: relative;
   min-height: 220px;
@@ -1131,75 +1105,11 @@ section { padding: 2.5rem 0; position: relative; }
   .explore-panel { min-height: 320px; }
 }
 
-/* Clients / CTA */
-.clients {
-  background:
-    linear-gradient(180deg, transparent, rgba(15, 20, 28, 0.5)),
-    var(--bg);
-  border-block: 1px solid var(--border);
-}
-.clients-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  align-items: center;
-  margin-top: 1.25rem;
-}
-.client-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 168px;
-  height: 72px;
-  padding: 0 1.35rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, #1C2430 0%, #151B26 100%);
-  color: #6B7280;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  filter: grayscale(1);
-  opacity: 0.85;
-}
-.client-tile::before {
-  content: "";
-  width: 28px;
-  height: 28px;
-  margin-bottom: 0.35rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4B5563, #1F2937);
-  border: 1px solid #374151;
-}
-.client-tile small {
-  display: block;
-  font-weight: 500;
-  font-size: 0.58rem;
-  color: #4B5563;
-  margin-top: 0.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.client-tile--mark {
-  filter: none;
-  opacity: 1;
-}
-.client-tile--mark::before {
-  content: none;
-  display: none;
-}
-.client-tile--mark img {
-  width: auto;
-  height: 44px;
-  object-fit: contain;
-}
-
+/* Trust line / CTA */
 .trust {
   text-align: center;
   padding: 0.5rem 0 1.25rem;
-  color: var(--muted);
+  color: var(--p3-text-quiet);
   font-size: 0.84rem;
 }
 .cta-band {
@@ -1257,7 +1167,7 @@ section { padding: 2.5rem 0; position: relative; }
   gap: 0.3rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--p3-text-quiet);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -1308,7 +1218,7 @@ section { padding: 2.5rem 0; position: relative; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--muted);
+  color: var(--p3-text-quiet);
 }
 .contact-aside dd {
   font-size: 0.92rem;
@@ -1355,7 +1265,7 @@ section { padding: 2.5rem 0; position: relative; }
 .about-copy .explore-panel { min-height: 180px; }
 .about-copy .explore-panel p { margin-bottom: 0; max-width: 28ch; }
 .about-download { margin-top: 1.85rem; margin-bottom: 0; }
-.about-pdf-note { margin-top: 0.65rem; font-size: 0.82rem; }
+.about-pdf-note { margin-top: 0.65rem; font-size: 0.82rem; color: var(--p3-text-quiet); }
 
 .legal-prose { max-width: 40rem; }
 .legal-prose h2 {
@@ -1626,7 +1536,6 @@ section { padding: 2.5rem 0; position: relative; }
   .card:hover,
   .thumb-card:hover,
   .cluster:hover,
-  .principle:hover,
   .explore-panel:hover {
     transform: none;
   }
@@ -1652,6 +1561,7 @@ section { padding: 2.5rem 0; position: relative; }
     --p3-ink-2: #5E5D59;
     --p3-ink-3: #87867F;
     --p3-ink-4: #B0AEA5;
+    --p3-text-quiet: #5E5D59;
     --p3-btn-bg: #C93A26;
     --p3-btn-bg-hover: #B3321F;
     --p3-btn-text: #FFFFFF;
@@ -1763,10 +1673,10 @@ section { padding: 2.5rem 0; position: relative; }
   html:not([data-theme="dark"]) .eyebrow { color: var(--p3-accent); }
   html:not([data-theme="dark"]) .eyebrow::before { background: var(--p3-accent); box-shadow: none; }
   html:not([data-theme="dark"]) .about-copy > h2, html:not([data-theme="dark"]) .legal-prose h2 { color: var(--p3-ink); }
-  html:not([data-theme="dark"]) .cluster { background: var(--p3-surface); border-color: var(--p3-hairline); border-top-color: var(--p3-accent); }
+  html:not([data-theme="dark"]) .cluster { background: var(--p3-surface); border-color: var(--p3-hairline); }
   html:not([data-theme="dark"]) .cluster h3 { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .cluster p { color: var(--p3-ink-2); }
-  html:not([data-theme="dark"]) .cluster:hover, html:not([data-theme="dark"]) .cluster:has(:focus-visible) { border-color: var(--p3-hairline-strong); border-top-color: var(--p3-accent); box-shadow: none; }
+  html:not([data-theme="dark"]) .cluster:hover, html:not([data-theme="dark"]) .cluster:has(:focus-visible) { border-color: var(--p3-hairline-strong); box-shadow: none; }
   html:not([data-theme="dark"]) .bento .card.featured { background: var(--p3-surface); }
   html:not([data-theme="dark"]) .explore-panel p { color: #9AA3AE; }
   html:not([data-theme="dark"]) .legal-box { background: var(--p3-surface); border-color: var(--p3-hairline); color: var(--p3-ink); }
