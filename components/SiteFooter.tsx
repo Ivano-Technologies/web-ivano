@@ -49,7 +49,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 aria-label={link.name === "X" ? "X / Twitter" : link.name}
               >
-                {link.label}
+                {link.name}
               </a>
             ))}
             <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
@@ -57,6 +57,16 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-notes">
+          <div className="footer-note">
+            <h4>Principles</h4>
+            <ul>
+              {FOOTER_PRINCIPLES.map((item) => (
+                <li key={item.name}>
+                  <strong>{item.name}</strong> {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="footer-note">
             <h4>How we work</h4>
             <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
@@ -67,16 +77,6 @@ export function SiteFooter() {
               Build, secure and run, advise, grow and supply. Products and
               services under one company.
             </p>
-          </div>
-          <div className="footer-note">
-            <h4>Principles</h4>
-            <ul>
-              {FOOTER_PRINCIPLES.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong> {item.text}
-                </li>
-              ))}
-            </ul>
           </div>
           <div className="footer-note">
             <h4>Selected clients</h4>

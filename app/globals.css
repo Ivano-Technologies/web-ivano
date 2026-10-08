@@ -1331,11 +1331,12 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 
 @media (min-width: 768px) {
-  .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Columns sized to content and spread edge to edge, so the two gaps match */
+  .footer-grid { grid-template-columns: auto auto auto; justify-content: space-between; }
   .site-footer a { min-height: 0; margin-bottom: 0.4rem; }
 }
 
-/* Pass 3 footer notes: Explore, Principles and Selected clients folded in */
+/* Pass 3 footer notes: Principles, How we work, Services, Selected clients */
 .footer-notes {
   display: grid;
   gap: 1.75rem;
@@ -1359,7 +1360,7 @@ section { padding: 2.5rem 0; position: relative; }
   .footer-notes { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 1024px) {
-  .footer-notes { grid-template-columns: 1fr 1fr 1.7fr 1.1fr; gap: 2rem; }
+  .footer-notes { grid-template-columns: 1.7fr 1fr 1fr 1.1fr; gap: 2rem; }
 }
 
 .card-grid,
