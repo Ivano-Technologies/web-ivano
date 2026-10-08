@@ -1324,6 +1324,7 @@ section { padding: 2.5rem 0; position: relative; }
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: space-between;
+  align-items: baseline;
   font-size: 0.74rem;
   color: var(--p3-footer-text);
 }
@@ -1331,14 +1332,29 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 
 @media (min-width: 768px) {
-  .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Both footer rows (links and notes) share one fixed column width and gap,
+     centred, so the columns line up vertically. Text stays left aligned. */
+  /* 768 to 1023: 14.25rem fits the widest item (client logo + name) on one line */
+  .site-footer { --footer-col: 14.25rem; --footer-gap: 1rem; }
+  .footer-grid,
+  .footer-notes {
+    grid-template-columns: repeat(3, var(--footer-col));
+    column-gap: var(--footer-gap);
+    justify-content: center;
+  }
   .site-footer a { min-height: 0; margin-bottom: 0.4rem; }
 }
+@media (min-width: 1024px) {
+  .site-footer { --footer-col: 18rem; --footer-gap: 3rem; }
+}
+@media (min-width: 1280px) {
+  .site-footer { --footer-col: 20rem; --footer-gap: 4rem; }
+}
 
-/* Pass 3 footer notes: Explore, Principles and Selected clients folded in */
+/* Pass 3 footer notes: Principles, How we work, Selected clients */
 .footer-notes {
   display: grid;
-  gap: 1.75rem;
+  row-gap: 1.75rem;
   border-top: 1px solid var(--p3-footer-rule);
   padding: 1.75rem 0 2rem;
 }
@@ -1355,12 +1371,6 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 .footer-clients span { color: var(--p3-footer-strong); font-size: 0.82rem; font-weight: 600; }
-@media (min-width: 768px) {
-  .footer-notes { grid-template-columns: 1fr 1fr; }
-}
-@media (min-width: 1024px) {
-  .footer-notes { grid-template-columns: 1fr 1fr 1.7fr 1.1fr; gap: 2rem; }
-}
 
 .card-grid,
 .contact-grid,

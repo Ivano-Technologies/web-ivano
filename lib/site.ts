@@ -22,9 +22,8 @@ export const SITE = {
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
   location: LOCATION,
-  addressShort: `Shop B18, Saham Plaza, Wuse 2, ${LOCATION}`,
-  addressFull:
-    `Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, ${LOCATION}`,
+  /** Kezie lock: no street address on the site, area and city only. */
+  officeArea: `Wuse 2, ${LOCATION}`,
   officeLine: `Office · Wuse 2, ${LOCATION}`,
   pdfHref: "/company-profile.pdf",
   pdfLabel: "Company profile (PDF)",
@@ -49,7 +48,7 @@ export const FOOTER_EXPLORE = [
 export const SOCIAL_LINKS = [
   {
     name: "X",
-    label: "@techivano",
+    label: "X",
     href: "https://x.com/techivano",
   },
   {
