@@ -1331,6 +1331,13 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 
+@media (max-width: 767px) {
+  /* Stacked footer: equal visible space between sections. Link columns end in
+     a 32px tap target, so drop the last link's margin and pad the text blocks
+     to match the empty space under that last link. */
+  .footer-grid > div > a:last-child { margin-bottom: 0; }
+  .footer-note { padding-bottom: 10px; }
+}
 @media (min-width: 768px) {
   /* 768 to 1279: one grid of equal fixed columns, centred. Row 1 is How we
      work, Company, Connect; row 2 is Selected clients and Explore from the
@@ -1365,17 +1372,17 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 /* Acronym wordmark for clients without a logo: white like the JUO mark
-   (the footer is dark in both themes), caps sized to the logo glyph height */
+   (the footer is dark in both themes), centred on the JUO glyph in a 22px box */
 .client-mark {
   display: block;
   height: 22px;
-  line-height: 20px; /* 22px box; 20px line lifts the caps 1px onto the JUO glyph centre */
+  line-height: 22px; /* caps centre lands on the JUO ink centre */
   color: #FFFFFF;
   font-family: var(--font);
-  font-size: 1.85rem;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  margin-right: -0.06em;
+  letter-spacing: 0.08em;
+  margin-right: -0.08em; /* trim the trailing tracking */
 }
 
 .card-grid,
