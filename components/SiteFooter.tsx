@@ -106,7 +106,6 @@ export function SiteFooter() {
               </Link>
             ))}
           </nav>
-          <span>{SITE.addressFull}</span>
         </div>
       </div>
     </footer>

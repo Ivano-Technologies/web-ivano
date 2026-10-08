@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <dt>Office</dt>
-                  <dd>{SITE.addressFull}</dd>
+                  <dd>{SITE.officeArea}</dd>
                 </div>
               </dl>
               <p className="contact-pdf">

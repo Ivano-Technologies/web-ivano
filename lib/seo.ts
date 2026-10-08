@@ -43,8 +43,8 @@ export function organizationJsonLd(): Record<string, unknown> {
         telephone: SITE.phoneDisplay,
         address: {
           "@type": "PostalAddress",
-          addressLocality: SITE.location,
-          addressCountry: "NG",
+          addressLocality: "Abuja",
+          addressCountry: "Nigeria",
         },
         sameAs: SOCIAL_LINKS.map((link) => link.href),
       },
