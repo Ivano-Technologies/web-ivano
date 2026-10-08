@@ -37,7 +37,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Company</h4>
-            <a href={SITE.pdfHref} download>
+            <a href={SITE.pdfHref} download={SITE.pdfFilename}>
               {SITE.pdfLabel}
             </a>
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
