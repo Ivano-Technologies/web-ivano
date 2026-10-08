@@ -47,7 +47,7 @@ export function SiteFooter() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={link.name === "X" ? "X / Twitter" : link.name}
+                aria-label={link.name}
               >
                 {link.label}
               </a>
@@ -77,14 +77,20 @@ export function SiteFooter() {
               <li>
                 <Image
                   src="/clients/juo-mark-mono-white.png"
-                  alt=""
+                  alt="John Upan Odey Campaign"
                   width={31}
                   height={22}
                 />
-                <span>John Upan Odey Campaign</span>
               </li>
               <li>
-                <span>NMDPRA</span>
+                {/* No logo asset yet: acronym mark sized like the logos. */}
+                <span
+                  className="client-mark"
+                  role="img"
+                  aria-label="Nigerian Midstream and Downstream Petroleum Regulatory Authority (NMDPRA)"
+                >
+                  <span aria-hidden="true">NMDPRA</span>
+                </span>
               </li>
             </ul>
             <p>Organisations we’ve built for.</p>
