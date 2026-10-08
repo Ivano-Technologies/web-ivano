@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { HeroChips } from "@/components/HeroChips";
 import { HeroGlobeArt } from "@/components/HeroGlobeArt";
@@ -67,7 +66,10 @@ export default function HomePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {product.cta} →
+                      {product.cta}{" "}
+                      <span className="cta-arrow" aria-hidden="true">
+                        →
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -78,81 +80,6 @@ export default function HomePage() {
             {HOME_CLIENT_CARDS.map((product) => (
               <ProductCard key={product.name} product={product} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="explore">
-        <div className="wrap">
-          <div className="section-head">
-            <h2>Explore</h2>
-            <p>How we work, and what we deliver beyond the product family.</p>
-          </div>
-          <div className="explore-panels">
-            <div className="explore-panel warm" data-reveal>
-              <h3>How we work</h3>
-              <p>Your brand leads. Ours stays quiet on the work we deliver.</p>
-            </div>
-            <div className="explore-panel cool" data-reveal>
-              <h3>Services</h3>
-              <p>
-                Build, secure and run, advise, grow and supply. Products and
-                services under one company.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="feature-band">
-        <div className="wrap">
-          <div className="section-head">
-            <h2>Principles</h2>
-            <p>Three commitments behind every product and engagement.</p>
-          </div>
-          <div className="principles">
-            <div className="principle" data-reveal>
-              <div className="ico" />
-              <h3>Craft over theatre</h3>
-              <p>
-                Designed around how businesses actually operate: clear
-                systems, real constraints.
-              </p>
-            </div>
-            <div className="principle" data-reveal>
-              <div className="ico" />
-              <h3>Ship honest product</h3>
-              <p>Clear tools and real systems, built for daily use.</p>
-            </div>
-            <div className="principle" data-reveal>
-              <div className="ico" />
-              <h3>Your brand comes first</h3>
-              <p>
-                Work we deliver carries only a small Ivano credit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="clients">
-        <div className="wrap">
-          <div className="section-head" style={{ marginBottom: 0 }}>
-            <h2>Selected clients</h2>
-            <p className="muted">Organisations we’ve built for.</p>
-          </div>
-          <div className="clients-row">
-            <div className="client-tile client-tile--mark">
-              <Image
-                src="/clients/juo-mark-mono-white.png"
-                alt="John Upan Odey Campaign"
-                width={62}
-                height={44}
-              />
-            </div>
-            <div className="client-tile">
-              NMDPRA
-            </div>
           </div>
         </div>
       </section>

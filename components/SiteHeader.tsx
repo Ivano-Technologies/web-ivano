@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { NavBrand } from "@/components/NavBrand";
+import { NAV_LINKS } from "@/lib/site";
 
 function isActive(pathname: string, href: string): boolean {
   if (href === "/") {
@@ -18,7 +18,60 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const panelId = useId();
+
+  // Pass 3: past 40px of scroll the name slides behind the IV1 mark; it
+  // returns on scroll up. CSS owns the motion (and the instant swap under
+  // prefers-reduced-motion). Runs once on mount so a mid page reload is
+  // already collapsed.
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) {
+      return;
+    }
+    let ticking = false;
+    let collapsed: boolean | null = null;
+    let frameId = 0;
+    const mountedAt = performance.now();
+
+    function update(): void {
+      ticking = false;
+      const next = window.scrollY > 40;
+      if (!header || next === collapsed) {
+        return;
+      }
+      // The first state, and the browser's scroll restoration right after a
+      // reload, snap into place instead of sliding.
+      const instant =
+        collapsed === null || performance.now() - mountedAt < 500;
+      collapsed = next;
+      if (instant) {
+        header.classList.add("is-instant");
+      }
+      header.classList.toggle("is-collapsed", next);
+      if (instant) {
+        void header.offsetWidth;
+        window.requestAnimationFrame(() => {
+          header.classList.remove("is-instant");
+        });
+      }
+    }
+
+    function onScroll(): void {
+      if (!ticking) {
+        ticking = true;
+        frameId = window.requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   const close = useCallback(() => {
     setOpen(false);
@@ -74,23 +127,9 @@ export function SiteHeader() {
   }, [open, close]);
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header">
       <div className="wrap nav">
-        <Link
-          className="nav-brand"
-          href="/"
-          onClick={close}
-          aria-label={SITE.name}
-        >
-          <Image
-            src="/favicon.svg"
-            alt={SITE.name}
-            width={44}
-            height={44}
-            unoptimized
-            priority
-          />
-        </Link>
+        <NavBrand onClick={close} />
         <nav className="nav-links" aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <Link
