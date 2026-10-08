@@ -1367,23 +1367,21 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .footer-note ul { list-style: none; display: grid; gap: 0.55rem; }
 .footer-note strong { color: var(--p3-footer-strong); font-weight: 600; }
-.footer-clients { list-style: none; display: grid; gap: 0.45rem; margin-bottom: 0.6rem; }
+.footer-note .footer-clients { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 0.6rem; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
-/* Acronym mark for clients without a logo: 22px tall like the logo images */
+/* Acronym wordmark for clients without a logo: white like the JUO mark
+   (the footer is dark in both themes), caps sized to the logo glyph height */
 .client-mark {
-  display: inline-flex;
-  align-items: center;
+  display: block;
   height: 22px;
-  padding: 0 0.4rem;
-  border: 1px solid currentColor;
-  border-radius: 4px;
-  color: var(--p3-footer-head);
+  line-height: 20px; /* 22px box; 20px line lifts the caps 1px onto the JUO glyph centre */
+  color: #FFFFFF;
   font-family: var(--font);
-  font-size: 0.62rem;
+  font-size: 1.85rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  letter-spacing: 0.06em;
+  margin-right: -0.06em;
 }
 
 .card-grid,
