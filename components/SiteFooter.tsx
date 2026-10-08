@@ -23,15 +23,6 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="wrap">
         <div className="footer-grid">
-          <div className="footer-brand">
-            <Link className="logo" href="/">
-              {SITE.name}
-            </Link>
-            <p>{SITE.tagline}</p>
-            <Link className="footer-cta-link" href="/contact">
-              Talk to us
-            </Link>
-          </div>
           <div>
             <h4>Explore</h4>
             {FOOTER_EXPLORE.map((link) => (
