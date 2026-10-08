@@ -62,7 +62,9 @@ export function SiteFooter() {
             <ul>
               {FOOTER_PRINCIPLES.map((item) => (
                 <li key={item.name}>
-                  <strong>{item.name}</strong> {item.text}
+                  <strong>{item.name}</strong>
+                  <br />
+                  {item.text}
                 </li>
               ))}
             </ul>
@@ -70,7 +72,7 @@ export function SiteFooter() {
           <div className="footer-note">
             <h4>How we work</h4>
             <p>
-              Your brand leads.
+              <strong>Your brand leads.</strong>
               <br />
               Ours stays quiet on the work we deliver.
             </p>
