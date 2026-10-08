@@ -44,7 +44,7 @@ export function organizationJsonLd(): Record<string, unknown> {
         address: {
           "@type": "PostalAddress",
           addressLocality: "Abuja",
-          addressCountry: "Nigeria",
+          addressCountry: "NG",
         },
         sameAs: SOCIAL_LINKS.map((link) => link.href),
       },
