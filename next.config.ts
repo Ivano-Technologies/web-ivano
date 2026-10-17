@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/.well-known/security.txt",
+        headers: [{ key: "Content-Type", value: "text/plain; charset=utf-8" }],
+      },
+      {
         // Save the profile as "Ivano Technologies Company Profile.pdf"; URL stays the same.
         source: "/company-profile.pdf",
         headers: [
