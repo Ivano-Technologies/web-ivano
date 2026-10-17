@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_ALT, OG_SIZE } from "./og/constants";
 import { canonicalUrl, CANONICAL_ORIGIN } from "./seo";
 import { SITE } from "./site";
 
@@ -26,6 +27,9 @@ export function createMetadata({
       url,
       siteName: SITE.name,
       type: "website",
+      // A page-level openGraph object replaces the root one, so point every
+      // page at the shared app/opengraph-image card explicitly.
+      images: [{ url: "/opengraph-image", ...OG_SIZE, alt: OG_ALT }],
     },
   };
 }
