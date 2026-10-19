@@ -29,9 +29,9 @@ export const PRODUCTS: Product[] = [
     badge: "product",
     badgeLabel: "Product · Flagship",
     description:
-      "Tax and finance software for Nigerian SMEs: bank imports, Tax Act 2025 compliance and NRS electronic invoicing.",
+      "Bookkeeping and invoicing for Nigerian SMEs: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
-      "Tax and finance software for Nigerian SMEs: bank imports, Tax Act 2025 compliance and NRS electronic invoicing.",
+      "Bookkeeping and invoicing for Nigerian SMEs: bank imports, simple invoicing and clean financial reports.",
     href: "https://kompleet.techivano.com",
     cta: "Open Kompleet",
     image: "/products/kompleet-ui.png",
