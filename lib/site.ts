@@ -26,7 +26,7 @@ export const SITE = {
   officeArea: `Wuse 2, ${LOCATION}`,
   officeLine: `Office · Wuse 2, ${LOCATION}`,
   // ?v=2: fresh CDN cache key so the attachment filename header is served.
-  pdfHref: "/company-profile.pdf?v=2",
+  pdfHref: "/company-profile.pdf?v=3",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
