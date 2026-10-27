@@ -27,13 +27,13 @@ export const PRODUCTS: Product[] = [
     name: "Kompleet",
     highlight: "kompleet",
     badge: "product",
-    badgeLabel: "Product · Flagship",
+    badgeLabel: "Product · Waitlist",
     description:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
-    href: "https://kompleet.techivano.com",
-    cta: "Open Kompleet",
+    href: "mailto:hi@ivanotechnologies.com?subject=Kompleet%20waitlist",
+    cta: "Join the waitlist",
     image: "/products/kompleet-ui.png",
     featured: true,
     homeThumb: true,
@@ -88,6 +88,11 @@ export const PRODUCTS: Product[] = [
     image: "/products/nmdpra-ui.png",
   },
 ];
+
+/** Web links open in a new tab; mailto and other non web links open in place. */
+export function isExternalHref(href: string): boolean {
+  return /^https?:\/\//i.test(href);
+}
 
 export const HOME_PRODUCT_THUMBS: HomeProduct[] = PRODUCTS.filter(
   (product): product is HomeProduct =>
