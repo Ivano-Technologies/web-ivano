@@ -81,7 +81,7 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <div className="card-grid cols-2" style={{ marginTop: "1.15rem" }}>
+          <div className="card-grid cols-2 cols-3" style={{ marginTop: "1.15rem" }}>
             {HOME_CLIENT_CARDS.map((product) => (
               <ProductCard key={product.name} product={product} />
             ))}
