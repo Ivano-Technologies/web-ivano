@@ -2,20 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_EXPLORE, LEGAL_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
-/** Footer "How we work" items: bold lead, line break, body (copy locked by Design). */
+/** Footer "How we work": three short values, one line each, no full stops. */
 const FOOTER_HOW_WE_WORK = [
-  {
-    name: "Craft over theatre.",
-    text: "Designed around how businesses actually operate: clear systems, real constraints.",
-  },
-  {
-    name: "Ship honest product.",
-    text: "Clear tools and real systems, built for daily use.",
-  },
-  {
-    name: "Your brand leads.",
-    text: "Ours stays quiet on the work we deliver.",
-  },
+  "Craft over theatre",
+  "Ship honest product",
+  "Your brand leads",
 ] as const;
 
 export function SiteFooter() {
@@ -23,15 +14,11 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="wrap">
         <div className="footer-grid">
-          <div className="footer-note">
+          <div>
             <h4>How we work</h4>
-            <ul>
+            <ul className="footer-values">
               {FOOTER_HOW_WE_WORK.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong>
-                  <br />
-                  {item.text}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>

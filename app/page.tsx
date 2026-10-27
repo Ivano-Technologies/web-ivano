@@ -89,25 +89,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="future-focus">
-        <div className="wrap">
-          <div className="section-head row">
-            <div>
-              <h2>Future focus</h2>
-            </div>
-            <p>
-              Electric cars and green tech for Nigeria. A direction we are
-              building toward alongside our software products and technology
-              services, not a live service line yet.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section>
         <div className="wrap">
           <p className="trust">
-            IVANO TECHNOLOGIES LTD · RC 8736090 · Incorporated 27 January 2026 ·{" "}
+            IVANO TECHNOLOGIES LTD · RC 9326735 · Incorporated 27 January 2026 ·{" "}
             {SITE.location}
           </p>
           <div className="cta-band">
