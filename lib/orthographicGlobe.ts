@@ -25,9 +25,9 @@ export type GlobePalette = {
 };
 
 export const DARK_GLOBE_PALETTE: GlobePalette = {
-  ocean0: "#111B29",
-  ocean1: "#0B111C",
-  ocean2: "#060A12",
+  ocean0: "#0D1520",
+  ocean1: "#070B12",
+  ocean2: "#04070C",
   land: "#84909E",
   landDark: "#5C6673",
   landLight: "#9AA3AE",
