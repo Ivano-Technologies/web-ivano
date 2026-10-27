@@ -4,7 +4,11 @@ import { HeroGlobeArt } from "@/components/HeroGlobeArt";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductThumb } from "@/components/ProductThumb";
 import { createMetadata } from "@/lib/metadata";
-import { HOME_CLIENT_CARDS, HOME_PRODUCT_THUMBS } from "@/lib/products";
+import {
+  HOME_CLIENT_CARDS,
+  HOME_PRODUCT_THUMBS,
+  isExternalHref,
+} from "@/lib/products";
 import { HERO_TAGLINE, SITE } from "@/lib/site";
 
 export const metadata = createMetadata({
@@ -63,8 +67,9 @@ export default function HomePage() {
                   <div className="cta-row">
                     <a
                       href={product.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(isExternalHref(product.href)
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {product.cta}{" "}
                       <span className="cta-arrow" aria-hidden="true">
@@ -80,6 +85,21 @@ export default function HomePage() {
             {HOME_CLIENT_CARDS.map((product) => (
               <ProductCard key={product.name} product={product} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="future-focus">
+        <div className="wrap">
+          <div className="section-head row">
+            <div>
+              <h2>Future focus</h2>
+            </div>
+            <p>
+              Electric cars and green tech for Nigeria. A direction we are
+              building toward alongside our software products and technology
+              services, not a live service line yet.
+            </p>
           </div>
         </div>
       </section>

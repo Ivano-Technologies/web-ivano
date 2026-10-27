@@ -31,5 +31,13 @@ export function createMetadata({
       // page at the shared app/opengraph-image card explicitly.
       images: [{ url: "/opengraph-image", ...OG_SIZE, alt: OG_ALT }],
     },
+    // Same for twitter: an explicit relative URL resolves against metadataBase
+    // (www), whereas the app/twitter-image file falls back to the deployment host.
+    twitter: {
+      card: "summary_large_image",
+      title: displayTitle,
+      description,
+      images: [{ url: "/twitter-image", ...OG_SIZE, alt: OG_ALT }],
+    },
   };
 }

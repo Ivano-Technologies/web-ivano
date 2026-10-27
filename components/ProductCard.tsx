@@ -1,5 +1,5 @@
 import { ProductThumb } from "@/components/ProductThumb";
-import type { Product } from "@/lib/products";
+import { isExternalHref, type Product } from "@/lib/products";
 
 type ProductCardProps = {
   product: Product;
@@ -28,7 +28,12 @@ export function ProductCard({
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <div className="cta-row">
-        <a href={product.href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={product.href}
+          {...(isExternalHref(product.href)
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+        >
           {product.cta}{" "}
           <span className="cta-arrow" aria-hidden="true">
             →
