@@ -1,4 +1,4 @@
-Contact: mailto:ivanonigeria@gmail.com
+Contact: mailto:hi@ivanotechnologies.com
 Expires: 2027-10-16T00:00:00Z
 Preferred-Languages: en
 Canonical: https://www.ivanotechnologies.com/.well-known/security.txt

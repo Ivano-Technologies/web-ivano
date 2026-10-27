@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Services",
   description:
-    "Beyond products, Ivano delivers end to end technology services within our registered scope of business.",
+    "Beyond our products, Ivano delivers end to end technology services for growing businesses, within our registered scope of business.",
   path: "/services",
 });
 
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Products and services"
-        lede="Beyond our SaaS family, Ivano delivers end to end technology services within our registered scope of business."
+        lede="Beyond our SaaS family, Ivano delivers end to end technology services for growing businesses, within our registered scope of business."
       />
       <section>
         <div className="wrap">
