@@ -1350,7 +1350,7 @@ section { padding: 2.5rem 0; position: relative; }
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--muted);
+  background: var(--p3-ink-3); /* #808A97 dark, #87867F light */
 }
 /* Multi-line footer text wraps evenly, so no line ends on a lone word */
 .site-footer p,
