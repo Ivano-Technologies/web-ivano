@@ -1371,6 +1371,10 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-note .footer-clients { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 0.6rem; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
+/* Linked client mark: reset the footer link box so it sits like the others */
+.site-footer .footer-clients a.client-mark-link { display: block; min-height: 0; margin: 0; }
+.footer-clients a.client-mark-link:hover .client-mark,
+.footer-clients a.client-mark-link:focus-visible .client-mark { opacity: 0.8; }
 /* Acronym wordmark for clients without a logo: white like the JUO mark
    (the footer is dark in both themes), centred on the JUO glyph in a 22px box */
 .client-mark {

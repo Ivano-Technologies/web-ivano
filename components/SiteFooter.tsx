@@ -80,6 +80,19 @@ export function SiteFooter() {
                   <span aria-hidden="true">NMDPRA</span>
                 </span>
               </li>
+              <li>
+                <a
+                  className="client-mark-link"
+                  href="https://bayek.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Bayek"
+                >
+                  <span className="client-mark" aria-hidden="true">
+                    BAYEK
+                  </span>
+                </a>
+              </li>
             </ul>
             <p>Organisations we’ve built for.</p>
           </div>

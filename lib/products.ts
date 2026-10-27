@@ -87,6 +87,17 @@ export const PRODUCTS: Product[] = [
     cta: "Visit dashboard",
     image: "/products/nmdpra-ui.png",
   },
+  {
+    name: "Bayek",
+    highlight: "client",
+    badge: "client",
+    badgeLabel: "Client work",
+    description:
+      "Company website for Bayek Integrated Services and Bayek Construction.",
+    href: "https://bayek.org",
+    cta: "Visit site",
+    image: "/products/bayek-ui.png",
+  },
 ];
 
 export const HOME_PRODUCT_THUMBS: HomeProduct[] = PRODUCTS.filter(
