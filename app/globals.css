@@ -1331,7 +1331,7 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
 /* How we work: plain values styled like the Explore links (same size, weight
-   and row rhythm) with a hairline marker in the muted footer grey. */
+   and row rhythm) with a small round dot in the muted grey. */
 .footer-values { list-style: none; margin: 0; padding: 0; }
 .footer-values li {
   display: flex;
@@ -1347,9 +1347,10 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-values li::before {
   content: "";
   flex: none;
-  width: 0.55rem;
-  height: 1px;
-  background: var(--p3-footer-head);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--muted);
 }
 /* Multi-line footer text wraps evenly, so no line ends on a lone word */
 .site-footer p,
