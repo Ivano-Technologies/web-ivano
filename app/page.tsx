@@ -48,8 +48,8 @@ export default function HomePage() {
               <h2>Products and systems</h2>
             </div>
             <p>
-              Our product family and selected client platforms, each on its
-              own host.
+              Our product family and selected client platforms, live ones on
+              their own host.
             </p>
           </div>
           <div className="thumb-grid">
