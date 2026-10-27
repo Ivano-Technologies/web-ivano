@@ -25,6 +25,11 @@ export default function AboutPage() {
             (campaigns, compliance dashboards), backed by consulting and
             managed services.
           </p>
+          <p className="about-build">
+            Next, we are building toward electric cars and green tech for
+            Nigeria. This is a direction we are working toward, not a live
+            service line yet.
+          </p>
           <h2>Where we are</h2>
           <p className="about-where">{SITE.officeArea}.</p>
           <div className="explore-panels">
