@@ -55,7 +55,7 @@ The contact form opens a **mailto** to `hi@ivanotechnologies.com` with Name / Em
 - Palette: bg `#141B26`–`#1A2230` · footer `#0F141C` · accent `#E0442E` / `#E8553A` · body `#9AA3AE` · borders `#2A3342`
 - Type: Exo headings + Montserrat body (`next/font`)
 - No Kompleet teal · no cream chrome
-- Clients strip: JUO white mono JO mark + NMDPRA greyscale placeholder only
+- Clients strip: JUO white mono JO mark, NMDPRA greyscale placeholder and a BAYEK wordmark linking to bayek.org
 
 ## Product link-outs
 
@@ -66,6 +66,7 @@ The contact form opens a **mailto** to `hi@ivanotechnologies.com` with Name / Em
 | NRCS EAM | Product | https://nrcseam.techivano.com |
 | JUO Campaign | Client work | https://www.votejohnupanodey.com |
 | NMDPRA Dashboard | Client work | https://nmdpra-dashboard-techivano.vercel.app |
+| Bayek | Client work | https://bayek.org |
 
 ## Design source of truth
 

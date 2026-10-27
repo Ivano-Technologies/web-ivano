@@ -17,7 +17,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="Product family"
-        lede="Software we build and run, plus selected client systems. Each product opens on its own site."
+        lede="Software we build and run, plus selected client systems. Live products open on their own site."
       />
       <section>
         <div className="wrap">
