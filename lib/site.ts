@@ -10,7 +10,7 @@ export const HERO_TAGLINE =
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
-  rc: "RC 8736090",
+  rc: "RC 9326735",
   description:
     "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
   email: CONTACT_EMAIL,
@@ -29,7 +29,7 @@ export const SITE = {
   pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
-  copyright: "© 2026 Ivano Technologies Ltd · RC 8736090",
+  copyright: "© 2026 Ivano Technologies Ltd · RC 9326735",
 } as const;
 
 export const NAV_LINKS = [
