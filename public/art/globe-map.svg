@@ -4,9 +4,9 @@
   <desc>v2 orthographic projection centered near 18°E, 2°N. Strengthened continent silhouettes for readability at 280 to 400px. Pass 1 navy and grey continent lock; sparse #E0442E markers.</desc>
   <defs>
     <radialGradient id="oceanFill" cx="40%" cy="36%" r="64%">
-      <stop offset="0%" stop-color="#1A2432"/>
-      <stop offset="50%" stop-color="#141B26"/>
-      <stop offset="100%" stop-color="#0F141C"/>
+      <stop offset="0%" stop-color="#0D1520"/>
+      <stop offset="50%" stop-color="#070B12"/>
+      <stop offset="100%" stop-color="#04070C"/>
     </radialGradient>
     <radialGradient id="limbVignette" cx="50%" cy="50%" r="50%">
       <stop offset="70%" stop-color="#0F141C" stop-opacity="0"/>

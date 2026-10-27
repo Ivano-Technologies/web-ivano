@@ -1,18 +1,18 @@
 :root {
   /* Magnific lock — do not replace with skill blue */
-  --bg: #141B26;
-  --bg-elev: #1A2230;
-  --bg-card: #181F2A;
-  --footer: #0F141C;
-  --border: #2A3342;
-  --border-hover: #3A4558;
-  --border-soft: rgba(42, 51, 66, 0.85);
+  --bg: #070B12;            /* near black navy, was #0B111C (orig #141B26) */
+  --bg-elev: #111827;       /* was #151D2B (orig #1A2230) */
+  --bg-card: #0D131D;       /* was #111827 (orig #181F2A) */
+  --footer: #070B12;        /* was #0B111C (orig #0F141C) */
+  --border: #1A2230;        /* was #1F2937 (orig #2A3342) */
+  --border-hover: #273244;  /* was #303B4D (orig #3A4558) */
+  --border-soft: rgba(26, 34, 48, 0.85);
   --accent: #E0442E;
   --accent-hot: #E8553A;
   --btn-secondary: #0E0E10;
   --white: #FFFFFF;
   --body: #9AA3AE;
-  --muted: #5C6673;
+  --muted: #808A97;         /* was #5C6673; 5.63:1 on #070B12 */
   --haze: #3A4A5C;
   --cool: #1E3A55;
   --cool-mid: #2A4A68;
@@ -36,35 +36,35 @@
   /* ---------- Pass 3 tokens: dark (default). Light values live in the
      prefers-color-scheme: light block at the end of this file. ---------- */
   color-scheme: dark;
-  --p3-page: #141B26;            /* = --bg */
-  --p3-surface: #181F2A;         /* = --bg-card */
-  --p3-surface-alt: #1A2230;     /* = --bg-elev */
-  --p3-header-bg: rgba(15, 20, 28, 0.92);
-  --p3-hairline: #2A3342;        /* = --border */
-  --p3-hairline-strong: #3A4558; /* = --border-hover */
+  --p3-page: #070B12;            /* = --bg */
+  --p3-surface: #0D131D;         /* = --bg-card */
+  --p3-surface-alt: #111827;     /* = --bg-elev */
+  --p3-header-bg: rgba(13, 19, 29, 0.92);
+  --p3-hairline: #1A2230;        /* = --border */
+  --p3-hairline-strong: #273244; /* = --border-hover */
   --p3-ink: #FFFFFF;
   --p3-ink-2: #9AA3AE;
-  --p3-ink-3: #5C6673;
-  --p3-text-quiet: #8B95A1;      /* small quiet text on navy: 5.69:1 on #141B26 (was #5C6673, 2.97:1) */
+  --p3-ink-3: #808A97;
+  --p3-text-quiet: #8B95A1;      /* small quiet text on navy: AA on #070B12 and #0D131D */
   --p3-btn-bg: #C93A26;          /* was #E0442E (white 4.17:1), now 5.10:1 */
   --p3-btn-bg-hover: #B3321F;    /* hover goes darker, white 6.19:1 */
   --p3-btn-text: #FFFFFF;
   --p3-btn-radius: 8px;          /* was 2px; cards keep --radius 3px */
   --p3-accent: #E0442E;          /* = --accent */
   --p3-link: #E8553A;            /* = --accent-hot */
-  --p3-footer-bg: #0F141C;       /* = --footer */
-  --p3-footer-text: #8B95A1;     /* was #5C6673 (3.17:1), now 6.08:1 */
+  --p3-footer-bg: #070B12;       /* = --footer */
+  --p3-footer-text: #8B95A1;     /* AA on #070B12 */
   --p3-footer-head: rgba(255, 255, 255, 0.55);
   --p3-footer-strong: #FFFFFF;
-  --p3-footer-rule: rgba(42, 51, 66, 0.7);
+  --p3-footer-rule: rgba(26, 34, 48, 0.7);
   /* Nav lockup (LOGO-LOCK reverse colours) */
   --logo-v: #FFFFFF;
   --logo-i: #9AA3AE;
   --logo-name: #FFFFFF;
   /* Hero globe canvas palette (read by components/HeroGlobe.tsx) */
-  --globe-ocean-0: #1A2432;
-  --globe-ocean-1: #141B26;
-  --globe-ocean-2: #0F141C;
+  --globe-ocean-0: #0D1520;
+  --globe-ocean-1: #070B12;
+  --globe-ocean-2: #04070C;
   --globe-land: #84909E;
   --globe-land-dark: #5C6673;
   --globe-land-light: #9AA3AE;
@@ -309,7 +309,7 @@ img { max-width: 100%; display: block; }
   z-index: 55;
   width: min(22rem, 100%);
   height: calc(100dvh - 57px);
-  background: linear-gradient(180deg, #0F141C 0%, #141B26 100%);
+  background: linear-gradient(180deg, #04070C 0%, #070B12 100%);
   border-left: 1px solid var(--border);
   padding: 1.25rem 1.25rem 1.5rem;
   display: flex;
@@ -425,15 +425,15 @@ img { max-width: 100%; display: block; }
   background:
     radial-gradient(ellipse 50% 45% at 78% 42%, rgba(90, 120, 150, 0.14), transparent 62%),
     radial-gradient(ellipse 28% 32% at 88% 18%, rgba(224, 68, 46, 0.08), transparent 58%),
-    linear-gradient(115deg, #0F141C 0%, #141B26 42%, #1A2230 100%);
+    linear-gradient(115deg, #04070C 0%, #070B12 42%, #0D131D 100%);
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(15, 20, 28, 0.92) 0%, rgba(15, 20, 28, 0.72) 32%, rgba(15, 20, 28, 0.22) 58%, transparent 78%),
-    linear-gradient(180deg, transparent 60%, rgba(20, 27, 38, 0.85) 100%);
+    linear-gradient(90deg, rgba(4, 7, 12, 0.92) 0%, rgba(4, 7, 12, 0.72) 32%, rgba(4, 7, 12, 0.22) 58%, transparent 78%),
+    linear-gradient(180deg, transparent 60%, rgba(7, 11, 18, 0.85) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -613,7 +613,7 @@ img { max-width: 100%; display: block; }
   padding: 0.35rem 0.55rem;
   min-height: 44px;
   border-radius: var(--p3-btn-radius);
-  background: rgba(14, 14, 16, 0.75);
+  background: rgba(13, 19, 29, 0.85);
   border: 1px solid var(--border);
   color: var(--body);
   backdrop-filter: blur(6px);
@@ -858,7 +858,7 @@ section { padding: 2.5rem 0; position: relative; }
   border: 1px solid rgba(224, 68, 46, 0.35);
 }
 .badge-client {
-  background: rgba(42, 51, 66, 0.6);
+  background: rgba(26, 34, 48, 0.6);
   color: var(--body);
   border: 1px solid var(--border);
 }
@@ -1116,7 +1116,7 @@ section { padding: 2.5rem 0; position: relative; }
   margin: 0.5rem 0 0;
   background:
     radial-gradient(ellipse 40% 60% at 100% 0%, rgba(42, 74, 104, 0.28), transparent 50%),
-    linear-gradient(135deg, #0E1520 0%, #1A2230 55%, #121820 100%);
+    linear-gradient(135deg, #090E17 0%, #111827 55%, #0B1019 100%);
   color: var(--white);
   border-radius: var(--radius);
   padding: 2.75rem 2rem;
@@ -1140,7 +1140,7 @@ section { padding: 2.5rem 0; position: relative; }
   background:
     radial-gradient(ellipse 50% 80% at 90% 0%, rgba(42, 74, 104, 0.28), transparent 55%),
     radial-gradient(ellipse 30% 50% at 10% 100%, rgba(224, 68, 46, 0.08), transparent 50%),
-    linear-gradient(180deg, #0F141C, var(--bg));
+    linear-gradient(180deg, #04070C, var(--bg));
   border-bottom: 1px solid var(--border);
 }
 .page-hero p { color: var(--body); max-width: 40rem; font-size: 1rem; }
@@ -1178,7 +1178,7 @@ section { padding: 2.5rem 0; position: relative; }
   padding: 0.7rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: #121820;
+  background: #0A0F18;
   color: var(--white);
   min-height: 44px;
 }
@@ -1193,13 +1193,13 @@ section { padding: 2.5rem 0; position: relative; }
   padding: 0.65rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: #121820;
+  background: #0A0F18;
 }
 
 .contact-aside {
   background:
     radial-gradient(ellipse at 80% 0%, rgba(42, 74, 104, 0.4), transparent 55%),
-    linear-gradient(165deg, #0E1520, #1A2230);
+    linear-gradient(165deg, #090E17, #111827);
   color: var(--white);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -1246,7 +1246,7 @@ section { padding: 2.5rem 0; position: relative; }
 .legal-box {
   background:
     radial-gradient(ellipse at 100% 0%, rgba(224, 68, 46, 0.15), transparent 50%),
-    linear-gradient(135deg, #121820, #1A2230);
+    linear-gradient(135deg, #0B1019, #111827);
   color: var(--white);
   border-radius: var(--radius);
   padding: 1.5rem 1.65rem;
@@ -1330,12 +1330,39 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
+/* How we work: plain values styled like the Explore links (same size, weight
+   and row rhythm) with a small round dot in the muted grey. */
+.footer-values { list-style: none; margin: 0; padding: 0; }
+.footer-values li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  min-height: 32px;
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: var(--p3-footer-text);
+  white-space: nowrap;
+}
+.footer-values li::before {
+  content: "";
+  flex: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--p3-ink-3); /* #808A97 dark, #87867F light */
+}
+/* Multi-line footer text wraps evenly, so no line ends on a lone word */
+.site-footer p,
+.site-footer a,
+.footer-bottom span { text-wrap: balance; }
 
 @media (max-width: 767px) {
   /* Stacked footer: equal visible space between sections. Link columns end in
      a 32px tap target, so drop the last link's margin and pad the text blocks
      to match the empty space under that last link. */
   .footer-grid > div > a:last-child { margin-bottom: 0; }
+  .footer-values li:last-child { margin-bottom: 0; }
   .footer-note { padding-bottom: 10px; }
 }
 @media (min-width: 768px) {
@@ -1349,14 +1376,22 @@ section { padding: 2.5rem 0; position: relative; }
     justify-content: center;
   }
   .site-footer a { min-height: 0; margin-bottom: 0.4rem; }
+  .footer-values li { min-height: 0; margin-bottom: 0.4rem; }
 }
 @media (min-width: 1024px) {
   .site-footer { --footer-col: 18rem; --footer-gap: 3rem; }
 }
 @media (min-width: 1280px) {
-  /* One row of five, centred: a 300px How we work track so no bold lead
-     wraps, then content sized Company, Connect, Selected clients, Explore. */
-  .footer-grid { grid-template-columns: 300px auto auto auto auto; column-gap: 48px; }
+  /* One row of five content sized columns spread edge to edge, so the four
+     gaps between columns are equal. 72.625rem (1162px) keeps the outer edges
+     where the old fixed tracks put them. */
+  .footer-grid {
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
+    column-gap: 48px;
+    max-width: 72.625rem;
+    margin-inline: auto;
+  }
 }
 
 /* Footer text columns: How we work and Selected clients */
@@ -1450,7 +1485,7 @@ section { padding: 2.5rem 0; position: relative; }
   transform: translateX(-50%) translateY(120%);
   transition: transform var(--motion-base) var(--ease-out);
   padding: 0.25rem 0.25rem 0.25rem 0.25rem;
-  background: rgba(15, 20, 28, 0.92);
+  background: rgba(13, 19, 29, 0.92);
   border: 1px solid var(--border);
   border-radius: 999px;
   backdrop-filter: blur(10px);

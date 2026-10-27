@@ -10,7 +10,7 @@ export const HERO_TAGLINE =
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
-  rc: "RC 8736090",
+  rc: "RC 9326735",
   description:
     "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
   email: CONTACT_EMAIL,
@@ -24,12 +24,12 @@ export const SITE = {
   /** Kezie lock: no street address on the site, area and city only. */
   officeArea: `Wuse 2, ${LOCATION}`,
   officeLine: `Office · Wuse 2, ${LOCATION}`,
-  // ?v=2: fresh CDN cache key so the attachment filename header is served.
-  pdfHref: "/company-profile.pdf?v=3",
+  // ?v=4: fresh CDN cache key for the v2.4 profile (RC 9326735).
+  pdfHref: "/company-profile.pdf?v=4",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
-  copyright: "© 2026 Ivano Technologies Ltd · RC 8736090",
+  copyright: "© 2026 Ivano Technologies Ltd · RC 9326735",
 } as const;
 
 export const NAV_LINKS = [
