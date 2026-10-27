@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="World globe centered on Africa">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative world globe">
   <title>Ivano Technologies hero globe</title>
-  <desc>v2 orthographic projection centered ~18°E, 2°N. Strengthened Africa silhouette (Horn, Gulf of Guinea, Maghreb, southern taper) for readability at 280–400px. Equal area intent vs Europe and Greenland. Pass 1 navy + grey continent lock; sparse #E0442E markers.</desc>
+  <desc>v2 orthographic projection centered near 18°E, 2°N. Strengthened continent silhouettes for readability at 280 to 400px. Pass 1 navy and grey continent lock; sparse #E0442E markers.</desc>
   <defs>
     <radialGradient id="oceanFill" cx="40%" cy="36%" r="64%">
       <stop offset="0%" stop-color="#1A2432"/>

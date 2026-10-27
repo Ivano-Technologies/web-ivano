@@ -3,17 +3,16 @@ export const CONTACT_EMAIL = "hi@ivanotechnologies.com";
 /** Kezie lock: never FCT or dashed forms (not "Abuja – FCT", not "Abuja-FCT"). */
 export const LOCATION = "Abuja Nigeria";
 
-/** Home hero tagline — sub line under the H1, not the H1 itself. */
+/** Home hero tagline: sub line under the H1, not the H1 itself. */
 export const HERO_TAGLINE =
-  "Intelligent products and services for modern businesses";
+  "Software products and technology services for growing businesses";
 
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
   rc: "RC 8736090",
-  tagline: "Technology products and services, built to ship.",
   description:
-    "Ivano Technologies builds software products and delivers technology services: finance tools, operations systems and trusted client platforms.",
+    "Software products and technology services for growing businesses. Abuja Nigeria.",
   email: CONTACT_EMAIL,
   phoneDisplay: "+234 806 784 4858",
   phoneHref: "tel:+2348067844858",

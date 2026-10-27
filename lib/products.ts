@@ -29,9 +29,9 @@ export const PRODUCTS: Product[] = [
     badge: "product",
     badgeLabel: "Product · Flagship",
     description:
-      "Bookkeeping and invoicing for Nigerian SMEs: bank imports, simple invoicing and clean financial reports.",
+      "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
-      "Bookkeeping and invoicing for Nigerian SMEs: bank imports, simple invoicing and clean financial reports.",
+      "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     href: "https://kompleet.techivano.com",
     cta: "Open Kompleet",
     image: "/products/kompleet-ui.png",
