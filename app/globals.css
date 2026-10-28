@@ -682,12 +682,6 @@ img { max-width: 100%; display: block; }
 /* Sections */
 section { padding: 2.5rem 0; position: relative; }
 .section-head { margin-bottom: 2rem; max-width: 42rem; }
-.section-head.row {
-  display: grid;
-  gap: 1rem;
-  max-width: none;
-  align-items: end;
-}
 .section-head h2,
 .cta-band h2,
 .about-copy > h2 {
@@ -716,7 +710,6 @@ section { padding: 2.5rem 0; position: relative; }
 
 @media (min-width: 768px) {
   section { padding: 3.25rem 0; }
-  .section-head.row { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .section-head h2,
   .cta-band h2,
   .about-copy > h2 { font-size: 2rem; }
@@ -1153,6 +1146,8 @@ section { padding: 2.5rem 0; position: relative; }
 .contact-grid { display: grid; gap: 1.4rem; }
 @media (min-width: 1024px) {
   .contact-grid { grid-template-columns: 1.15fr 0.85fr; }
+  /* Direct card hugs its content beside the taller form, no empty tail. */
+  .contact-aside { align-self: start; }
 }
 .form {
   background: var(--bg-card);
@@ -1232,15 +1227,6 @@ section { padding: 2.5rem 0; position: relative; }
   text-decoration: none;
 }
 .contact-aside a.contact-plain:hover { color: var(--white); }
-.contact-aside .social-list {
-  display: grid;
-  gap: 0.45rem;
-}
-.contact-aside .social-list a {
-  display: block;
-  width: fit-content;
-  min-height: 32px;
-}
 .contact-pdf { margin-top: 1.35rem; }
 
 .legal-box {
@@ -1352,6 +1338,40 @@ section { padding: 2.5rem 0; position: relative; }
   border-radius: 50%;
   background: var(--p3-ink-3); /* #808A97 dark, #87867F light */
 }
+/* Connect: icon links in a 2 by 2 grid under the @techivano label. 20px
+   glyphs in 40px tap targets, 12px between targets both ways; the grid is
+   pulled 10px out on both sides so the first glyph lines up with the column
+   text and the column is sized to the glyphs, not the tap targets. Muted at rest, footer strong on
+   hover and focus. Specificity beats the light theme footer link rule. */
+.footer-social {
+  display: grid;
+  grid-template-columns: repeat(2, 40px);
+  gap: 12px;
+  margin-inline: -10px;
+}
+/* Handle is a plain label in the muted ink, not a link: no hover, no focus. */
+.footer-handle {
+  display: block;
+  color: var(--p3-ink-3);
+  font-size: 0.86rem;
+  margin-bottom: 0.4rem;
+}
+.site-footer .footer-social a.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  margin: 0;
+  border-radius: 8px;
+  color: var(--p3-ink-3); /* #808A97 dark, #87867F light */
+  transition: color var(--motion-base) var(--ease-out);
+}
+.site-footer .footer-social a.footer-icon:hover,
+.site-footer .footer-social a.footer-icon:focus-visible { color: var(--p3-footer-strong); }
+.footer-icon svg { display: block; width: 20px; height: 20px; }
 /* Multi-line footer text wraps evenly, so no line ends on a lone word */
 .site-footer p,
 .site-footer a,
@@ -1395,7 +1415,6 @@ section { padding: 2.5rem 0; position: relative; }
 }
 
 /* Footer text columns: How we work and Selected clients */
-.footer-note p,
 .footer-note li {
   font-size: 0.82rem;
   line-height: 1.6;
@@ -1403,7 +1422,10 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .footer-note ul { list-style: none; display: grid; gap: 0.55rem; }
 .footer-note strong { color: var(--p3-footer-strong); font-weight: 600; }
-.footer-note .footer-clients { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 0.6rem; }
+/* Two marks on the first line, BAYEK alone on the second; row gap matches
+   the Connect icon grid (12px). */
+.footer-note .footer-clients { list-style: none; display: grid; grid-template-columns: repeat(2, auto); justify-content: start; align-items: center; column-gap: 20px; row-gap: 12px; margin-bottom: 0; }
+.footer-clients li:last-child { grid-column: 1 / -1; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 /* Linked client mark: reset the footer link box so it sits like the others */
