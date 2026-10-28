@@ -29,39 +29,41 @@ export default function PrivacyPage() {
 
       <h2>What we collect and why</h2>
       <div className="legal-table-wrap">
-        <table className="legal-table">
-          <thead>
-            <tr>
-              <th scope="col">What</th>
-              <th scope="col">When</th>
-              <th scope="col">Why</th>
-              <th scope="col">Lawful basis</th>
+        {/* Explicit roles keep table semantics when the rows stack as cards
+            below 640px (display: block drops them in some browsers). */}
+        <table className="legal-table" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">What</th>
+              <th scope="col" role="columnheader">When</th>
+              <th scope="col" role="columnheader">Why</th>
+              <th scope="col" role="columnheader">Lawful basis</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Your name, email address, subject and message</td>
-              <td>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td role="cell" data-label="What">Your name, email address, subject and message</td>
+              <td role="cell" data-label="When">
                 When you use the contact form or email us. The form opens your
                 own email app; nothing is stored on this website.
               </td>
-              <td>
+              <td role="cell" data-label="Why">
                 To read and reply to you, and to follow up on a project you ask
                 about
               </td>
-              <td>
+              <td role="cell" data-label="Lawful basis">
                 Our legitimate interest in answering enquiries, or steps you ask
                 us to take before a contract
               </td>
             </tr>
-            <tr>
-              <td>
+            <tr role="row">
+              <td role="cell" data-label="What">
                 Technical data such as IP address, browser type and the page
                 requested
               </td>
-              <td>Every visit, in our hosting provider&apos;s server logs</td>
-              <td>To keep the site running, secure and free of abuse</td>
-              <td>Our legitimate interest in running a secure website</td>
+              <td role="cell" data-label="When">Every visit, in our hosting provider&apos;s server logs</td>
+              <td role="cell" data-label="Why">To keep the site running, secure and free of abuse</td>
+              <td role="cell" data-label="Lawful basis">Our legitimate interest in running a secure website</td>
             </tr>
           </tbody>
         </table>
