@@ -14,8 +14,8 @@ export const SITE = {
   description:
     "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
   email: CONTACT_EMAIL,
-  phoneDisplay: "+234 806 784 4858",
-  phoneHref: "tel:+2348067844858",
+  phoneDisplay: "+234 903 223 3420",
+  phoneHref: "tel:+2349032233420",
   socialHandle: "@techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
@@ -24,8 +24,8 @@ export const SITE = {
   officeArea: `Wuse 2, ${LOCATION}`,
   /** Contact page office line only (Kezie, 28 Oct). About and structured data keep officeArea. */
   contactOffice: "Saham Plaza, Wuse 2 Abuja",
-  // ?v=4: fresh CDN cache key for the v2.4 profile (RC 9326735).
-  pdfHref: "/company-profile.pdf?v=4",
+  // ?v=5: fresh CDN cache key for the v2.4 profile (RC 9326735).
+  pdfHref: "/company-profile.pdf?v=5",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
   pdfLabel: "Company profile (PDF)",
   incorporated: "Incorporated 27 January 2026 (Corporate Affairs Commission)",
