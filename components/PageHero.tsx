@@ -1,7 +1,7 @@
 type PageHeroProps = {
   eyebrow: string;
   title: string;
-  lede: string;
+  lede?: string;
 };
 
 export function PageHero({ eyebrow, title, lede }: PageHeroProps) {
@@ -10,7 +10,7 @@ export function PageHero({ eyebrow, title, lede }: PageHeroProps) {
       <div className="wrap">
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
-        <p>{lede}</p>
+        {lede ? <p>{lede}</p> : null}
       </div>
     </section>
   );

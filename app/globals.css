@@ -1264,6 +1264,48 @@ section { padding: 2.5rem 0; position: relative; }
 .legal-prose p { margin-bottom: 0.9rem; }
 .legal-prose ul { padding-left: 1.2rem; margin-bottom: 0.9rem; }
 .legal-prose li { margin-bottom: 0.35rem; }
+.legal-prose strong { color: var(--white); font-weight: 600; }
+.legal-table-wrap { overflow-x: auto; margin-bottom: 0.9rem; }
+.legal-table { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: 0.9rem; }
+.legal-table th,
+.legal-table td { text-align: left; vertical-align: top; padding: 0.6rem 0.7rem; border: 1px solid var(--border); }
+.legal-table th { font-weight: 600; color: var(--white); }
+.legal-sign { margin-top: 1.75rem; font-size: 0.9rem; color: var(--muted); }
+/* Below 640px each row stacks as a small card: What is the title, then
+   When, Why and Lawful basis as label and value pairs (labels from
+   data-label). Same type and border tokens as the table; 640px and up is
+   unchanged. The header row stays in the accessibility tree, visually hidden. */
+@media (max-width: 639px) {
+  .legal-table-wrap { overflow-x: visible; }
+  .legal-table,
+  .legal-table tbody,
+  .legal-table tr,
+  .legal-table td { display: block; width: 100%; min-width: 0; }
+  .legal-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  .legal-table tr {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.2rem 0.85rem 0.35rem;
+  }
+  .legal-table tr + tr { margin-top: 0.75rem; }
+  .legal-table td { border: 0; padding: 0.5rem 0; }
+  .legal-table td:first-child { font-weight: 600; color: var(--white); padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  .legal-table td[data-label]:not(:first-child)::before {
+    content: attr(data-label);
+    content: attr(data-label) / "";
+    display: block;
+    font-weight: 600;
+    color: var(--white);
+  }
+}
 
 .hp {
   position: absolute;
@@ -1725,6 +1767,12 @@ section { padding: 2.5rem 0; position: relative; }
   html:not([data-theme="dark"]) .eyebrow { color: var(--p3-accent); }
   html:not([data-theme="dark"]) .eyebrow::before { background: var(--p3-accent); box-shadow: none; }
   html:not([data-theme="dark"]) .about-copy > h2, html:not([data-theme="dark"]) .legal-prose h2 { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .legal-prose strong, html:not([data-theme="dark"]) .legal-table th { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .legal-table th, html:not([data-theme="dark"]) .legal-table td { border-color: var(--p3-hairline); }
+  @media (max-width: 639px) {
+    html:not([data-theme="dark"]) .legal-table tr, html:not([data-theme="dark"]) .legal-table td:first-child { border-color: var(--p3-hairline); }
+    html:not([data-theme="dark"]) .legal-table td:first-child, html:not([data-theme="dark"]) .legal-table td[data-label]:not(:first-child)::before { color: var(--p3-ink); }
+  }
   html:not([data-theme="dark"]) .cluster { background: var(--p3-surface); border-color: var(--p3-hairline); }
   html:not([data-theme="dark"]) .cluster h3 { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .cluster p { color: var(--p3-ink-2); }
