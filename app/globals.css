@@ -496,7 +496,7 @@ img { max-width: 100%; display: block; }
   color: var(--body);
   max-width: 30rem;
   margin-bottom: 1.85rem;
-  line-height: 1.7;
+  line-height: 1.5;
   font-weight: 400;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
