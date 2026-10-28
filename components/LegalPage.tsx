@@ -6,8 +6,8 @@ import { SITE } from "@/lib/site";
 type LegalPageProps = {
   title: string;
   path: string;
-  /** Hero sub line under the page title. */
-  lede: string;
+  /** Optional hero sub line under the page title. */
+  lede?: string;
   children: ReactNode;
 };
 
