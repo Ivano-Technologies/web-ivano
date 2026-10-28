@@ -33,9 +33,8 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Connect</h4>
-            <a href={SITE.socialHref} target="_blank" rel="noopener noreferrer">
-              {SITE.socialHandle}
-            </a>
+            {/* Plain text: the X icon below already links the profile. */}
+            <span className="footer-handle">{SITE.socialHandle}</span>
             <div className="footer-social">
               {SOCIAL_LINKS.map((link) => (
                 <a

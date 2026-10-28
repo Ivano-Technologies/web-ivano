@@ -1345,15 +1345,23 @@ section { padding: 2.5rem 0; position: relative; }
   border-radius: 50%;
   background: var(--p3-ink-3); /* #808A97 dark, #87867F light */
 }
-/* Connect: one row of icon links under the @techivano line. 20px glyphs in
-   40px tap targets, 12px between targets; the row is pulled 10px out on both
-   sides so the first glyph lines up with the column text and the column is
-   sized to the glyphs, not the tap targets. Muted at rest, footer strong on
+/* Connect: icon links in a 2 by 2 grid under the @techivano label. 20px
+   glyphs in 40px tap targets, 12px between targets both ways; the grid is
+   pulled 10px out on both sides so the first glyph lines up with the column
+   text and the column is sized to the glyphs, not the tap targets. Muted at rest, footer strong on
    hover and focus. Specificity beats the light theme footer link rule. */
 .footer-social {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 40px);
   gap: 12px;
   margin-inline: -10px;
+}
+/* Handle is a plain label in the muted ink, not a link: no hover, no focus. */
+.footer-handle {
+  display: block;
+  color: var(--p3-ink-3);
+  font-size: 0.86rem;
+  margin-bottom: 0.4rem;
 }
 .site-footer .footer-social a.footer-icon {
   display: inline-flex;
@@ -1421,7 +1429,9 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .footer-note ul { list-style: none; display: grid; gap: 0.55rem; }
 .footer-note strong { color: var(--p3-footer-strong); font-weight: 600; }
-.footer-note .footer-clients { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 0; }
+/* Two marks on the first line, BAYEK alone on the second; row gap matches
+   the Connect icon grid (12px). */
+.footer-note .footer-clients { list-style: none; display: grid; grid-template-columns: repeat(2, auto); justify-content: start; justify-items: start; align-items: center; column-gap: 20px; row-gap: 12px; margin-bottom: 0; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 /* Linked client mark: reset the footer link box so it sits like the others */

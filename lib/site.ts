@@ -17,7 +17,6 @@ export const SITE = {
   phoneDisplay: "+234 806 784 4858",
   phoneHref: "tel:+2348067844858",
   socialHandle: "@techivano",
-  socialHref: "https://x.com/techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
   location: LOCATION,
@@ -60,6 +59,11 @@ export const SOCIAL_LINKS = [
     name: "YouTube",
     label: "YouTube",
     href: "https://www.youtube.com/@techivano",
+  },
+  {
+    name: "Facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61588362925973",
   },
 ] as const;
 
