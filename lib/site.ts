@@ -23,7 +23,6 @@ export const SITE = {
   location: LOCATION,
   /** Kezie lock: no street address on the site, area and city only. */
   officeArea: `Wuse 2, ${LOCATION}`,
-  officeLine: `Office · Wuse 2, ${LOCATION}`,
   // ?v=4: fresh CDN cache key for the v2.4 profile (RC 9326735).
   pdfHref: "/company-profile.pdf?v=4",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
