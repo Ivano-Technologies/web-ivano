@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SocialGlyph } from "@/components/SocialGlyph";
 import { FOOTER_EXPLORE, LEGAL_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
 /** Footer "How we work": three short values, one line each, no full stops. */
@@ -32,19 +33,22 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Connect</h4>
-            {SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
-            <Link href="/contact">{SITE.officeLine}</Link>
+            {/* Plain text: the X icon below already links the profile. */}
+            <span className="footer-handle">{SITE.socialHandle}</span>
+            <div className="footer-social">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  className="footer-icon"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ivano Technologies on ${link.name}`}
+                >
+                  <SocialGlyph name={link.name} />
+                </a>
+              ))}
+            </div>
           </div>
           <div className="footer-note">
             <h4>Selected clients</h4>
@@ -81,7 +85,6 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
-            <p>Organisations we’ve built for.</p>
           </div>
           <div>
             <h4>Explore</h4>

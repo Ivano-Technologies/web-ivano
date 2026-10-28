@@ -17,13 +17,13 @@ export const SITE = {
   phoneDisplay: "+234 806 784 4858",
   phoneHref: "tel:+2348067844858",
   socialHandle: "@techivano",
-  socialHref: "https://x.com/techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
   location: LOCATION,
   /** Kezie lock: no street address on the site, area and city only. */
   officeArea: `Wuse 2, ${LOCATION}`,
-  officeLine: `Office · Wuse 2, ${LOCATION}`,
+  /** Contact page office line only (Kezie, 28 Oct). About and structured data keep officeArea. */
+  contactOffice: "Saham Plaza, Wuse 2 Abuja",
   // ?v=4: fresh CDN cache key for the v2.4 profile (RC 9326735).
   pdfHref: "/company-profile.pdf?v=4",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
@@ -61,6 +61,11 @@ export const SOCIAL_LINKS = [
     name: "YouTube",
     label: "YouTube",
     href: "https://www.youtube.com/@techivano",
+  },
+  {
+    name: "Facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61588362925973",
   },
 ] as const;
 

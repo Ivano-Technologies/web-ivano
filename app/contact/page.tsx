@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { createMetadata } from "@/lib/metadata";
-import { SITE, SOCIAL_LINKS } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Contact",
@@ -40,29 +40,8 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt>Social</dt>
-                  <dd className="social-list">
-                    {SOCIAL_LINKS.map((link) => (
-                      <a
-                        key={link.href}
-                        className="contact-plain"
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={link.name}
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Web</dt>
-                  <dd>{SITE.webDisplay}</dd>
-                </div>
-                <div>
                   <dt>Office</dt>
-                  <dd>{SITE.officeArea}</dd>
+                  <dd>{SITE.contactOffice}</dd>
                 </div>
               </dl>
               <p className="contact-pdf">
