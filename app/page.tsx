@@ -43,14 +43,8 @@ export default function HomePage() {
 
       <section id="products">
         <div className="wrap">
-          <div className="section-head row">
-            <div>
-              <h2>Products and systems</h2>
-            </div>
-            <p>
-              Our product family and selected client platforms, live ones on
-              their own host.
-            </p>
+          <div className="section-head">
+            <h2>Products and systems</h2>
           </div>
           <div className="thumb-grid">
             {HOME_PRODUCT_THUMBS.map((product) => (
