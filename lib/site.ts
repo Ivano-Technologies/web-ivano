@@ -14,8 +14,8 @@ export const SITE = {
   description:
     "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
   email: CONTACT_EMAIL,
-  phoneDisplay: "+234 806 784 4858",
-  phoneHref: "tel:+2348067844858",
+  phoneDisplay: "+234 903 223 3420",
+  phoneHref: "tel:+2349032233420",
   socialHandle: "@techivano",
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
