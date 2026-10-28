@@ -1146,6 +1146,8 @@ section { padding: 2.5rem 0; position: relative; }
 .contact-grid { display: grid; gap: 1.4rem; }
 @media (min-width: 1024px) {
   .contact-grid { grid-template-columns: 1.15fr 0.85fr; }
+  /* Direct card hugs its content beside the taller form, no empty tail. */
+  .contact-aside { align-self: start; }
 }
 .form {
   background: var(--bg-card);
@@ -1225,15 +1227,6 @@ section { padding: 2.5rem 0; position: relative; }
   text-decoration: none;
 }
 .contact-aside a.contact-plain:hover { color: var(--white); }
-.contact-aside .social-list {
-  display: grid;
-  gap: 0.45rem;
-}
-.contact-aside .social-list a {
-  display: block;
-  width: fit-content;
-  min-height: 32px;
-}
 .contact-pdf { margin-top: 1.35rem; }
 
 .legal-box {
