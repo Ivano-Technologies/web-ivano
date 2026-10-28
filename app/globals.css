@@ -492,7 +492,7 @@ img { max-width: 100%; display: block; }
   max-width: 13ch;
 }
 .hero .lede {
-  font-size: 0.98rem;
+  font-size: 1.176rem; /* 0.98rem x 1.2 (18.816px) */
   color: var(--body);
   max-width: 30rem;
   margin-bottom: 1.85rem;
@@ -633,7 +633,7 @@ img { max-width: 100%; display: block; }
 @media (min-width: 768px) {
   .hero { padding: 3.25rem 0; }
   .hero h1 { font-size: clamp(2.7rem, 5.4vw, 3.55rem); }
-  .hero .lede { font-size: 1.05rem; }
+  .hero .lede { font-size: 1.26rem; } /* 1.05rem x 1.2 (20.16px) */
   .hero-globe { width: min(100%, 400px); }
   .hero-art { min-height: 280px; }
   .chip { min-height: 0; }
