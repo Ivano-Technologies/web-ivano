@@ -1431,7 +1431,8 @@ section { padding: 2.5rem 0; position: relative; }
 .footer-note strong { color: var(--p3-footer-strong); font-weight: 600; }
 /* Two marks on the first line, BAYEK alone on the second; row gap matches
    the Connect icon grid (12px). */
-.footer-note .footer-clients { list-style: none; display: grid; grid-template-columns: repeat(2, auto); justify-content: start; justify-items: start; align-items: center; column-gap: 20px; row-gap: 12px; margin-bottom: 0; }
+.footer-note .footer-clients { list-style: none; display: grid; grid-template-columns: repeat(2, auto); justify-content: start; align-items: center; column-gap: 20px; row-gap: 12px; margin-bottom: 0; }
+.footer-clients li:last-child { grid-column: 1 / -1; }
 .footer-clients li { display: flex; align-items: center; gap: 0.6rem; min-height: 22px; }
 .footer-clients img { height: 22px; width: auto; display: block; }
 /* Linked client mark: reset the footer link box so it sits like the others */
