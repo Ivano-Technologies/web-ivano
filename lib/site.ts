@@ -20,7 +20,7 @@ export const SITE = {
   webDisplay: "www.ivanotechnologies.com",
   webHref: "https://www.ivanotechnologies.com",
   location: LOCATION,
-  /** Kezie lock: no street address on the site, area and city only. */
+  /** Area and city, shown on About and the legal pages. Contact shows the building (contactOffice) instead. No street address on the site. */
   officeArea: `Wuse 2, ${LOCATION}`,
   /** Contact page office line only (Kezie, 28 Oct). About and structured data keep officeArea. */
   contactOffice: "Saham Plaza, Wuse 2 Abuja",
