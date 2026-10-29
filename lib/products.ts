@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
       "Company website for Bayek Integrated Services and Bayek Construction.",
     href: "https://bayek.org",
     cta: "Visit site",
-    image: "/products/bayek-ui.png",
+    image: "/products/bayek-ui-v2.png",
   },
 ];
 
