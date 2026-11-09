@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { PageHero } from "@/components/PageHero";
 import { createMetadata } from "@/lib/metadata";
-import { SITE } from "@/lib/site";
+import { LEGAL_LAST_UPDATED, SITE } from "@/lib/site";
 
 type LegalPageProps = {
   title: string;
@@ -17,6 +17,14 @@ export function legalMetadata(title: string, path: string) {
     description: `${title} for ${SITE.name}.`,
     path,
   });
+}
+
+export function MailLink({ address }: { address: string }) {
+  return <a href={`mailto:${address}`}>{address}</a>;
+}
+
+export function LegalUpdated() {
+  return <p>Last updated: {LEGAL_LAST_UPDATED}</p>;
 }
 
 export function LegalPage({

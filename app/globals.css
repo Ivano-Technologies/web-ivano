@@ -821,7 +821,9 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .thumb-card p { color: var(--body); font-size: 0.86rem; margin-bottom: 0.65rem; }
 .card p,
-.cluster p { color: var(--body); font-size: 0.9rem; flex: 1; }
+.cluster p { color: var(--body); font-size: 0.9rem; }
+.card .card-desc,
+.cluster p { flex: 1; }
 .thumb-card .cta-row a,
 .card .cta-row a {
   font-weight: 600;
@@ -831,6 +833,13 @@ section { padding: 2.5rem 0; position: relative; }
   align-items: center;
   min-height: 44px;
 }
+.card .cta-row a.btn {
+  color: var(--p3-btn-text);
+  font-size: 0.9rem;
+  width: fit-content;
+  text-decoration: none;
+}
+.card .cta-row a.btn:hover { text-decoration: none; }
 .card .cta-row { margin-top: auto; }
 .cta-arrow { color: inherit; }
 
@@ -891,6 +900,61 @@ section { padding: 2.5rem 0; position: relative; }
     object-position: 0% 0%;
   }
   .bento .card .cta-row { margin-top: auto; }
+}
+
+.card.featured.product-offer {
+  height: auto;
+  margin-bottom: 1.1rem;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(224, 68, 46, 0.12), transparent 50%),
+    var(--bg-card);
+}
+.sale-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 2.25rem;
+}
+.sale-grid .card { height: auto; }
+@media (min-width: 768px) {
+  .sale-grid { grid-template-columns: 1fr 1fr; }
+}
+.client-work-head { margin-top: 0.35rem; }
+.product-price {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  flex: none;
+  margin: 0;
+}
+.product-price-note,
+.product-includes-label,
+.product-pricing-request {
+  flex: none;
+  font-size: 0.86rem;
+  color: var(--body);
+  margin: 0;
+}
+.product-includes {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--body);
+  font-size: 0.86rem;
+}
+.product-includes li { margin-bottom: 0.25rem; }
+.product-fineprint {
+  flex: none;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+.product-fineprint a { font-weight: 600; }
+.products-legal-line {
+  margin-top: 1.5rem;
+  padding-bottom: 0;
 }
 
 /* Mini-UI thumbs */
@@ -1228,6 +1292,38 @@ section { padding: 2.5rem 0; position: relative; }
 }
 .contact-aside a.contact-plain:hover { color: var(--white); }
 .contact-pdf { margin-top: 1.35rem; }
+.contact-form-hint {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+.contact-follow {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .contact-follow { grid-template-columns: 1fr 1fr; }
+}
+.contact-follow h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+  font-weight: 600;
+}
+.contact-follow ul {
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.65rem;
+}
+.contact-follow li,
+.contact-follow p {
+  color: var(--body);
+  font-size: 0.92rem;
+}
+.contact-follow p { margin-bottom: 0.65rem; }
+.contact-legal-links { font-size: 0.9rem; }
 
 .legal-box {
   background:
@@ -1741,7 +1837,14 @@ section { padding: 2.5rem 0; position: relative; }
   html:not([data-theme="dark"]) .card .thumb-media { border-color: var(--p3-hairline); }
   html:not([data-theme="dark"]) .thumb-card h3, html:not([data-theme="dark"]) .card h3 { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .thumb-card p, html:not([data-theme="dark"]) .card p { color: var(--p3-ink-2); }
+  html:not([data-theme="dark"]) .product-price { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .product-fineprint { color: var(--p3-ink-3); }
+  html:not([data-theme="dark"]) .contact-follow h3 { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .contact-follow li,
+  html:not([data-theme="dark"]) .contact-follow p,
+  html:not([data-theme="dark"]) .contact-form-hint { color: var(--p3-ink-2); }
   html:not([data-theme="dark"]) .thumb-card .cta-row a, html:not([data-theme="dark"]) .card .cta-row a { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .card .cta-row a.btn { color: var(--p3-btn-text); }
   html:not([data-theme="dark"]) .cta-arrow { color: var(--p3-accent); }
   html:not([data-theme="dark"]) .badge-client { background: var(--p3-surface-alt); border-color: var(--p3-hairline); color: var(--p3-ink-2); }
   html:not([data-theme="dark"]) .badge-product { background: transparent; border-color: rgba(201, 58, 38, 0.45); color: var(--p3-ink); }
@@ -1777,7 +1880,8 @@ section { padding: 2.5rem 0; position: relative; }
   html:not([data-theme="dark"]) .cluster h3 { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .cluster p { color: var(--p3-ink-2); }
   html:not([data-theme="dark"]) .cluster:hover, html:not([data-theme="dark"]) .cluster:has(:focus-visible) { border-color: var(--p3-hairline-strong); box-shadow: none; }
-  html:not([data-theme="dark"]) .bento .card.featured { background: var(--p3-surface); }
+  html:not([data-theme="dark"]) .bento .card.featured,
+  html:not([data-theme="dark"]) .card.featured.product-offer { background: var(--p3-surface); }
   html:not([data-theme="dark"]) .explore-panel p { color: #9AA3AE; }
   html:not([data-theme="dark"]) .legal-box { background: var(--p3-surface); border-color: var(--p3-hairline); color: var(--p3-ink); }
   html:not([data-theme="dark"]) .legal-box p { color: var(--p3-ink-2); }

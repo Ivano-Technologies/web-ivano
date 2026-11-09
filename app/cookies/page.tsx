@@ -40,6 +40,13 @@ export default function CookiesPage() {
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </p>
 
+      <h2>Other notices</h2>
+      <p>
+        See also our <Link href="/terms">Terms of Service</Link>,{" "}
+        <Link href="/refunds">Refund Policy</Link> and{" "}
+        <Link href="/privacy">Privacy Policy</Link>.
+      </p>
+
       <p className="legal-sign">
         Ivano Technologies Ltd · {SITE.rc} · {SITE.officeArea}
       </p>
