@@ -26,14 +26,24 @@ const PUBLIC_WWW_PATHS = [
 ];
 
 describe("kompleet legacy redirects", () => {
-  it("emits a permanent (308) Next.js rule for each leftover prefix", () => {
+  it("emits a permanent (308) Next.js rule for each leftover prefix and subpath", () => {
     const redirects = kompleetRedirects();
-    assert.equal(redirects.length, KOMPLEET_LEGACY_PREFIXES.length);
+    assert.equal(redirects.length, KOMPLEET_LEGACY_PREFIXES.length * 2);
     for (const prefix of KOMPLEET_LEGACY_PREFIXES) {
-      const rule = redirects.find((item) => item.source === `${prefix}/:path*`);
-      assert.ok(rule, `missing redirect for ${prefix}`);
-      assert.equal(rule.permanent, true);
-      assert.equal(rule.destination, `${KOMPLEET_ORIGIN}${prefix}/:path*`);
+      const exact = redirects.find((item) => item.source === prefix);
+      assert.ok(exact, `missing exact redirect for ${prefix}`);
+      assert.equal(exact.permanent, true);
+      assert.equal(exact.destination, `${KOMPLEET_ORIGIN}${prefix}`);
+
+      const nested = redirects.find(
+        (item) => item.source === `${prefix}/:path+`,
+      );
+      assert.ok(nested, `missing nested redirect for ${prefix}`);
+      assert.equal(nested.permanent, true);
+      assert.equal(
+        nested.destination,
+        `${KOMPLEET_ORIGIN}${prefix}/:path+`,
+      );
     }
   });
 

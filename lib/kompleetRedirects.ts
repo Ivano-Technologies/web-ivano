@@ -35,13 +35,23 @@ function formatSearch(search: string): string {
   return search.startsWith("?") ? search : `?${search}`;
 }
 
-/** Next.js `permanent: true` is a 308 and forwards the request query string. */
+/**
+ * Exact prefix + one-or-more subpath. A single `:path*` match on an empty
+ * rest segment would 308 to `.../login/` and Kompleet would 308 again to `/login`.
+ */
 export function kompleetRedirects(): KompleetRedirect[] {
-  return KOMPLEET_LEGACY_PREFIXES.map((prefix) => ({
-    source: `${prefix}/:path*`,
-    destination: `${KOMPLEET_ORIGIN}${prefix}/:path*`,
-    permanent: true,
-  }));
+  return KOMPLEET_LEGACY_PREFIXES.flatMap((prefix) => [
+    {
+      source: prefix,
+      destination: `${KOMPLEET_ORIGIN}${prefix}`,
+      permanent: true,
+    },
+    {
+      source: `${prefix}/:path+`,
+      destination: `${KOMPLEET_ORIGIN}${prefix}/:path+`,
+      permanent: true,
+    },
+  ]);
 }
 
 export function isKompleetLegacyPath(pathname: string): boolean {
