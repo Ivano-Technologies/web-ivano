@@ -12,7 +12,14 @@ import {
 } from "./products.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const NAIRA_OR_AMOUNT = /₦|5,000/;
+/** Bare ₦ as the Naira symbol is allowed. Amounts (₦ plus digits, NGN plus digits, 5,000 / 5000) are not. */
+const PRICE_AMOUNT = /₦\s*[\d,]+|\bNGN\s*[\d,]+|\b5,000\b|\b5000\b/;
+const KOMPLEET_PRICE = /₦\s*5,?000|\b5,000\b|\b5000\b/;
+const NO_PRICE_ROUTES = [
+  "app/terms/page.tsx",
+  "app/refunds/page.tsx",
+  "app/products/page.tsx",
+] as const;
 const OLD_SALE_NOW_LINES = [
   "One-off payment via Paystack",
   "Not happy?",
@@ -64,17 +71,25 @@ describe("Kompleet founding lifetime copy", () => {
     assert.ok((kompleet.includes?.length ?? 0) >= 3);
   });
 
-  it("does not publish a naira amount outside legal pages", () => {
+  it("does not publish a naira or NGN amount anywhere in source", () => {
     const failures: string[] = [];
     for (const file of walk(ROOT)) {
       const rel = relative(ROOT, file).replaceAll("\\", "/");
-      if (LEGAL_PREFIXES.some((prefix) => rel.startsWith(prefix))) {
-        continue;
-      }
       if (rel.endsWith(".test.ts") || rel.endsWith(".test.mjs")) {
         continue;
       }
-      if (NAIRA_OR_AMOUNT.test(readFileSync(file, "utf8"))) {
+      if (PRICE_AMOUNT.test(readFileSync(file, "utf8"))) {
+        failures.push(rel);
+      }
+    }
+    assert.equal(failures.length, 0, failures.join(", "));
+  });
+
+  it("does not publish ₦5,000 on /terms, /refunds or /products", () => {
+    const failures: string[] = [];
+    for (const rel of NO_PRICE_ROUTES) {
+      const text = readFileSync(join(ROOT, rel), "utf8");
+      if (KOMPLEET_PRICE.test(text) || PRICE_AMOUNT.test(text)) {
         failures.push(rel);
       }
     }
@@ -96,7 +111,7 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(visible, FOUNDING_NOTE);
     assert.match(page, /href="\/terms">Terms of Service</);
     assert.match(page, /href="\/refunds">Refund Policy</);
-    assert.equal(NAIRA_OR_AMOUNT.test(page), false);
+    assert.equal(PRICE_AMOUNT.test(page), false);
 
     const failures: string[] = [];
     for (const file of walk(ROOT)) {
