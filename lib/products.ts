@@ -2,6 +2,8 @@ export type ProductBadge = "product" | "client";
 
 export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
 
+export const KOMPLEET_PRICING_HREF = "https://kompleet.techivano.com/pricing";
+
 export type Product = {
   name: string;
   highlight: ProductHighlight;
@@ -15,6 +17,11 @@ export type Product = {
   featured?: boolean;
   /** Show on the home product thumb grid */
   homeThumb?: boolean;
+  price?: string;
+  priceNote?: string;
+  includesLabel?: string;
+  includes?: readonly string[];
+  pricingOnRequest?: boolean;
 };
 
 export type HomeProduct = Product & {
@@ -27,16 +34,26 @@ export const PRODUCTS: Product[] = [
     name: "Kompleet",
     highlight: "kompleet",
     badge: "product",
-    badgeLabel: "Product · Waitlist",
+    badgeLabel: "Founding offer",
     description:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
-    href: "mailto:hi@ivanotechnologies.com?subject=Kompleet%20waitlist",
-    cta: "Join the waitlist",
-    image: "/products/kompleet-ui.png",
+    href: KOMPLEET_PRICING_HREF,
+    cta: "Get lifetime access for ₦5,000",
+    image: "/products/kompleet-art.png",
     featured: true,
     homeThumb: true,
+    price: "₦5,000 one-off payment, lifetime access (VAT inclusive)",
+    priceNote:
+      "Per user: one licence covers one named user account. For the first 100 users only. No monthly or annual fees.",
+    includesLabel: "What's included, for each licensed user:",
+    includes: [
+      "Invoicing",
+      "Bank statement imports and expense tracking",
+      "Financial reports",
+      "Future improvements to these core features (separately priced add-ons excluded)",
+    ],
   },
   {
     name: "Ivano PMS",
@@ -51,6 +68,7 @@ export const PRODUCTS: Product[] = [
     cta: "Open PMS",
     image: "/products/pms-ui.png",
     homeThumb: true,
+    pricingOnRequest: true,
   },
   {
     name: "NRCS EAM",
@@ -65,6 +83,7 @@ export const PRODUCTS: Product[] = [
     cta: "Open NRCS EAM",
     image: "/products/nrcs-eam-ui.png",
     homeThumb: true,
+    pricingOnRequest: true,
   },
   {
     name: "JUO Campaign",
@@ -108,6 +127,10 @@ export function isExternalHref(href: string): boolean {
 export const HOME_PRODUCT_THUMBS: HomeProduct[] = PRODUCTS.filter(
   (product): product is HomeProduct =>
     product.homeThumb === true && product.homeDescription !== undefined,
+);
+
+export const SALE_PRODUCTS: Product[] = PRODUCTS.filter(
+  (product) => product.badge === "product",
 );
 
 export const HOME_CLIENT_CARDS: Product[] = PRODUCTS.filter(
