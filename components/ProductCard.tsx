@@ -18,6 +18,11 @@ export function ProductCard({
 }: ProductCardProps) {
   const badgeClass =
     product.badge === "client" ? "badge badge-client" : "badge badge-product";
+  const hasSecondary =
+    Boolean(product.secondaryCta) && Boolean(product.secondaryHref);
+  // Featured buy CTAs stay a primary button. A secondary link means this is
+  // not a buy action, so both links stay text.
+  const useButtonCta = featured && !hasSecondary;
 
   return (
     <article
@@ -56,14 +61,14 @@ export function ProductCard({
       ) : null}
       <div className="cta-row">
         <a
-          className={featured ? "btn btn-primary" : undefined}
+          className={useButtonCta ? "btn btn-primary" : undefined}
           href={product.href}
           {...(isExternalHref(product.href)
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
         >
           {product.cta}
-          {featured ? null : (
+          {useButtonCta ? null : (
             <>
               {" "}
               <span className="cta-arrow" aria-hidden="true">
@@ -72,6 +77,19 @@ export function ProductCard({
             </>
           )}
         </a>
+        {product.secondaryCta && product.secondaryHref ? (
+          <a
+            href={product.secondaryHref}
+            {...(isExternalHref(product.secondaryHref)
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+          >
+            {product.secondaryCta}{" "}
+            <span className="cta-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        ) : null}
       </div>
       {afterCta}
     </article>
