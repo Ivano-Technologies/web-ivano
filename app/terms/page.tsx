@@ -66,7 +66,8 @@ export default function TermsPage() {
         pay is the price shown at checkout at the time you pay.
       </p>
       <p>
-        3.2 All prices are in <strong>Nigerian Naira (₦)</strong> and are{" "}
+        3.2 When shown at checkout, prices are in{" "}
+        <strong>Nigerian Naira (₦)</strong> and are{" "}
         <strong>VAT inclusive</strong>. The price shown is the total you pay;
         no tax is added at checkout.
       </p>
@@ -125,8 +126,9 @@ export default function TermsPage() {
       <p>
         5.1 <strong>What you get.</strong> Kompleet&apos;s Founding Lifetime
         offer is limited to <strong>100 licences (seats)</strong>. Each licence
-        costs a one-off payment of <strong>₦5,000 (VAT inclusive)</strong> and
-        gives lifetime access to Kompleet for{" "}
+        is a one-off payment at the price shown at checkout when the offer
+        opens (<strong>VAT inclusive</strong>) and gives lifetime access to
+        Kompleet for{" "}
         <strong>one named user account</strong>. A licence is personal to that
         user: it cannot be shared between people or used to give access to
         additional users, and each additional user needs their own licence. The
@@ -153,7 +155,7 @@ export default function TermsPage() {
         named user in 5.1.
       </p>
       <p>
-        5.4 <strong>Limited offer (100 seats).</strong> The ₦5,000 price
+        5.4 <strong>Limited offer (100 seats).</strong> The founding price
         applies only to the first 100 licences sold. Once the 100th seat has
         been sold, the offer closes and the website will be updated.{" "}
         <strong>
