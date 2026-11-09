@@ -24,8 +24,10 @@ export default function ContactPage() {
           <div className="contact-grid">
             <div>
               <p className="contact-form-hint">
-                For refunds, use the subject &quot;Refund request&quot; and
-                include your Paystack transaction reference.
+                For refunds, email{" "}
+                <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>{" "}
+                with the subject &quot;Refund request&quot; and include your
+                Paystack transaction reference.
               </p>
               <ContactForm />
             </div>
@@ -80,12 +82,14 @@ export default function ContactPage() {
               <ul>
                 <li>
                   <strong>Billing, receipts and refunds:</strong> email{" "}
-                  <a href={`mailto:${SITE.email}`}>{SITE.email}</a> with your
-                  Paystack transaction reference. See our{" "}
+                  <a href={`mailto:${SITE.supportEmail}`}>
+                    {SITE.supportEmail}
+                  </a>{" "}
+                  with your Paystack transaction reference. See our{" "}
                   <Link href="/refunds">Refund Policy</Link>.
                 </li>
                 <li>
-                  <strong>Payment disputes:</strong> email{" "}
+                  <strong>Complaints and disputes:</strong> email{" "}
                   <a href={`mailto:${SITE.disputesEmail}`}>
                     {SITE.disputesEmail}
                   </a>

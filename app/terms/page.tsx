@@ -270,9 +270,9 @@ export default function TermsPage() {
 
       <h2>14. Complaints and disputes</h2>
       <p>
-        14.1 If you have a problem, please email {mail} first. For Paystack or
-        payment disputes, email {supportMail}. We aim to acknowledge within 2
-        working days and to resolve within 14 days.
+        14.1 If you have a problem, or for any payment disputes, email{" "}
+        {supportMail}. We aim to acknowledge within 2 working days and to
+        resolve within 14 days.
       </p>
       <p>
         14.2 If we cannot resolve it within 30 days, either of us may refer the
