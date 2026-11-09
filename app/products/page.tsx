@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Products and pricing",
   description:
-    "Software we build and run. Prices are in Nigerian Naira (₦) and are VAT inclusive. Payments are processed securely by Paystack.",
+    "Software we build and run. Payments are processed securely by Paystack.",
   path: "/products",
 });
 
@@ -25,7 +25,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="Products and pricing"
-        lede="Software we build and run. Prices are in Nigerian Naira (₦) and are VAT inclusive. Payments are processed securely by Paystack."
+        lede="Software we build and run. Payments are processed securely by Paystack."
       />
       <section>
         <div className="wrap">
@@ -42,10 +42,7 @@ export default function ProductsPage() {
                   <Link href="/terms">Terms of Service</Link>. Not happy? Full
                   refund within 14 days. See our{" "}
                   <Link href="/refunds">Refund Policy</Link>. Access starts
-                  immediately after payment. Any payment received after the
-                  100th seat is sold is refunded in full (
-                  <Link href="/refunds#section-4">Refund Policy</Link>, section
-                  4).
+                  immediately after payment.
                 </p>
               }
             />
@@ -82,8 +79,7 @@ export default function ProductsPage() {
             </Link>
           </div>
           <p className="trust products-legal-line">
-            Ivano Technologies Ltd · {SITE.rc} · Prices in Nigerian Naira (₦),
-            VAT inclusive · Payments by Paystack
+            Ivano Technologies Ltd · {SITE.rc} · Payments by Paystack
           </p>
         </div>
       </section>

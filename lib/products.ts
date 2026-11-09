@@ -2,7 +2,10 @@ export type ProductBadge = "product" | "client";
 
 export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
 
-export const KOMPLEET_PRICING_HREF = "https://kompleet.techivano.com/pricing";
+export const KOMPLEET_HREF = "https://kompleet.techivano.com";
+export const KOMPLEET_PRICING_HREF = `${KOMPLEET_HREF}/pricing`;
+export const KOMPLEET_FOUNDING_CTA = "Founding lifetime offer coming soon";
+export const KOMPLEET_SEE_CTA = "See Kompleet";
 
 export type Product = {
   name: string;
@@ -22,6 +25,9 @@ export type Product = {
   includesLabel?: string;
   includes?: readonly string[];
   pricingOnRequest?: boolean;
+  /** Quiet second link beside the main CTA (for example "See Kompleet"). */
+  secondaryCta?: string;
+  secondaryHref?: string;
 };
 
 export type HomeProduct = Product & {
@@ -40,11 +46,12 @@ export const PRODUCTS: Product[] = [
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     href: KOMPLEET_PRICING_HREF,
-    cta: "Get lifetime access for ₦5,000",
+    cta: KOMPLEET_FOUNDING_CTA,
+    secondaryCta: KOMPLEET_SEE_CTA,
+    secondaryHref: KOMPLEET_HREF,
     image: "/products/kompleet-art.png",
     featured: true,
     homeThumb: true,
-    price: "₦5,000 one-off payment, lifetime access (VAT inclusive)",
     priceNote:
       "Per user: one licence covers one named user account. For the first 100 users only. No monthly or annual fees.",
     includesLabel: "What's included, for each licensed user:",
