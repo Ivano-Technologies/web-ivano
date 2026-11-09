@@ -32,8 +32,8 @@ export default function RefundsPage() {
         This policy covers products bought on {SITE.webDisplay} or our product
         sites and paid for through Paystack. Today that is the{" "}
         <strong>
-          Kompleet Founding Lifetime licence (₦5,000 VAT inclusive, one-off
-          payment)
+          Kompleet Founding Lifetime licence (VAT inclusive, one-off payment,
+          priced as shown at checkout)
         </strong>
         . Work we do for clients under a separate written agreement follows the
         refund terms in that agreement.

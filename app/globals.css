@@ -846,7 +846,13 @@ section { padding: 2.5rem 0; position: relative; }
   text-decoration: none;
 }
 .card .cta-row a.btn:hover { text-decoration: none; }
-.card .cta-row { margin-top: auto; }
+.card .cta-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 1.25rem;
+}
 .cta-arrow { color: inherit; }
 
 .badge {
