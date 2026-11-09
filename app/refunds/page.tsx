@@ -111,8 +111,8 @@ export default function RefundsPage() {
 
       <h2>6. How to ask for a refund</h2>
       <p>
-        Email {mail} with the subject <strong>&quot;Refund request&quot;</strong>{" "}
-        and include:
+        Email {supportMail} with the subject{" "}
+        <strong>&quot;Refund request&quot;</strong> and include:
       </p>
       <ul>
         <li>the name and email address used for the purchase;</li>
@@ -145,10 +145,10 @@ export default function RefundsPage() {
 
       <h2>8. Please talk to us before your bank</h2>
       <p>
-        If something is wrong, email {mail} first. For Paystack or payment
-        disputes, email {supportMail}. Most problems can be fixed quickly. If
-        you open a dispute or chargeback with your bank, we will still work
-        with you, but the process is slower for everyone.
+        If something is wrong, or for any payment disputes, email {supportMail}.
+        Most problems can be fixed quickly. If you open a dispute or chargeback
+        with your bank, we will still work with you, but the process is slower
+        for everyone.
       </p>
 
       <h2>9. Questions</h2>
