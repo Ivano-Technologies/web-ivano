@@ -21,8 +21,8 @@ export default function CookiesPage() {
         Our fonts are served from our own website, so loading a page does not
         contact Google or any other font service. The site is hosted by Vercel
         Inc., which keeps standard server logs (IP address, browser type, page
-        requested) to keep the site secure. Those logs are covered in our
-        Privacy notice (<Link href="/privacy">/privacy</Link>).
+        requested) to keep the site secure. Those logs are covered in our{" "}
+        <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>If this changes</h2>

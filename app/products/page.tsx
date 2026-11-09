@@ -38,12 +38,14 @@ export default function ProductsPage() {
               afterCta={
                 <p className="product-fineprint">
                   One-off payment via Paystack. &quot;Lifetime&quot; means for
-                  as long as Kompleet is offered — see our{" "}
+                  as long as Kompleet is offered. See our{" "}
                   <Link href="/terms">Terms of Service</Link>. Not happy? Full
-                  refund within 14 days — see our{" "}
+                  refund within 14 days. See our{" "}
                   <Link href="/refunds">Refund Policy</Link>. Access starts
                   immediately after payment. Any payment received after the
-                  100th seat is sold is refunded in full.
+                  100th seat is sold is refunded in full (
+                  <Link href="/refunds#section-4">Refund Policy</Link>, section
+                  4).
                 </p>
               }
             />

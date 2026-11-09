@@ -51,7 +51,7 @@ export function ProductCard({
       ) : null}
       {product.pricingOnRequest ? (
         <p className="product-pricing-request">
-          Pricing: on request — <Link href="/contact">Contact us</Link>
+          Pricing on request. <Link href="/contact">Contact us</Link>
         </p>
       ) : null}
       <div className="cta-row">

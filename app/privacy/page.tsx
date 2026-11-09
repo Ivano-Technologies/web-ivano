@@ -10,6 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata = legalMetadata("Privacy Policy", "/privacy");
 
 const mail = <MailLink address={SITE.email} />;
+const supportMail = <MailLink address={SITE.supportEmail} />;
 
 export default function PrivacyPage() {
   return (
@@ -47,11 +48,11 @@ export default function PrivacyPage() {
       <h2>2. Data protection contact</h2>
       <ul>
         <li>
-          <strong>Data Protection Officer / privacy contact:</strong>
-          {/* TODO: Kezie to fill the data-protection officer name. */}
+          <strong>Data Protection Officer / privacy contact:</strong> David
+          Inalegwu
         </li>
         <li>
-          <strong>Email:</strong> {mail}, subject{" "}
+          <strong>Email:</strong> {supportMail}, subject{" "}
           <strong>&quot;Data request&quot;</strong>
         </li>
         <li>
@@ -168,7 +169,7 @@ export default function PrivacyPage() {
                 To send news about our products
               </td>
               <td role="cell" data-label="Lawful basis (NDPA s. 25)">
-                Consent — withdraw any time via the unsubscribe link or by
+                Consent. Withdraw any time via the unsubscribe link or by
                 emailing us
               </td>
             </tr>
@@ -205,15 +206,15 @@ export default function PrivacyPage() {
           confirm and, if needed, refund your purchase.
         </li>
         <li>
-          Paystack processes payment data under its own Privacy Policy (
+          Paystack processes payment data under its own{" "}
           <a
             href="https://paystack.com/terms"
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://paystack.com/terms
-          </a>
-          ) and may act as an independent controller for its own legal duties,
+            Privacy Policy
+          </a>{" "}
+          and may act as an independent controller for its own legal duties,
           such as fraud and anti-money-laundering checks.
         </li>
       </ul>
@@ -224,7 +225,7 @@ export default function PrivacyPage() {
         advertising trackers. When you pay, Paystack&apos;s checkout may set
         cookies that are strictly necessary for secure payment and fraud
         prevention; these are covered by Paystack&apos;s policy. See our{" "}
-        <strong>Cookie Notice</strong> (<Link href="/cookies">/cookies</Link>).
+        <Link href="/cookies">Cookie Notice</Link>.
       </p>
 
       <h2>6. Who we share data with</h2>
@@ -276,7 +277,7 @@ export default function PrivacyPage() {
                 Zoho Corporation
               </td>
               <td role="cell" data-label="Role">
-                Email hosting ({SITE.email})
+                Email hosting ({SITE.email} and {SITE.supportEmail})
               </td>
               <td role="cell" data-label="Location">
                 United States data centre
@@ -385,7 +386,7 @@ export default function PrivacyPage() {
       <p>
         Some providers above store or process data outside Nigeria, including
         in the United States. We transfer personal data only as the NDPA allows
-        (ss. 41–43) and the GAID, for example where the destination has
+        (ss. 41 to 43) and the GAID, for example where the destination has
         adequate protection, or where appropriate safeguards (such as
         contractual data protection terms) are in place, or with your consent
         after we explain the risks. You can ask us for details of the
@@ -491,7 +492,7 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        <strong>How:</strong> email {mail} with the subject{" "}
+        <strong>How:</strong> email {supportMail} with the subject{" "}
         <strong>&quot;Data request&quot;</strong>. We may ask you to confirm
         your identity. It is free. We will respond{" "}
         <strong>within 30 days</strong>, and tell you if we need longer and
@@ -501,11 +502,12 @@ export default function PrivacyPage() {
 
       <h2>11. Complaints</h2>
       <p>
-        If you are unhappy with how we handle your data, please contact us
-        first. You can also send us a{" "}
+        If you are unhappy with how we handle your data, please email{" "}
+        {supportMail} first. You can also send us a{" "}
         <strong>Standard Notice to Address Grievance (SNAG)</strong> using the
-        form in Schedule 9 of the GAID, by email with &quot;SNAG&quot; in the
-        subject line or by post to the address in section 2.
+        form in Schedule 9 of the GAID, by email to {supportMail} with
+        &quot;SNAG&quot; in the subject line or by post to the address in
+        section 2.
       </p>
       <p>
         You have the right to complain to the{" "}
@@ -528,7 +530,7 @@ export default function PrivacyPage() {
       <p>
         Our website and products are for businesses and adults. We do not
         knowingly collect data from anyone under 18. If you believe a child has
-        given us data, contact us and we will delete it.
+        given us data, email {supportMail} and we will delete it.
       </p>
 
       <h2>14. Visitors and customers outside Nigeria</h2>

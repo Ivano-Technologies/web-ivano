@@ -1,5 +1,7 @@
 export const CONTACT_EMAIL = "hi@ivanotechnologies.com";
-export const DISPUTES_EMAIL = "support@ivanotechnologies.com";
+export const SUPPORT_EMAIL = "support@ivanotechnologies.com";
+/** Same mailbox as SUPPORT_EMAIL: Paystack / payment disputes and data requests. */
+export const DISPUTES_EMAIL = SUPPORT_EMAIL;
 
 /** Kezie lock: never FCT or dashed forms (not "Abuja – FCT", not "Abuja-FCT"). */
 export const LOCATION = "Abuja Nigeria";
@@ -26,6 +28,7 @@ export const SITE = {
   description:
     "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
   email: CONTACT_EMAIL,
+  supportEmail: SUPPORT_EMAIL,
   disputesEmail: DISPUTES_EMAIL,
   phoneDisplay: PHONES[0].display,
   phoneHref: PHONES[0].href,

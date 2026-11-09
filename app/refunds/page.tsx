@@ -10,6 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata = legalMetadata("Refund Policy", "/refunds");
 
 const mail = <MailLink address={SITE.email} />;
+const supportMail = <MailLink address={SITE.supportEmail} />;
 
 export default function RefundsPage() {
   return (
@@ -19,8 +20,9 @@ export default function RefundsPage() {
       <p>
         This policy explains when and how you can get your money back for
         purchases from <strong>Ivano Technologies Ltd</strong> ({SITE.rc},
-        Nigeria). It forms part of our Terms of Service (
-        <Link href="/terms">/terms</Link>). Nothing in it limits your rights
+        Nigeria). It forms part of our{" "}
+        <Link href="/terms">Terms of Service</Link>. Nothing in it limits your
+        rights
         under the Federal Competition and Consumer Protection Act 2018 or other
         Nigerian law.
       </p>
@@ -71,11 +73,12 @@ export default function RefundsPage() {
         <li>the law requires a refund.</li>
       </ul>
       <p>
-        If we discontinue Kompleet, the Terms of Service (section 5.2) explain
+        If we discontinue Kompleet, the{" "}
+        <Link href="/terms">Terms of Service</Link> (section 5.2) explain
         what happens (at least 90 days&apos; notice and a data export).
       </p>
 
-      <h2>3A. Payments received after the 100th seat is sold</h2>
+      <h2 id="section-4">4. Payments received after the 100th seat is sold</h2>
       <p>
         The Kompleet Founding Lifetime offer is limited to 100 licences, one
         per named user account.{" "}
@@ -91,7 +94,7 @@ export default function RefundsPage() {
         is issued for that payment.
       </p>
 
-      <h2>4. When we do not refund</h2>
+      <h2>5. When we do not refund</h2>
       <ul>
         <li>
           Requests made after the 14-day period, unless section 3 applies.
@@ -106,7 +109,7 @@ export default function RefundsPage() {
         </li>
       </ul>
 
-      <h2>5. How to ask for a refund</h2>
+      <h2>6. How to ask for a refund</h2>
       <p>
         Email {mail} with the subject <strong>&quot;Refund request&quot;</strong>{" "}
         and include:
@@ -118,7 +121,7 @@ export default function RefundsPage() {
       </ul>
       <p>We will confirm receipt within 2 working days.</p>
 
-      <h2>6. How and when you get your money</h2>
+      <h2>7. How and when you get your money</h2>
       <ul>
         <li>
           We approve or explain a refusal within <strong>5 working days</strong>{" "}
@@ -140,14 +143,15 @@ export default function RefundsPage() {
         </li>
       </ul>
 
-      <h2>7. Please talk to us before your bank</h2>
+      <h2>8. Please talk to us before your bank</h2>
       <p>
-        If something is wrong, contact us first. Most problems can be fixed
-        quickly. If you open a dispute or chargeback with your bank, we will
-        still work with you, but the process is slower for everyone.
+        If something is wrong, email {mail} first. For Paystack or payment
+        disputes, email {supportMail}. Most problems can be fixed quickly. If
+        you open a dispute or chargeback with your bank, we will still work
+        with you, but the process is slower for everyone.
       </p>
 
-      <h2>8. Questions</h2>
+      <h2>9. Questions</h2>
       <p>
         {mail} · Ivano Technologies Ltd · {SITE.rc} · {SITE.legalAddress}
       </p>

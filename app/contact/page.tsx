@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <dt>Response time</dt>
-                  <dd>We reply within 1–2 working days</dd>
+                  <dd>We reply within 1 to 2 working days</dd>
                 </div>
               </dl>
               <p className="contact-pdf">
@@ -93,8 +93,11 @@ export default function ContactPage() {
                   quickly.
                 </li>
                 <li>
-                  <strong>Privacy and data requests:</strong> email with the
-                  subject &quot;Data request&quot;. See our{" "}
+                  <strong>Privacy and data requests:</strong> email{" "}
+                  <a href={`mailto:${SITE.supportEmail}`}>
+                    {SITE.supportEmail}
+                  </a>{" "}
+                  with the subject &quot;Data request&quot;. See our{" "}
                   <Link href="/privacy">Privacy Policy</Link>.
                 </li>
               </ul>

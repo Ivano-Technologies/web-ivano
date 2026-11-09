@@ -40,11 +40,11 @@ export const PRODUCTS: Product[] = [
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     href: KOMPLEET_PRICING_HREF,
-    cta: "Get lifetime access — ₦5,000",
-    image: "/products/kompleet-ui.png",
+    cta: "Get lifetime access for ₦5,000",
+    image: "/products/kompleet-art.png",
     featured: true,
     homeThumb: true,
-    price: "₦5,000 — one-off payment, lifetime access (VAT inclusive)",
+    price: "₦5,000 one-off payment, lifetime access (VAT inclusive)",
     priceNote:
       "Per user: one licence covers one named user account. For the first 100 users only. No monthly or annual fees.",
     includesLabel: "What's included, for each licensed user:",

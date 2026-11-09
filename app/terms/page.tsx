@@ -10,6 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata = legalMetadata("Terms of Service", "/terms");
 
 const mail = <MailLink address={SITE.email} />;
+const supportMail = <MailLink address={SITE.supportEmail} />;
 
 export default function TermsPage() {
   return (
@@ -35,11 +36,10 @@ export default function TermsPage() {
       <p>
         By using this website, or by buying or using any of our products, you
         agree to these Terms of Service (&quot;Terms&quot;), our{" "}
-        <strong>Refund Policy</strong> (<Link href="/refunds">/refunds</Link>),
-        our <strong>Privacy Policy</strong> (
-        <Link href="/privacy">/privacy</Link>) and our{" "}
-        <strong>Cookie Notice</strong> (<Link href="/cookies">/cookies</Link>).
-        If you do not agree, please do not use the website or buy our products.
+        <Link href="/refunds">Refund Policy</Link>, our{" "}
+        <Link href="/privacy">Privacy Policy</Link> and our{" "}
+        <Link href="/cookies">Cookie Notice</Link>. If you do not agree, please
+        do not use the website or buy our products.
       </p>
 
       <h2>2. Website content</h2>
@@ -62,9 +62,8 @@ export default function TermsPage() {
       <h2>3. Products and prices</h2>
       <p>
         3.1 Our products and current prices are listed on our{" "}
-        <strong>Products and pricing</strong> page (
-        <Link href="/products">/products</Link>). The price you pay is the
-        price shown at checkout at the time you pay.
+        <Link href="/products">Products and pricing</Link> page. The price you
+        pay is the price shown at checkout at the time you pay.
       </p>
       <p>
         3.2 All prices are in <strong>Nigerian Naira (₦)</strong> and are{" "}
@@ -162,9 +161,9 @@ export default function TermsPage() {
           refunded in full
         </strong>
         , with the Paystack processing fee absorbed by Ivano, within the
-        timings in our Refund Policy (we tell you within 2 working days and
-        process the refund within 5 working days). No licence is issued for
-        that payment.
+        timings in our <Link href="/refunds#section-4">Refund Policy</Link>{" "}
+        (section 4: we tell you within 2 working days and process the refund
+        within 5 working days). No licence is issued for that payment.
       </p>
       <p>
         5.5 <strong>Delivery.</strong> Kompleet is a digital service. Access is
@@ -174,18 +173,20 @@ export default function TermsPage() {
       </p>
       <p>
         5.6 <strong>Your data in Kompleet.</strong> You own the business data
-        you put into Kompleet. How we handle personal data is explained in our
-        Privacy Policy and Kompleet&apos;s own privacy notice.
+        you put into Kompleet. How we handle personal data is explained in our{" "}
+        <Link href="/privacy">Privacy Policy</Link> and Kompleet&apos;s own
+        privacy notice.
       </p>
 
       <h2>6. Refunds and cancellations</h2>
       <p>
-        Our <strong>Refund Policy</strong> (
-        <Link href="/refunds">/refunds</Link>) forms part of these Terms. In
+        Our <Link href="/refunds">Refund Policy</Link> forms part of these
+        Terms. In
         short: you can ask for a full refund within <strong>14 days</strong> of
         purchase, and we always refund duplicate charges, failed-but-debited
         payments and cases where we cannot deliver what you paid for. Nothing
-        in these Terms or the Refund Policy limits your rights under the
+        in these Terms or the <Link href="/refunds">Refund Policy</Link> limits
+        your rights under the
         Federal Competition and Consumer Protection Act 2018 or other Nigerian
         law. Refunds are always for the full amount you paid; we do not deduct
         payment processing fees.
@@ -206,8 +207,8 @@ export default function TermsPage() {
       <p>
         7.3 We may suspend or end access for serious or repeated breaches of
         these Terms. If we end a paid licence because of your breach, no refund
-        is due; if we end it for any other reason, see section 5.2 and the
-        Refund Policy.
+        is due; if we end it for any other reason, see section 5.2 and the{" "}
+        <Link href="/refunds">Refund Policy</Link>.
       </p>
 
       <h2>8. Our name and content</h2>
@@ -254,8 +255,10 @@ export default function TermsPage() {
       <h2>12. Privacy</h2>
       <p>
         How we handle personal data, including payment-related data, is
-        explained in our Privacy Policy (<Link href="/privacy">/privacy</Link>)
-        and Cookie Notice (<Link href="/cookies">/cookies</Link>).
+        explained in our <Link href="/privacy">Privacy Policy</Link> and{" "}
+        <Link href="/cookies">Cookie Notice</Link>. For a data protection
+        request, email {supportMail} with the subject{" "}
+        <strong>&quot;Data request&quot;</strong>.
       </p>
 
       <h2>13. Changes to these Terms</h2>
@@ -267,8 +270,9 @@ export default function TermsPage() {
 
       <h2>14. Complaints and disputes</h2>
       <p>
-        14.1 If you have a problem, please email {mail} first. We aim to
-        acknowledge within 2 working days and to resolve within 14 days.
+        14.1 If you have a problem, please email {mail} first. For Paystack or
+        payment disputes, email {supportMail}. We aim to acknowledge within 2
+        working days and to resolve within 14 days.
       </p>
       <p>
         14.2 If we cannot resolve it within 30 days, either of us may refer the
