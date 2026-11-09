@@ -37,12 +37,11 @@ export default function ProductsPage() {
               showThumb
               afterCta={
                 <p className="product-fineprint">
-                  One-off payment via Paystack. &quot;Lifetime&quot; means for
-                  as long as Kompleet is offered. See our{" "}
-                  <Link href="/terms">Terms of Service</Link>. Not happy? Full
-                  refund within 14 days. See our{" "}
-                  <Link href="/refunds">Refund Policy</Link>. Access starts
-                  immediately after payment.
+                  When it opens, the founding offer is a one-off payment
+                  through Paystack, with lifetime meaning for as long as
+                  Kompleet is offered. See our{" "}
+                  <Link href="/terms">Terms of Service</Link> and{" "}
+                  <Link href="/refunds">Refund Policy</Link>.
                 </p>
               }
             />

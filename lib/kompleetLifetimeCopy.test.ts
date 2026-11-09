@@ -13,7 +13,15 @@ import {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const NAIRA_OR_AMOUNT = /₦|5,000/;
-const SEAT_REFUND_LINE = /Any payment received after the\s*100th seat/;
+const OLD_SALE_NOW_LINES = [
+  "One-off payment via Paystack",
+  "Not happy?",
+  "Full refund within 14 days",
+  "Access starts immediately after payment",
+  "Any payment received after the 100th seat",
+];
+const FOUNDING_NOTE =
+  "When it opens, the founding offer is a one-off payment through Paystack, with lifetime meaning for as long as Kompleet is offered. See our Terms of Service and Refund Policy.";
 const LEGAL_PREFIXES = [
   "app/terms/",
   "app/refunds/",
@@ -73,9 +81,39 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(failures.length, 0, failures.join(", "));
   });
 
-  it("drops the 100th seat payment line from the Products page", () => {
+  it("uses the coming soon founding note and drops sale-now sentences", () => {
     const page = readFileSync(join(ROOT, "app/products/page.tsx"), "utf8");
-    assert.equal(SEAT_REFUND_LINE.test(page), false);
+    const fineprint = page.match(
+      /className="product-fineprint">([\s\S]*?)<\/p>/,
+    );
+    assert.ok(fineprint?.[1], "missing Products founding note");
+    const visible = fineprint[1]
+      .replace(/\{\s*" "\s*\}/g, " ")
+      .replace(/<Link href="\/terms">Terms of Service<\/Link>/g, "Terms of Service")
+      .replace(/<Link href="\/refunds">Refund Policy<\/Link>/g, "Refund Policy")
+      .replace(/\s+/g, " ")
+      .trim();
+    assert.equal(visible, FOUNDING_NOTE);
+    assert.match(page, /href="\/terms">Terms of Service</);
+    assert.match(page, /href="\/refunds">Refund Policy</);
     assert.equal(NAIRA_OR_AMOUNT.test(page), false);
+
+    const failures: string[] = [];
+    for (const file of walk(ROOT)) {
+      const rel = relative(ROOT, file).replaceAll("\\", "/");
+      if (LEGAL_PREFIXES.some((prefix) => rel.startsWith(prefix))) {
+        continue;
+      }
+      if (rel.endsWith(".test.ts") || rel.endsWith(".test.mjs")) {
+        continue;
+      }
+      const text = readFileSync(file, "utf8");
+      for (const line of OLD_SALE_NOW_LINES) {
+        if (text.includes(line)) {
+          failures.push(`${rel}: ${line}`);
+        }
+      }
+    }
+    assert.equal(failures.length, 0, failures.join("\n"));
   });
 });
