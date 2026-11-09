@@ -29,6 +29,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 ```bash
 npm run lint
 npm run typecheck
+npm test
 npm run build
 ```
 
@@ -43,6 +44,27 @@ npm run build
 | `/contact` | Form → `hi@ivanotechnologies.com` (mailto) |
 | `/privacy` `/terms` `/cookies` | Light legal stubs |
 | `/company-profile.pdf` | Downloadable company profile |
+| `/login` `/signup` `/dashboard` `/app` `/reset-password` `/forgot-password` (and subpaths) | 308 to the same path on https://kompleet.techivano.com |
+
+## Kompleet leftover redirects
+
+Old app links on www 308 to Kompleet, keeping the subpath and query string. Marketing routes above are not redirected.
+
+```bash
+npm test
+```
+
+After a Preview deploy (replace `$PREVIEW` with the `*.vercel.app` URL):
+
+```bash
+for path in /login /signup /dashboard /app /reset-password /forgot-password \
+  '/login/next' '/dashboard/invoices?tab=open' '/app/reports?sort=date'
+do
+  curl -sI "$PREVIEW$path"
+done
+```
+
+Expect `HTTP/1.1 308` (or HTTP/2 308) and `location: https://kompleet.techivano.com` plus the same path and query. `/`, `/products`, `/about` and the other marketing routes must stay 200.
 
 ## Contact form
 
