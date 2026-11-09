@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
+import { kompleetRedirects } from "./lib/kompleetRedirects";
 
 const nextConfig: NextConfig = {
   // Marketing site only. Do not attach www/apex domains here — Chief-gated cutover.
   agentRules: false,
+  async redirects() {
+    // permanent: true is 308. Query strings are forwarded by Next.js.
+    return kompleetRedirects();
+  },
   async headers() {
     return [
       {
