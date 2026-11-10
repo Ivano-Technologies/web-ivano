@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {
   LegalPage,
-  LegalUpdated,
   MailLink,
   legalMetadata,
 } from "@/components/LegalPage";
+import { KOMPLEET_PRIVACY_HREF } from "@/lib/products";
 import { SITE } from "@/lib/site";
 
 export const metadata = legalMetadata("Privacy Policy", "/privacy");
@@ -15,7 +15,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function PrivacyPage() {
   return (
     <LegalPage title="Privacy Policy">
-      <LegalUpdated />
+      <p>Last updated 10 Nov 2026</p>
 
       <h2>1. Who we are</h2>
       <p>
@@ -27,22 +27,30 @@ export default function PrivacyPage() {
         <strong>data controller</strong> under the{" "}
         <strong>Nigeria Data Protection Act 2023 (NDPA)</strong>.
       </p>
-      <p>It covers:</p>
+      <p>This notice covers:</p>
       <ul>
         <li>visitors to {SITE.webDisplay};</li>
         <li>people who contact us; and</li>
-        <li>
-          people who buy our products through this website or our product sites
-          (currently the <strong>Kompleet</strong> Founding Lifetime licence),
-          and their payment records.
-        </li>
+        <li>other company dealings through this website.</li>
       </ul>
       <p>
-        Our products (Kompleet, Ivano PMS) may have their own privacy notices
-        for data you put <strong>inside</strong> the product; those notices
-        apply alongside this one. Where we run a system for a client, the
-        client&apos;s own notice usually applies and we act as its data
-        processor.
+        Personal data processed <strong>inside</strong> Kompleet is governed by
+        Kompleet&apos;s own privacy notice at{" "}
+        <a
+          href={KOMPLEET_PRIVACY_HREF}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          kompleet.techivano.com/privacy
+        </a>
+        . This page governs {SITE.webDisplay}. Neither notice prevails over the
+        other: each applies to the processing it describes.
+      </p>
+      <p>
+        Our other products (for example Ivano PMS) may also have their own
+        privacy notices for data you put inside the product. Where we run a
+        system for a client, the client&apos;s own notice usually applies and
+        we act as its data processor.
       </p>
 
       <h2>2. Data protection contact</h2>
@@ -52,8 +60,11 @@ export default function PrivacyPage() {
           Inalegwu
         </li>
         <li>
-          <strong>Email:</strong> {supportMail}, subject{" "}
-          <strong>&quot;Data request&quot;</strong>
+          <strong>Data-protection requests and disputes:</strong> {supportMail},
+          subject <strong>&quot;Data request&quot;</strong>
+        </li>
+        <li>
+          <strong>General enquiries:</strong> {mail}
         </li>
         <li>
           <strong>Post:</strong> Ivano Technologies Ltd, {SITE.legalAddress}
@@ -94,39 +105,6 @@ export default function PrivacyPage() {
               <td role="cell" data-label="Lawful basis (NDPA s. 25)">
                 Legitimate interests (answering enquiries); or steps you ask us
                 to take before a contract
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="What">
-                Name, email, phone (optional), business name
-              </td>
-              <td role="cell" data-label="When">
-                You buy a product or join Kompleet
-              </td>
-              <td role="cell" data-label="Why">
-                To create your licence/account, deliver the product and send
-                receipts and service messages
-              </td>
-              <td role="cell" data-label="Lawful basis (NDPA s. 25)">
-                Performance of a contract
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="What">
-                Payment record from Paystack: transaction reference, amount,
-                currency, date, status, payment channel, and (where Paystack
-                shows it) card type and last 4 digits
-              </td>
-              <td role="cell" data-label="When">
-                You pay
-              </td>
-              <td role="cell" data-label="Why">
-                To confirm payment, issue receipts, handle refunds and
-                disputes, prevent fraud
-              </td>
-              <td role="cell" data-label="Lawful basis (NDPA s. 25)">
-                Contract; legal obligation (tax and accounting records);
-                legitimate interests (fraud prevention)
               </td>
             </tr>
             <tr role="row">
@@ -181,54 +159,15 @@ export default function PrivacyPage() {
         advertising, or make decisions about you based solely on automated
         processing that have legal or similarly significant effects.
       </p>
-      <p>
-        If you do not give us the data needed for a purchase (such as an email
-        address), we cannot complete the purchase or deliver the product.
-      </p>
 
-      <h2>4. Payments: Paystack</h2>
-      <p>
-        Payments are processed by <strong>Paystack Payments Limited</strong>{" "}
-        (Lagos, Nigeria), a payment processor licensed by the Central Bank of
-        Nigeria and part of the Stripe group.
-      </p>
-      <ul>
-        <li>
-          You enter card or bank details directly into Paystack&apos;s secure
-          checkout.{" "}
-          <strong>
-            Ivano does not receive or store your full card number, CVV, PIN or
-            online banking credentials.
-          </strong>
-        </li>
-        <li>
-          Paystack sends us the payment record listed in section 3 so we can
-          confirm and, if needed, refund your purchase.
-        </li>
-        <li>
-          Paystack processes payment data under its own{" "}
-          <a
-            href="https://paystack.com/terms"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>{" "}
-          and may act as an independent controller for its own legal duties,
-          such as fraud and anti-money-laundering checks.
-        </li>
-      </ul>
-
-      <h2>5. Cookies and analytics</h2>
+      <h2>4. Cookies and analytics</h2>
       <p>
         This website does not set any cookies and does not use analytics or
-        advertising trackers. When you pay, Paystack&apos;s checkout may set
-        cookies that are strictly necessary for secure payment and fraud
-        prevention; these are covered by Paystack&apos;s policy. See our{" "}
-        <Link href="/cookies">Cookie Notice</Link>.
+        advertising trackers. See our <Link href="/cookies">Cookie Notice</Link>
+        .
       </p>
 
-      <h2>6. Who we share data with</h2>
+      <h2>5. Who we share data with</h2>
       <p>
         We share personal data only as needed, with service providers who act
         on our instructions under written terms, and with others where the law
@@ -250,17 +189,6 @@ export default function PrivacyPage() {
             </tr>
           </thead>
           <tbody role="rowgroup">
-            <tr role="row">
-              <td role="cell" data-label="Recipient">
-                Paystack Payments Limited
-              </td>
-              <td role="cell" data-label="Role">
-                Payment processing, refunds, disputes, fraud checks
-              </td>
-              <td role="cell" data-label="Location">
-                Nigeria; may transfer abroad under its own safeguards
-              </td>
-            </tr>
             <tr role="row">
               <td role="cell" data-label="Recipient">
                 Vercel Inc.
@@ -300,31 +228,6 @@ export default function PrivacyPage() {
               </td>
               <td role="cell" data-label="Role">
                 Kompleet application database, sign-in and file storage
-              </td>
-              <td role="cell" data-label="Location">
-                United States
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="Recipient">
-                Supabase, Inc.
-              </td>
-              <td role="cell" data-label="Role">
-                Kompleet&apos;s previous database, kept only until our move to
-                Convex is complete, then closed
-              </td>
-              <td role="cell" data-label="Location">
-                Outside Nigeria
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="Recipient">
-                Anthropic PBC (primary) and OpenAI, L.L.C. (fallback)
-              </td>
-              <td role="cell" data-label="Role">
-                Suggesting categories for the transactions you import into
-                Kompleet (transaction descriptions and amounts are sent; your
-                card details never are)
               </td>
               <td role="cell" data-label="Location">
                 United States
@@ -378,11 +281,26 @@ export default function PrivacyPage() {
         </table>
       </div>
       <p>
+        Kompleet currently runs on Convex, Vercel, Resend and Sentry, with Zoho
+        Mail hosting {SITE.supportEmail}. Data you put inside Kompleet is
+        governed by{" "}
+        <a
+          href={KOMPLEET_PRIVACY_HREF}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Kompleet&apos;s privacy notice
+        </a>
+        . We do not currently send personal data to AI providers. We will
+        update this notice, and the relevant product notice, before enabling
+        any such processing.
+      </p>
+      <p>
         If Ivano is involved in a merger, sale or restructuring, data may pass
         to the new owner under the same protections.
       </p>
 
-      <h2>7. Transfers outside Nigeria</h2>
+      <h2>6. Transfers outside Nigeria</h2>
       <p>
         Some providers above store or process data outside Nigeria, including
         in the United States. We transfer personal data only as the NDPA allows
@@ -393,7 +311,7 @@ export default function PrivacyPage() {
         safeguards for any transfer.
       </p>
 
-      <h2>8. How long we keep data</h2>
+      <h2>7. How long we keep data</h2>
       <div className="legal-table-wrap">
         <table className="legal-table" role="table">
           <thead role="rowgroup">
@@ -419,19 +337,10 @@ export default function PrivacyPage() {
             </tr>
             <tr role="row">
               <td role="cell" data-label="Data">
-                Customer account / licence data
+                Accounting, tax and company records
               </td>
               <td role="cell" data-label="How long">
-                For as long as you hold an active licence, then 12 months,
-                unless you ask us to delete it sooner (subject to the next row)
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="Data">
-                Payment, receipt, refund and invoice records
-              </td>
-              <td role="cell" data-label="How long">
-                6 years after the transaction, to meet Nigerian tax and
+                6 years after the relevant period, to meet Nigerian tax and
                 company-records duties
               </td>
             </tr>
@@ -457,15 +366,15 @@ export default function PrivacyPage() {
       </div>
       <p>When the period ends we delete or anonymise the data.</p>
 
-      <h2>9. How we protect data</h2>
+      <h2>8. How we protect data</h2>
       <p>
         We use HTTPS across our sites, access controls and multi-factor
         authentication on our admin accounts, least-privilege access for staff
         and contractors, and reputable providers with their own security
-        certifications. Payment card data is handled by Paystack, not by us.
+        certifications.
       </p>
 
-      <h2>10. Your rights</h2>
+      <h2>9. Your rights</h2>
       <p>Under the NDPA (Part VI) you can ask us to:</p>
       <ul>
         <li>
@@ -500,7 +409,7 @@ export default function PrivacyPage() {
         even if you ask us to delete it; we will explain if so.
       </p>
 
-      <h2>11. Complaints</h2>
+      <h2>10. Complaints</h2>
       <p>
         If you are unhappy with how we handle your data, please email{" "}
         {supportMail} first. You can also send us a{" "}
@@ -518,7 +427,7 @@ export default function PrivacyPage() {
         .
       </p>
 
-      <h2>12. Data breaches</h2>
+      <h2>11. Data breaches</h2>
       <p>
         If a personal data breach is likely to put your rights and freedoms at
         risk, we will notify the NDPC within <strong>72 hours</strong> of
@@ -526,22 +435,22 @@ export default function PrivacyPage() {
         where the risk to you is high (NDPA s. 40).
       </p>
 
-      <h2>13. Children</h2>
+      <h2>12. Children</h2>
       <p>
         Our website and products are for businesses and adults. We do not
         knowingly collect data from anyone under 18. If you believe a child has
         given us data, email {supportMail} and we will delete it.
       </p>
 
-      <h2>14. Visitors and customers outside Nigeria</h2>
+      <h2>13. Visitors and customers outside Nigeria</h2>
       <p>
         Ivano Technologies Ltd is registered in Nigeria only. If you contact or
-        buy from us from elsewhere (including Canada or the United States),
+        deal with us from elsewhere (including Canada or the United States),
         this policy and the rights above apply, and you can use the same
         contact details. You may also have rights under the law where you live.
       </p>
 
-      <h2>15. Changes</h2>
+      <h2>14. Changes</h2>
       <p>
         We may update this policy. We will change the date at the top and, for
         significant changes affecting customers, tell you by email.

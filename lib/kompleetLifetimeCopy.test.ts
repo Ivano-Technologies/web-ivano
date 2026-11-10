@@ -7,6 +7,7 @@ import {
   KOMPLEET_FOUNDING_CTA,
   KOMPLEET_HREF,
   KOMPLEET_PRICING_HREF,
+  KOMPLEET_PRIVACY_HREF,
   KOMPLEET_SEE_CTA,
   PRODUCTS,
 } from "./products.ts";
@@ -19,6 +20,7 @@ const NO_PRICE_ROUTES = [
   "app/terms/page.tsx",
   "app/refunds/page.tsx",
   "app/products/page.tsx",
+  "app/privacy/page.tsx",
 ] as const;
 const OLD_SALE_NOW_LINES = [
   "One-off payment via Paystack",
@@ -63,6 +65,7 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(kompleet.cta, KOMPLEET_FOUNDING_CTA);
     assert.equal(kompleet.href, KOMPLEET_PRICING_HREF);
     assert.equal(kompleet.href, "https://kompleet.techivano.com/pricing");
+    assert.equal(KOMPLEET_PRIVACY_HREF, "https://kompleet.techivano.com/privacy");
     assert.equal(kompleet.secondaryCta, KOMPLEET_SEE_CTA);
     assert.equal(kompleet.secondaryHref, KOMPLEET_HREF);
     assert.equal(kompleet.price, undefined);
@@ -85,7 +88,7 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(failures.length, 0, failures.join(", "));
   });
 
-  it("does not publish ₦5,000 on /terms, /refunds or /products", () => {
+  it("does not publish ₦5,000 on /terms, /refunds, /products or /privacy", () => {
     const failures: string[] = [];
     for (const rel of NO_PRICE_ROUTES) {
       const text = readFileSync(join(ROOT, rel), "utf8");
