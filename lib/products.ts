@@ -4,6 +4,7 @@ export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
 
 export const KOMPLEET_HREF = "https://kompleet.techivano.com";
 export const KOMPLEET_PRICING_HREF = `${KOMPLEET_HREF}/pricing`;
+export const KOMPLEET_PRIVACY_HREF = `${KOMPLEET_HREF}/privacy`;
 export const KOMPLEET_FOUNDING_CTA = "Founding lifetime offer coming soon";
 export const KOMPLEET_SEE_CTA = "See Kompleet";
 
