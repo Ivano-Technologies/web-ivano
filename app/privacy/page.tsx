@@ -109,21 +109,6 @@ export default function PrivacyPage() {
             </tr>
             <tr role="row">
               <td role="cell" data-label="What">
-                Refund and support correspondence
-              </td>
-              <td role="cell" data-label="When">
-                You ask for help or a refund
-              </td>
-              <td role="cell" data-label="Why">
-                To resolve your request and keep a record
-              </td>
-              <td role="cell" data-label="Lawful basis (NDPA s. 25)">
-                Contract; legal obligation; legitimate interests (handling
-                disputes)
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="What">
                 Technical data (IP address, browser type, page requested, time)
               </td>
               <td role="cell" data-label="When">

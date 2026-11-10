@@ -57,4 +57,8 @@ describe("company privacy page", () => {
     assert.match(text, /Zoho Corporation/);
     assert.match(text, /We do not currently send personal data to AI providers/);
   });
+
+  it("has no leftover refund row in collection or retention tables", () => {
+    assert.doesNotMatch(text, /refund/i);
+  });
 });
