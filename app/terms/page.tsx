@@ -125,7 +125,7 @@ export default function TermsPage() {
       <h2>5. Your Kompleet licence (Founding Lifetime offer)</h2>
       <p>
         5.1 <strong>What you get.</strong> Kompleet&apos;s Founding Lifetime
-        offer is limited to <strong>100 licences (seats)</strong>. Each licence
+        offer is limited to <strong>25 licences (seats)</strong>. Each licence
         is a one-off payment at the price shown at checkout when the offer
         opens (<strong>VAT inclusive</strong>) and gives lifetime access to
         Kompleet for{" "}
@@ -155,11 +155,11 @@ export default function TermsPage() {
         named user in 5.1.
       </p>
       <p>
-        5.4 <strong>Limited offer (100 seats).</strong> The founding price
-        applies only to the first 100 licences sold. Once the 100th seat has
+        5.4 <strong>Limited offer (25 seats).</strong> The founding price
+        applies only to the first 25 licences sold. Once the 25th seat has
         been sold, the offer closes and the website will be updated.{" "}
         <strong>
-          Any payment we receive after the 100th seat has been sold will be
+          Any payment we receive after the 25th seat has been sold will be
           refunded in full
         </strong>
         , with the Paystack processing fee absorbed by Ivano, within the
