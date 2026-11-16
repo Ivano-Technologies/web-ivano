@@ -25,7 +25,7 @@ const OLD_SALE_NOW_LINES = [
   "Not happy?",
   "Full refund within 14 days",
   "Access starts immediately after payment",
-  "Any payment received after the 100th seat",
+  "Any payment received after the 25th seat",
 ];
 const FOUNDING_NOTE =
   "When it opens, the founding offer is a one-off payment through Paystack, with lifetime meaning for as long as Kompleet is offered. See our Terms of Service and Refund Policy.";
@@ -67,7 +67,7 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(kompleet.secondaryHref, KOMPLEET_HREF);
     assert.equal(kompleet.price, undefined);
     assert.equal(kompleet.badgeLabel, "Founding offer");
-    assert.match(kompleet.priceNote ?? "", /first 100 users only/);
+    assert.match(kompleet.priceNote ?? "", /first 25 users only/);
     assert.ok((kompleet.includes?.length ?? 0) >= 3);
   });
 
