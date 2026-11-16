@@ -125,12 +125,13 @@ export default function TermsPage() {
       <h2>5. Your Kompleet licence (Founding Lifetime offer)</h2>
       <p>
         5.1 <strong>What you get.</strong> Kompleet&apos;s Founding Lifetime
-        offer is limited to the{" "}
-        <strong>first 25 client businesses (any number of users each)</strong>.
-        Each founding purchase is a one-off payment at the price shown at
-        checkout when the offer opens (<strong>VAT inclusive</strong>) and
-        gives lifetime access to Kompleet for the{" "}
-        <strong>whole client business and all its users</strong>. The
+        offer is limited to <strong>25 licences (seats)</strong>. Each licence
+        is a one-off payment at the price shown at checkout when the offer
+        opens (<strong>VAT inclusive</strong>) and gives lifetime access to
+        Kompleet for{" "}
+        <strong>one named user account</strong>. A licence is personal to that
+        user: it cannot be shared between people or used to give access to
+        additional users, and each additional user needs their own licence. The
         licence covers Kompleet&apos;s core bookkeeping and invoicing features
         as offered at the time (including invoicing, bank statement imports,
         expense tracking and financial reports), and any improvements we make
@@ -147,20 +148,18 @@ export default function TermsPage() {
         data before access ends.
       </p>
       <p>
-        5.3 <strong>Licence.</strong> We grant you a non-exclusive,
+        5.3 <strong>Licence.</strong> We grant you a personal, non-exclusive,
         non-transferable licence to use Kompleet for your own business purposes
         under these Terms and Kompleet&apos;s in-product terms. You may not
-        resell, sublicense, transfer or share the licence with another
-        business; one founding purchase covers the whole client business and
-        all its users as in 5.1.
+        resell, sublicense, transfer or share the licence; it is for the one
+        named user in 5.1.
       </p>
       <p>
-        5.4 <strong>Limited offer (first 25 client businesses).</strong> The
-        founding price applies only to the first 25 client businesses (any
-        number of users each). Once the 25th client business has purchased,
-        the offer closes and the website will be updated.{" "}
+        5.4 <strong>Limited offer (25 seats).</strong> The founding price
+        applies only to the first 25 licences sold. Once the 25th seat has
+        been sold, the offer closes and the website will be updated.{" "}
         <strong>
-          Any payment we receive after the 25th client business will be
+          Any payment we receive after the 25th seat has been sold will be
           refunded in full
         </strong>
         , with the Paystack processing fee absorbed by Ivano, within the
