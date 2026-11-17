@@ -6,7 +6,11 @@ import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StickyContact } from "@/components/StickyContact";
-import { CANONICAL_ORIGIN, isPreviewDeployment } from "@/lib/seo";
+import {
+  CANONICAL_ORIGIN,
+  isPreviewDeployment,
+  organizationJsonLd,
+} from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -32,6 +36,9 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   applicationName: SITE.name,
+  twitter: {
+    site: SITE.socialHandle,
+  },
   robots: isPreviewDeployment()
     ? { index: false, follow: false }
     : { index: true, follow: true },
@@ -80,7 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${exo.variable} ${montserrat.variable}`}>
       <body>
-        <JsonLd />
+        <JsonLd data={organizationJsonLd()} />
         <a className="skip-link" href="#main">
           Skip to content
         </a>

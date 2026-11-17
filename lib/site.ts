@@ -26,7 +26,7 @@ export const SITE = {
   legalName: "IVANO TECHNOLOGIES LTD",
   rc: "RC 9326735",
   description:
-    "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
+    "Software, IT and consultancy for Nigerian organisations. Products and technology services from Ivano Technologies, Abuja.",
   email: CONTACT_EMAIL,
   supportEmail: SUPPORT_EMAIL,
   disputesEmail: DISPUTES_EMAIL,
