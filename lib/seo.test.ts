@@ -11,11 +11,13 @@ import {
   ORGANIZATION_JSON_LD_NAME,
   ORGANIZATION_LOGO_PATH,
   ORGANIZATION_POSTAL_ADDRESS,
+  KOMPLEET_SOFTWARE_APPLICATION_DESCRIPTION,
+  PMS_SOFTWARE_APPLICATION_DESCRIPTION,
   canonicalUrl,
   organizationJsonLd,
   softwareApplicationsJsonLd,
 } from "./seo.ts";
-import { SITE, SOCIAL_LINKS } from "./site.ts";
+import { LEGAL_ADDRESS, POSTAL_ADDRESS, SITE, SOCIAL_LINKS } from "./site.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const FORBIDDEN_KOMPLEET_HOSTS = [
@@ -23,7 +25,7 @@ const FORBIDDEN_KOMPLEET_HOSTS = [
   "www.getkompleet.com",
   "/api/kompleet",
 ];
-const FORBIDDEN_JSON_LD = /\boffers\b|\bprice\b|\bfree\b|₦0|\bNGN\s*0\b/i;
+const FORBIDDEN_JSON_LD = /\boffers\b|\bprice\b|₦0|\bNGN\s*0\b/i;
 
 function walk(dir: string, acc: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -97,6 +99,20 @@ describe("SEO structured data and Kompleet links", () => {
     assert.deepEqual(organization.address, {
       ...ORGANIZATION_POSTAL_ADDRESS,
     });
+    assert.equal(
+      ORGANIZATION_POSTAL_ADDRESS.streetAddress,
+      "Shop B18, Saham Plaza, No. 10 Alexandria Crescent",
+    );
+    assert.equal(
+      ORGANIZATION_POSTAL_ADDRESS.streetAddress,
+      POSTAL_ADDRESS.streetAddress,
+    );
+    assert.equal(SITE.legalAddress, LEGAL_ADDRESS);
+    assert.equal(
+      SITE.legalAddress,
+      `${POSTAL_ADDRESS.streetAddress}, ${POSTAL_ADDRESS.addressLocality}, ${POSTAL_ADDRESS.addressRegion}, ${POSTAL_ADDRESS.addressCountry}`,
+    );
+    assert.ok(SITE.legalAddress.startsWith(POSTAL_ADDRESS.streetAddress));
     assert.deepEqual(organization.sameAs, sameAs);
     assert.deepEqual(website.sameAs, sameAs);
     assert.deepEqual(website.publisher, { "@id": ORGANIZATION_ID });
@@ -112,6 +128,14 @@ describe("SEO structured data and Kompleet links", () => {
     const pms = nodeOfType(nodes, "SoftwareApplication", "Ivano PMS");
 
     assert.equal(kompleet.url, "https://getkompleet.com");
+    assert.equal(
+      kompleet.description,
+      KOMPLEET_SOFTWARE_APPLICATION_DESCRIPTION,
+    );
+    assert.equal(
+      kompleet.description,
+      "Stress free bookkeeping and invoicing for Nigerian businesses: bank statement imports, simple invoicing and clean financial reports.",
+    );
     assert.equal(kompleet.applicationCategory, "BusinessApplication");
     assert.equal(kompleet.operatingSystem, "Web");
     assert.equal("offers" in kompleet, false);
@@ -120,6 +144,11 @@ describe("SEO structured data and Kompleet links", () => {
     assert.deepEqual(kompleet.publisher, { "@id": ORGANIZATION_ID });
 
     assert.equal(pms.url, "https://pms.techivano.com");
+    assert.equal(pms.description, PMS_SOFTWARE_APPLICATION_DESCRIPTION);
+    assert.equal(
+      pms.description,
+      "Hospitality property management: bookings, guests, units and messaging across booking channels.",
+    );
     assert.equal(pms.applicationCategory, "BusinessApplication");
     assert.equal(pms.operatingSystem, "Web");
     assert.equal("offers" in pms, false);

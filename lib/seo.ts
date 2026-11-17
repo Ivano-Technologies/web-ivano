@@ -1,5 +1,5 @@
 import type { Product } from "./products.ts";
-import { SITE, SOCIAL_LINKS } from "./site.ts";
+import { POSTAL_ADDRESS, SITE, SOCIAL_LINKS } from "./site.ts";
 
 /** Absolute URLs that leave the site (canonical, og:url, JSON-LD, sitemap). */
 export const CANONICAL_ORIGIN = SITE.webHref;
@@ -8,13 +8,10 @@ export const ORGANIZATION_JSON_LD_NAME = "Ivano Technologies Ltd";
 export const ORGANIZATION_LOGO_PATH = "/android-chrome-512x512.png";
 export const ORGANIZATION_ID = `${CANONICAL_ORIGIN}/#organization`;
 
-/** JSON-LD PostalAddress. FCT is allowed here; the LOCATION lock does not apply. */
+/** JSON-LD PostalAddress, derived from SITE/POSTAL_ADDRESS so the lines cannot drift. */
 export const ORGANIZATION_POSTAL_ADDRESS = {
   "@type": "PostalAddress",
-  streetAddress: "Shop B18, Saham Plaza, 10 Alexandria Crescent",
-  addressLocality: "Wuse 2, Abuja",
-  addressRegion: "FCT",
-  addressCountry: "Nigeria",
+  ...POSTAL_ADDRESS,
 } as const;
 
 export const MARKETING_PATHS = [
@@ -55,6 +52,27 @@ function productSameAs(product: Product, url: string): string[] {
   return [...new Set(hrefs)];
 }
 
+export const KOMPLEET_SOFTWARE_APPLICATION_DESCRIPTION =
+  "Stress free bookkeeping and invoicing for Nigerian businesses: bank statement imports, simple invoicing and clean financial reports.";
+export const PMS_SOFTWARE_APPLICATION_DESCRIPTION =
+  "Hospitality property management: bookings, guests, units and messaging across booking channels.";
+
+function softwareApplicationDescription(product: Product): string {
+  switch (product.highlight) {
+    case "kompleet":
+      return KOMPLEET_SOFTWARE_APPLICATION_DESCRIPTION;
+    case "pms":
+      return PMS_SOFTWARE_APPLICATION_DESCRIPTION;
+    case "nrcs":
+    case "client":
+      return product.description;
+    default: {
+      const exhaustive: never = product.highlight;
+      throw new Error(`Unhandled product highlight: ${exhaustive}`);
+    }
+  }
+}
+
 function softwareApplicationJsonLd(
   product: Product,
 ): Record<string, unknown> {
@@ -66,7 +84,7 @@ function softwareApplicationJsonLd(
     url,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    description: product.description,
+    description: softwareApplicationDescription(product),
     publisher: {
       "@id": ORGANIZATION_ID,
     },

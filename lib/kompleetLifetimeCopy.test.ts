@@ -67,7 +67,7 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(kompleet.secondaryHref, "https://getkompleet.com");
     assert.equal(kompleet.price, undefined);
     assert.equal(kompleet.badgeLabel, "Founding offer");
-    assert.match(kompleet.priceNote ?? "", /first 25 users only/);
+    assert.match(kompleet.priceNote ?? "", /first 25 licences only/);
     assert.ok((kompleet.includes?.length ?? 0) >= 3);
   });
 

@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     featured: true,
     homeThumb: true,
     priceNote:
-      "Per user: one licence covers one named user account. For the first 25 users only. No monthly or annual fees.",
+      "Per user: one licence covers one named user account. For the first 25 licences only. No monthly or annual fees.",
     includesLabel: "What's included, for each licensed user:",
     includes: [
       "Invoicing",
