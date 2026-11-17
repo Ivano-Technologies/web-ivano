@@ -1,12 +1,12 @@
-import { organizationJsonLd } from "@/lib/seo";
+type JsonLdProps = {
+  data: Record<string, unknown>;
+};
 
-export function JsonLd() {
-  const jsonLd = organizationJsonLd();
-
+export function JsonLd({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
 }

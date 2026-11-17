@@ -1,5 +1,5 @@
-/** Live Kompleet origin after the www cutover. */
-export const KOMPLEET_ORIGIN = "https://kompleet.techivano.com";
+/** Live Kompleet origin. Apex only; no www and no legacy product host hop. */
+export const KOMPLEET_ORIGIN = "https://getkompleet.com";
 
 /**
  * Old Kompleet app prefixes that now 404 on www.ivanotechnologies.com.

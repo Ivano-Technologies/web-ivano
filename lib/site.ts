@@ -21,12 +21,27 @@ export const PHONES = [
   { display: "+234 903 223 3420", href: "tel:+2349032233420" },
 ] as const;
 
+/**
+ * Registered/office postal address parts. JSON-LD PostalAddress and
+ * SITE.legalAddress are built from this so they cannot drift.
+ * FCT is allowed here; the LOCATION lock does not apply.
+ */
+export const POSTAL_ADDRESS = {
+  streetAddress: "Shop B18, Saham Plaza, No. 10 Alexandria Crescent",
+  addressLocality: "Wuse 2, Abuja",
+  addressRegion: "FCT",
+  addressCountry: "Nigeria",
+} as const;
+
+export const LEGAL_ADDRESS =
+  `${POSTAL_ADDRESS.streetAddress}, ${POSTAL_ADDRESS.addressLocality}, ${POSTAL_ADDRESS.addressRegion}, ${POSTAL_ADDRESS.addressCountry}` as const;
+
 export const SITE = {
   name: "Ivano Technologies",
   legalName: "IVANO TECHNOLOGIES LTD",
   rc: "RC 9326735",
   description:
-    "Software products and technology services for growing businesses. Electric cars and green tech for Nigeria. Abuja Nigeria.",
+    "Software, IT and consultancy for Nigerian organisations. Products and technology services from Ivano Technologies, Abuja.",
   email: CONTACT_EMAIL,
   supportEmail: SUPPORT_EMAIL,
   disputesEmail: DISPUTES_EMAIL,
@@ -46,8 +61,7 @@ export const SITE = {
    * Registered/office postal address. Use on Terms, Privacy and Refunds only.
    * FCT is allowed here; the LOCATION lock does not apply to this line.
    */
-  legalAddress:
-    "Shop B18, Saham Plaza, No. 10 Alexandria Crescent, Wuse 2, Abuja, FCT, Nigeria",
+  legalAddress: LEGAL_ADDRESS,
   // ?v=5: fresh CDN cache key for the v2.4 profile (RC 9326735).
   pdfHref: "/company-profile.pdf?v=5",
   pdfFilename: "Ivano Technologies Company Profile.pdf",
