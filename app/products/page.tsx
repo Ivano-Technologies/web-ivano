@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
 import { createMetadata } from "@/lib/metadata";
 import { HOME_CLIENT_CARDS, SALE_PRODUCTS } from "@/lib/products";
+import { softwareApplicationsJsonLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata = createMetadata({
@@ -22,6 +24,7 @@ const listedProducts = SALE_PRODUCTS.filter(
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd data={softwareApplicationsJsonLd(SALE_PRODUCTS)} />
       <PageHero
         eyebrow="Products"
         title="Products and pricing"

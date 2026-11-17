@@ -23,8 +23,8 @@ export function MailLink({ address }: { address: string }) {
   return <a href={`mailto:${address}`}>{address}</a>;
 }
 
-export function LegalUpdated() {
-  return <p>Last updated: {LEGAL_LAST_UPDATED}</p>;
+export function LegalUpdated({ date = LEGAL_LAST_UPDATED }: { date?: string }) {
+  return <p>Last updated: {date}</p>;
 }
 
 export function LegalPage({

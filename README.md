@@ -44,7 +44,7 @@ npm run build
 | `/contact` | Form → `hi@ivanotechnologies.com` (mailto) |
 | `/privacy` `/terms` `/cookies` | Light legal stubs |
 | `/company-profile.pdf` | Downloadable company profile |
-| `/login` `/signup` `/dashboard` `/app` `/reset-password` `/forgot-password` (and subpaths) | 308 to the same path on https://kompleet.techivano.com |
+| `/login` `/signup` `/dashboard` `/app` `/reset-password` `/forgot-password` (and subpaths) | 308 to the same path on https://getkompleet.com |
 
 ## Kompleet leftover redirects
 
@@ -64,7 +64,7 @@ do
 done
 ```
 
-Expect `HTTP/1.1 308` (or HTTP/2 308) and `location: https://kompleet.techivano.com` plus the same path and query. `/`, `/products`, `/about` and the other marketing routes must stay 200.
+Expect `HTTP/1.1 308` (or HTTP/2 308) and `location: https://getkompleet.com` plus the same path and query. `/`, `/products`, `/about` and the other marketing routes must stay 200.
 
 ## Contact form
 
@@ -83,7 +83,7 @@ The contact form opens a **mailto** to `hi@ivanotechnologies.com` with Name / Em
 
 | Card | Badge | URL |
 |---|---|---|
-| Kompleet | Product | https://kompleet.techivano.com |
+| Kompleet | Product | https://getkompleet.com |
 | Ivano PMS | Product | https://pms.techivano.com |
 | NRCS EAM | Product | https://nrcseam.techivano.com |
 | JUO Campaign | Client work | https://www.votejohnupanodey.com |
