@@ -6,7 +6,6 @@ import { fileURLToPath } from "node:url";
 import {
   KOMPLEET_FOUNDING_CTA,
   KOMPLEET_HREF,
-  KOMPLEET_PRICING_HREF,
   KOMPLEET_SEE_CTA,
   PRODUCTS,
 } from "./products.ts";
@@ -61,13 +60,18 @@ describe("Kompleet founding lifetime copy", () => {
     assert.ok(kompleet);
     assert.equal(kompleet.cta, "Founding lifetime offer coming soon");
     assert.equal(kompleet.cta, KOMPLEET_FOUNDING_CTA);
-    assert.equal(kompleet.href, KOMPLEET_PRICING_HREF);
-    assert.equal(kompleet.href, "https://kompleet.techivano.com/pricing");
+    assert.equal(kompleet.href, KOMPLEET_HREF);
+    assert.equal(kompleet.href, "https://getkompleet.com");
     assert.equal(kompleet.secondaryCta, KOMPLEET_SEE_CTA);
     assert.equal(kompleet.secondaryHref, KOMPLEET_HREF);
+    assert.equal(kompleet.secondaryHref, "https://getkompleet.com");
     assert.equal(kompleet.price, undefined);
     assert.equal(kompleet.badgeLabel, "Founding offer");
-    assert.match(kompleet.priceNote ?? "", /first 25 users only/);
+    assert.equal(
+      kompleet.priceNote,
+      "Per user: one licence covers one named user account. No monthly or annual fees.",
+    );
+    assert.equal((kompleet.priceNote ?? "").includes("first 25 licences"), false);
     assert.ok((kompleet.includes?.length ?? 0) >= 3);
   });
 

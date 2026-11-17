@@ -2,8 +2,7 @@ export type ProductBadge = "product" | "client";
 
 export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
 
-export const KOMPLEET_HREF = "https://kompleet.techivano.com";
-export const KOMPLEET_PRICING_HREF = `${KOMPLEET_HREF}/pricing`;
+export const KOMPLEET_HREF = "https://getkompleet.com";
 export const KOMPLEET_FOUNDING_CTA = "Founding lifetime offer coming soon";
 export const KOMPLEET_SEE_CTA = "See Kompleet";
 
@@ -45,7 +44,7 @@ export const PRODUCTS: Product[] = [
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
-    href: KOMPLEET_PRICING_HREF,
+    href: KOMPLEET_HREF,
     cta: KOMPLEET_FOUNDING_CTA,
     secondaryCta: KOMPLEET_SEE_CTA,
     secondaryHref: KOMPLEET_HREF,
@@ -53,7 +52,7 @@ export const PRODUCTS: Product[] = [
     featured: true,
     homeThumb: true,
     priceNote:
-      "Per user: one licence covers one named user account. For the first 25 users only. No monthly or annual fees.",
+      "Per user: one licence covers one named user account. No monthly or annual fees.",
     includesLabel: "What's included, for each licensed user:",
     includes: [
       "Invoicing",

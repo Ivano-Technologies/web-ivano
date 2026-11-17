@@ -35,6 +35,7 @@ export function createMetadata({
     // (www), whereas the app/twitter-image file falls back to the deployment host.
     twitter: {
       card: "summary_large_image",
+      site: SITE.socialHandle,
       title: displayTitle,
       description,
       images: [{ url: "/twitter-image", ...OG_SIZE, alt: OG_ALT }],
