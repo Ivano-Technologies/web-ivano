@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   LegalPage,
-  LegalUpdated,
   MailLink,
   legalMetadata,
 } from "@/components/LegalPage";
@@ -15,7 +14,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function TermsPage() {
   return (
     <LegalPage title="Terms of Service">
-      <LegalUpdated />
+      <p>Last updated: 17 November 2026</p>
 
       <h2>1. Who we are</h2>
       <p>
@@ -62,8 +61,8 @@ export default function TermsPage() {
       <h2>3. Products and prices</h2>
       <p>
         3.1 Our products and current prices are listed on our{" "}
-        <Link href="/products">Products and pricing</Link> page. The price you
-        pay is the price shown at checkout at the time you pay.
+        <Link href="/products">Products and pricing</Link> page. Prices are as
+        displayed at the time of purchase.
       </p>
       <p>
         3.2 When shown at checkout, prices are in{" "}
