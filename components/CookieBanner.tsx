@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { shouldShowCookieBanner } from "@/lib/analytics";
 import {
   type AnalyticsConsent,
   getConsentSnapshot,
@@ -12,11 +13,15 @@ import {
   writeConsent,
 } from "@/lib/consent";
 
+type CookieBannerProps = {
+  measurementId: string | null;
+};
+
 /**
  * First-visit cookie choice. Not a modal: it does not trap focus or block
  * the page. Accept and Decline share one class so they carry equal weight.
  */
-export function CookieBanner() {
+export function CookieBanner({ measurementId }: CookieBannerProps) {
   const consent = useSyncExternalStore(
     subscribeConsent,
     getConsentSnapshot,
@@ -24,6 +29,7 @@ export function CookieBanner() {
   );
   const [reopened, setReopened] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const analyticsEnabled = shouldShowCookieBanner(measurementId);
 
   useEffect(
     () =>
@@ -34,7 +40,8 @@ export function CookieBanner() {
     [],
   );
 
-  const visible = consent === "unset" || reopened;
+  const visible =
+    analyticsEnabled && (consent === "unset" || reopened);
 
   useEffect(() => {
     const root = document.documentElement;

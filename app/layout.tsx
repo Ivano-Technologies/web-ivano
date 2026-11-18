@@ -80,6 +80,7 @@ export const metadata: Metadata = {
 /** Pass 3: dark navy is the default; light follows prefers-color-scheme. */
 export const viewport: Viewport = {
   colorScheme: "dark light",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -87,6 +88,8 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const gaMeasurementId = getGaMeasurementId();
+
   return (
     <html lang="en" className={`${exo.variable} ${montserrat.variable}`}>
       <body>
@@ -98,9 +101,9 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <StickyContact />
-        <CookieBanner />
+        <CookieBanner measurementId={gaMeasurementId} />
         <MotionEffects />
-        <GoogleAnalytics measurementId={getGaMeasurementId()} />
+        <GoogleAnalytics measurementId={gaMeasurementId} />
       </body>
     </html>
   );

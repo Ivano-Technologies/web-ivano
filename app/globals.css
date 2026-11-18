@@ -1708,6 +1708,9 @@ section { padding: 2.5rem 0; position: relative; }
   font-family: inherit;
 }
 html.cookie-banner-open .sticky-contact { display: none !important; }
+html.cookie-banner-open .site-footer {
+  padding-bottom: calc(14rem + env(safe-area-inset-bottom, 0px));
+}
 
 @media (max-width: 767px) {
   .sticky-contact.is-on { display: flex; }
@@ -1720,7 +1723,7 @@ html.cookie-banner-open .sticky-contact { display: none !important; }
   z-index: 40;
   left: 0.75rem;
   right: 0.75rem;
-  bottom: 0.75rem;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   display: grid;
   gap: 0.75rem;
   padding: 1rem 1.1rem 1.05rem;
@@ -1754,6 +1757,7 @@ html.cookie-banner-open .sticky-contact { display: none !important; }
 }
 .cookie-banner-choice {
   flex: 1 1 8rem;
+  min-height: 48px;
   background: var(--p3-btn-bg);
   color: var(--p3-btn-text);
   box-shadow: none;
@@ -1766,8 +1770,11 @@ html.cookie-banner-open .sticky-contact { display: none !important; }
   .cookie-banner {
     left: auto;
     right: 1.25rem;
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     width: min(26rem, calc(100% - 2.5rem));
+  }
+  .cookie-banner .btn.cookie-banner-choice {
+    min-height: 48px;
   }
 }
 

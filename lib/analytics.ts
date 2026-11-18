@@ -58,3 +58,8 @@ export function googleAnalyticsScriptSrc(
   }
   return gtagScriptUrl(measurementId);
 }
+
+/** Banner is only for builds that actually have a GA4 id. */
+export function shouldShowCookieBanner(measurementId: string | null): boolean {
+  return measurementId !== null;
+}

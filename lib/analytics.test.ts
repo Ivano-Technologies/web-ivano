@@ -9,6 +9,7 @@ import {
   googleAnalyticsScriptSrc,
   gtagScriptUrl,
   shouldLoadGoogleAnalytics,
+  shouldShowCookieBanner,
 } from "./analytics.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -89,6 +90,26 @@ describe("GA4 measurement id and load gating", () => {
     assert.equal(googleAnalyticsScriptSrc(FIXTURE_ID, "denied"), null);
   });
 
+  it("does not show the cookie banner when the env var is unset", () => {
+    withMeasurementId(undefined, () => {
+      assert.equal(shouldShowCookieBanner(getGaMeasurementId()), false);
+    });
+    withMeasurementId("  ", () => {
+      assert.equal(shouldShowCookieBanner(getGaMeasurementId()), false);
+    });
+    withMeasurementId("G-TESTID123", () => {
+      assert.equal(shouldShowCookieBanner(getGaMeasurementId()), true);
+    });
+
+    const banner = readFileSync(
+      join(ROOT, "components/CookieBanner.tsx"),
+      "utf8",
+    );
+    const layout = readFileSync(join(ROOT, "app/layout.tsx"), "utf8");
+    assert.match(banner, /shouldShowCookieBanner\(measurementId\)/);
+    assert.match(layout, /CookieBanner measurementId=\{gaMeasurementId\}/);
+  });
+
   it("does not hardcode a GA4 measurement id in source", () => {
     const failures: string[] = [];
     for (const file of walk(ROOT)) {
@@ -127,11 +148,15 @@ describe("GA4 measurement id and load gating", () => {
     const failures: string[] = [];
     for (const file of files) {
       const text = readFileSync(file, "utf8");
+      const rel = relative(ROOT, file).replaceAll("\\", "/");
       if (
         text.includes("googletagmanager.com") ||
         text.includes("google-analytics.com")
       ) {
-        failures.push(relative(ROOT, file).replaceAll("\\", "/"));
+        failures.push(rel);
+      }
+      if (file.endsWith(".html") && text.includes("data-cookie-banner")) {
+        failures.push(rel);
       }
     }
     assert.equal(failures.length, 0, failures.join(", "));
