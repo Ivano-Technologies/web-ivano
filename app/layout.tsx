@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Exo, Montserrat } from "next/font/google";
+import { CookieBanner } from "@/components/CookieBanner";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { JsonLd } from "@/components/JsonLd";
 import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StickyContact } from "@/components/StickyContact";
+import { getGaMeasurementId } from "@/lib/analytics";
 import {
   CANONICAL_ORIGIN,
   isPreviewDeployment,
@@ -77,6 +80,7 @@ export const metadata: Metadata = {
 /** Pass 3: dark navy is the default; light follows prefers-color-scheme. */
 export const viewport: Viewport = {
   colorScheme: "dark light",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -84,6 +88,8 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const gaMeasurementId = getGaMeasurementId();
+
   return (
     <html lang="en" className={`${exo.variable} ${montserrat.variable}`}>
       <body>
@@ -95,7 +101,9 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <StickyContact />
+        <CookieBanner measurementId={gaMeasurementId} />
         <MotionEffects />
+        <GoogleAnalytics measurementId={gaMeasurementId} />
       </body>
     </html>
   );

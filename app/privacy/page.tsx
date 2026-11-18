@@ -15,7 +15,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function PrivacyPage() {
   return (
     <LegalPage title="Privacy Policy">
-      <LegalUpdated />
+      <LegalUpdated date="18 November 2026" />
 
       <h2>1. Who we are</h2>
       <p>
@@ -160,6 +160,21 @@ export default function PrivacyPage() {
             </tr>
             <tr role="row">
               <td role="cell" data-label="What">
+                Page URL, referrer, browser and device type, and a random
+                client identifier
+              </td>
+              <td role="cell" data-label="When">
+                Only if you choose Accept on the cookie banner
+              </td>
+              <td role="cell" data-label="Why">
+                To see how the site is used (Google Analytics 4)
+              </td>
+              <td role="cell" data-label="Lawful basis (NDPA s. 25)">
+                Consent. Withdraw any time from Cookie settings in the footer
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="What">
                 Marketing emails (product news)
               </td>
               <td role="cell" data-label="When">
@@ -221,11 +236,19 @@ export default function PrivacyPage() {
 
       <h2>5. Cookies and analytics</h2>
       <p>
-        This website does not set any cookies and does not use analytics or
-        advertising trackers. When you pay, Paystack&apos;s checkout may set
-        cookies that are strictly necessary for secure payment and fraud
-        prevention; these are covered by Paystack&apos;s policy. See our{" "}
-        <Link href="/cookies">Cookie Notice</Link>.
+        This website uses Google Analytics 4 only after you choose Accept on
+        the cookie banner. Until then we do not load Google&apos;s scripts or
+        set analytics cookies. If you Accept, Google may set _ga and _ga_*
+        cookies and collect page URL, referrer, browser and device type, and a
+        random client identifier. We
+        do not use advertising or social media trackers. Decline loads no
+        analytics. You can change your mind from Cookie settings in the
+        footer. See our <Link href="/cookies">Cookie Notice</Link>.
+      </p>
+      <p>
+        When you pay, Paystack&apos;s checkout may set cookies that are
+        strictly necessary for secure payment and fraud prevention; these are
+        covered by Paystack&apos;s policy.
       </p>
 
       <h2>6. Who we share data with</h2>
@@ -259,6 +282,17 @@ export default function PrivacyPage() {
               </td>
               <td role="cell" data-label="Location">
                 Nigeria; may transfer abroad under its own safeguards
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Recipient">
+                Google LLC
+              </td>
+              <td role="cell" data-label="Role">
+                Google Analytics 4, only if you accept
+              </td>
+              <td role="cell" data-label="Location">
+                United States
               </td>
             </tr>
             <tr role="row">
@@ -433,6 +467,15 @@ export default function PrivacyPage() {
               <td role="cell" data-label="How long">
                 6 years after the transaction, to meet Nigerian tax and
                 company-records duties
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Data">
+                Google Analytics records
+              </td>
+              <td role="cell" data-label="How long">
+                Until you Decline or we delete them; Google&apos;s cookies last
+                up to 2 years
               </td>
             </tr>
             <tr role="row">
