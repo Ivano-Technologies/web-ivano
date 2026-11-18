@@ -1465,7 +1465,20 @@ section { padding: 2.5rem 0; position: relative; }
   color: var(--p3-footer-text);
 }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.footer-legal a { display: inline; margin-bottom: 0; min-height: 0; }
+.footer-legal a,
+.footer-legal button.footer-cookie-settings {
+  display: inline;
+  margin-bottom: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  letter-spacing: inherit;
+}
+.footer-legal button.footer-cookie-settings:hover { color: var(--p3-footer-strong); }
 /* How we work: plain values styled like the Explore links (same size, weight
    and row rhythm) with a small round dot in the muted grey. */
 .footer-values { list-style: none; margin: 0; padding: 0; }
@@ -1694,9 +1707,68 @@ section { padding: 2.5rem 0; position: relative; }
   cursor: pointer;
   font-family: inherit;
 }
+html.cookie-banner-open .sticky-contact { display: none !important; }
+
 @media (max-width: 767px) {
   .sticky-contact.is-on { display: flex; }
   .about-download .btn { width: 100%; }
+}
+
+/* Cookie consent banner */
+.cookie-banner {
+  position: fixed;
+  z-index: 40;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem 1.05rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.cookie-banner h2 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.cookie-banner h2:focus { outline: none; }
+.cookie-banner h2:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cookie-banner p {
+  color: var(--body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  max-width: 62ch;
+}
+.cookie-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.cookie-banner-choice {
+  flex: 1 1 8rem;
+  background: var(--p3-btn-bg);
+  color: var(--p3-btn-text);
+  box-shadow: none;
+}
+.cookie-banner-choice:hover {
+  background: var(--p3-btn-bg-hover);
+  transform: none;
+}
+@media (min-width: 768px) {
+  .cookie-banner {
+    left: auto;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: min(26rem, calc(100% - 2.5rem));
+  }
 }
 
 @media (min-width: 768px) {
@@ -1909,6 +1981,16 @@ section { padding: 2.5rem 0; position: relative; }
   /* Sticky mobile contact */
   html:not([data-theme="dark"]) .sticky-contact { background: rgba(246, 244, 239, 0.94); border-color: var(--p3-hairline); }
   html:not([data-theme="dark"]) .sticky-contact-dismiss { color: var(--p3-ink-2); }
+  html:not([data-theme="dark"]) .cookie-banner {
+    background: var(--p3-surface);
+    border-color: var(--p3-hairline);
+    box-shadow: none;
+  }
+  html:not([data-theme="dark"]) .cookie-banner h2 { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .cookie-banner p { color: var(--p3-ink-2); }
+  html:not([data-theme="dark"]) .footer-legal button.footer-cookie-settings:hover {
+    color: var(--p3-footer-strong);
+  }
   html:not([data-theme="dark"]) :focus-visible { outline-color: var(--p3-accent); }
   html:not([data-theme="dark"]) .skip-link { background: var(--p3-btn-bg); color: var(--p3-btn-text); }
 }

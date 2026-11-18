@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/CookieBanner";
 import { SocialGlyph } from "@/components/SocialGlyph";
 import { FOOTER_EXPLORE, LEGAL_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
@@ -103,6 +104,7 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+            <CookieSettingsButton className="footer-cookie-settings" />
           </nav>
         </div>
       </div>

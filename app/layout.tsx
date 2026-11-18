@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Exo, Montserrat } from "next/font/google";
+import { CookieBanner } from "@/components/CookieBanner";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { JsonLd } from "@/components/JsonLd";
 import { MotionEffects } from "@/components/MotionEffects";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StickyContact } from "@/components/StickyContact";
+import { getGaMeasurementId } from "@/lib/analytics";
 import {
   CANONICAL_ORIGIN,
   isPreviewDeployment,
@@ -95,7 +98,9 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <StickyContact />
+        <CookieBanner />
         <MotionEffects />
+        <GoogleAnalytics measurementId={getGaMeasurementId()} />
       </body>
     </html>
   );
