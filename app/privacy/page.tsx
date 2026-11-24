@@ -15,7 +15,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function PrivacyPage() {
   return (
     <LegalPage title="Privacy Policy">
-      <LegalUpdated date="18 November 2026" />
+      <LegalUpdated date="25 November 2026" />
 
       <h2>1. Who we are</h2>
       <p>
@@ -32,9 +32,9 @@ export default function PrivacyPage() {
         <li>visitors to {SITE.webDisplay};</li>
         <li>people who contact us; and</li>
         <li>
-          people who buy our products through this website or our product sites
-          (currently the <strong>Kompleet</strong> Founding Lifetime licence),
-          and their payment records.
+          people who buy our products through this website or our product sites,
+          including the <strong>Kompleet</strong> founding offer (limited to 10 places), and
+          their payment records.
         </li>
       </ul>
       <p>
@@ -341,31 +341,6 @@ export default function PrivacyPage() {
             </tr>
             <tr role="row">
               <td role="cell" data-label="Recipient">
-                Supabase, Inc.
-              </td>
-              <td role="cell" data-label="Role">
-                Kompleet&apos;s previous database, kept only until our move to
-                Convex is complete, then closed
-              </td>
-              <td role="cell" data-label="Location">
-                Outside Nigeria
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="Recipient">
-                Anthropic PBC (primary) and OpenAI, L.L.C. (fallback)
-              </td>
-              <td role="cell" data-label="Role">
-                Suggesting categories for the transactions you import into
-                Kompleet (transaction descriptions and amounts are sent; your
-                card details never are)
-              </td>
-              <td role="cell" data-label="Location">
-                United States
-              </td>
-            </tr>
-            <tr role="row">
-              <td role="cell" data-label="Recipient">
                 Resend, Inc.
               </td>
               <td role="cell" data-label="Role">
@@ -380,10 +355,13 @@ export default function PrivacyPage() {
                 Functional Software, Inc. (Sentry)
               </td>
               <td role="cell" data-label="Role">
-                Error monitoring for Kompleet
+                Error monitoring for Kompleet, including masked session
+                replays (text and inputs hidden)
               </td>
               <td role="cell" data-label="Location">
-                United States
+                European Union (Frankfurt, Germany) for error reports and
+                masked session replays; some account metadata may be stored
+                in the United States
               </td>
             </tr>
             <tr role="row">
@@ -411,6 +389,13 @@ export default function PrivacyPage() {
           </tbody>
         </table>
       </div>
+      <p>
+        Receipt images scanned in Kompleet are read on our servers with
+        Tesseract and are not sent to a third-party OCR or AI provider. Bank
+        statement files imported into Kompleet are parsed on our servers and
+        are not sent to an AI provider. Automatic categorisation uses local
+        rules. AI categorisation is not currently enabled.
+      </p>
       <p>
         If Ivano is involved in a merger, sale or restructuring, data may pass
         to the new owner under the same protections.
