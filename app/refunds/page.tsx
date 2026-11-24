@@ -48,7 +48,7 @@ export default function RefundsPage() {
       </p>
       <p>
         After a refund, your Kompleet lifetime licence ends and your seat in
-        the 25-seat offer is released. Before we close your access we will
+        the 10-seat offer is released. Before we close your access we will
         give you at least 7 days to export your data.
       </p>
 
@@ -78,12 +78,12 @@ export default function RefundsPage() {
         what happens (at least 90 days&apos; notice and a data export).
       </p>
 
-      <h2 id="section-4">4. Payments received after the 25th seat is sold</h2>
+      <h2 id="section-4">4. Payments received after the 10th seat is sold</h2>
       <p>
-        The Kompleet Founding Lifetime offer is limited to 25 licences, one
+        The Kompleet Founding Lifetime offer is limited to 10 licences, one
         per named user account.{" "}
         <strong>
-          Any payment we receive after the 25th seat has been sold is refunded
+          Any payment we receive after the 10th seat has been sold is refunded
           in full
         </strong>
         , including VAT, with the Paystack processing fee absorbed by Ivano.
