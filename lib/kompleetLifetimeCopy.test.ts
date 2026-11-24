@@ -25,6 +25,7 @@ const OLD_SALE_NOW_LINES = [
   "Full refund within 14 days",
   "Access starts immediately after payment",
   "Any payment received after the 25th seat",
+  "Any payment received after the 10th seat",
 ];
 const FOUNDING_NOTE =
   "When it opens, the founding offer is a one-off payment through Paystack, with lifetime meaning for as long as Kompleet is offered. See our Terms of Service and Refund Policy.";
@@ -72,6 +73,7 @@ describe("Kompleet founding lifetime copy", () => {
       "Per user: one licence covers one named user account. No monthly or annual fees.",
     );
     assert.equal((kompleet.priceNote ?? "").includes("first 25 licences"), false);
+    assert.equal((kompleet.priceNote ?? "").includes("first 10 licences"), false);
     assert.ok((kompleet.includes?.length ?? 0) >= 3);
   });
 
