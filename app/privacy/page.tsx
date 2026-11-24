@@ -32,9 +32,8 @@ export default function PrivacyPage() {
         <li>visitors to {SITE.webDisplay};</li>
         <li>people who contact us; and</li>
         <li>
-          people who buy our products through this website or our product sites,
-          including the <strong>Kompleet</strong> founding offer (limited to 10 places), and
-          their payment records.
+          people who buy or use our products through this website or our
+          product sites, and their payment records.
         </li>
       </ul>
       <p>
@@ -278,21 +277,24 @@ export default function PrivacyPage() {
                 Paystack Payments Limited
               </td>
               <td role="cell" data-label="Role">
-                Payment processing, refunds, disputes, fraud checks
+                Payment processing, including Kompleet licence payments,
+                refunds, disputes and fraud checks
               </td>
               <td role="cell" data-label="Location">
-                Nigeria; may transfer abroad under its own safeguards
+                Payment data stored in Ireland
               </td>
             </tr>
             <tr role="row">
               <td role="cell" data-label="Recipient">
-                Google LLC
+                Google Ireland Limited and Google LLC
               </td>
               <td role="cell" data-label="Role">
-                Google Analytics 4, only if you accept
+                Google Analytics 4, only if you accept analytics cookies
+                (page views, approximate location, and device and browser
+                data)
               </td>
               <td role="cell" data-label="Location">
-                United States
+                May process Analytics data outside Nigeria
               </td>
             </tr>
             <tr role="row">
@@ -322,7 +324,7 @@ export default function PrivacyPage() {
                 Vercel Inc.
               </td>
               <td role="cell" data-label="Role">
-                Hosting the Kompleet web app
+                Hosting the Kompleet website and application
               </td>
               <td role="cell" data-label="Location">
                 United States
@@ -333,10 +335,10 @@ export default function PrivacyPage() {
                 Convex, Inc.
               </td>
               <td role="cell" data-label="Role">
-                Kompleet application database, sign-in and file storage
+                Kompleet application database
               </td>
               <td role="cell" data-label="Location">
-                United States
+                United States (aws-us-east-1)
               </td>
             </tr>
             <tr role="row">
@@ -344,7 +346,7 @@ export default function PrivacyPage() {
                 Resend, Inc.
               </td>
               <td role="cell" data-label="Role">
-                Sending Kompleet account and transactional emails
+                Sending Kompleet account and verification emails
               </td>
               <td role="cell" data-label="Location">
                 United States
@@ -355,13 +357,14 @@ export default function PrivacyPage() {
                 Functional Software, Inc. (Sentry)
               </td>
               <td role="cell" data-label="Role">
-                Error monitoring for Kompleet, including masked session
-                replays (text and inputs hidden)
+                Error tracking for Kompleet (where an error occurs, Sentry
+                may record a masked replay of the session, with text and
+                inputs hidden)
               </td>
               <td role="cell" data-label="Location">
                 European Union (Frankfurt, Germany) for error reports and
-                masked session replays; some account metadata may be stored
-                in the United States
+                masked session replays; some Sentry account metadata may
+                be stored in the United States
               </td>
             </tr>
             <tr role="row">
@@ -392,9 +395,11 @@ export default function PrivacyPage() {
       <p>
         Receipt images scanned in Kompleet are read on our servers with
         Tesseract and are not sent to a third-party OCR or AI provider. Bank
-        statement files imported into Kompleet are parsed on our servers and
+        statement files imported in Kompleet are parsed on our servers and
         are not sent to an AI provider. Automatic categorisation uses local
-        rules. AI categorisation is not currently enabled.
+        rules. If AI categorisation is enabled, only the merchant, amount,
+        date, transaction type and description of that transaction are sent
+        to Anthropic or OpenAI to suggest a category.
       </p>
       <p>
         If Ivano is involved in a merger, sale or restructuring, data may pass
@@ -404,7 +409,8 @@ export default function PrivacyPage() {
       <h2>7. Transfers outside Nigeria</h2>
       <p>
         Some providers above store or process data outside Nigeria, including
-        in the United States. We transfer personal data only as the NDPA allows
+        in the United States, Ireland and the European Union. We transfer
+        personal data only as the NDPA allows
         (ss. 41 to 43) and the GAID, for example where the destination has
         adequate protection, or where appropriate safeguards (such as
         contractual data protection terms) are in place, or with your consent
