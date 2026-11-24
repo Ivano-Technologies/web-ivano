@@ -52,8 +52,8 @@ export const PRODUCTS: Product[] = [
     featured: true,
     homeThumb: true,
     priceNote:
-      "Per user: one licence covers one named user account. No monthly or annual fees.",
-    includesLabel: "What's included, for each licensed user:",
+      "For one founding business: up to 4 users, owner included, sharing one set of books. No monthly or annual fees.",
+    includesLabel: "What's included, for each founding business:",
     includes: [
       "Invoicing",
       "Bank statement imports and expense tracking",
