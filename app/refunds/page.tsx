@@ -79,7 +79,7 @@ export default function RefundsPage() {
       </p>
 
       <h2 id="section-4">
-        4. Payments received after the 10th founding business has taken a place
+        4. Payments after the 10th founding business has joined
       </h2>
       <p>
         The Kompleet Founding Lifetime offer is limited to the first 10
