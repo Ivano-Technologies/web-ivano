@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { KompleetPlans } from "@/components/KompleetPlans";
 import { ProductCard } from "@/components/ProductCard";
 import { createMetadata } from "@/lib/metadata";
 import { HOME_CLIENT_CARDS, SALE_PRODUCTS } from "@/lib/products";
@@ -33,21 +34,7 @@ export default function ProductsPage() {
       <section>
         <div className="wrap">
           {featuredProducts.map((product) => (
-            <ProductCard
-              key={product.name}
-              product={product}
-              featured
-              showThumb
-              afterCta={
-                <p className="product-fineprint">
-                  When it opens, the founding offer is a one-off payment
-                  through Paystack, with lifetime meaning for as long as
-                  Kompleet is offered. See our{" "}
-                  <Link href="/terms">Terms of Service</Link> and{" "}
-                  <Link href="/refunds">Refund Policy</Link>.
-                </p>
-              }
-            />
+            <KompleetPlans key={product.name} product={product} />
           ))}
           <div className="sale-grid">
             {listedProducts.map((product) => (
