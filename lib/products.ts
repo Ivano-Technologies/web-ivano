@@ -3,7 +3,6 @@ export type ProductBadge = "product" | "client";
 export type ProductHighlight = "kompleet" | "pms" | "nrcs" | "client";
 
 export const KOMPLEET_HREF = "https://getkompleet.com";
-export const KOMPLEET_FOUNDING_CTA = "Founding lifetime offer coming soon";
 export const KOMPLEET_SEE_CTA = "See Kompleet";
 
 export type Product = {
@@ -39,27 +38,16 @@ export const PRODUCTS: Product[] = [
     name: "Kompleet",
     highlight: "kompleet",
     badge: "product",
-    badgeLabel: "Founding offer",
+    badgeLabel: "Product",
     description:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     homeDescription:
       "Bookkeeping and invoicing for small and medium-sized businesses: bank imports, simple invoicing and clean financial reports.",
     href: KOMPLEET_HREF,
-    cta: KOMPLEET_FOUNDING_CTA,
-    secondaryCta: KOMPLEET_SEE_CTA,
-    secondaryHref: KOMPLEET_HREF,
+    cta: KOMPLEET_SEE_CTA,
     image: "/products/kompleet-art.png",
     featured: true,
     homeThumb: true,
-    priceNote:
-      "For one founding business: up to 4 users, owner included, sharing one set of books. No monthly or annual fees.",
-    includesLabel: "What's included, for each founding business:",
-    includes: [
-      "Invoicing",
-      "Bank statement imports and expense tracking",
-      "Financial reports",
-      "Future improvements to these core features (separately priced add-ons excluded)",
-    ],
   },
   {
     name: "Ivano PMS",
