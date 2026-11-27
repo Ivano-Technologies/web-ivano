@@ -15,7 +15,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function TermsPage() {
   return (
     <LegalPage title="Terms of Service">
-      <LegalUpdated date="17 November 2026" />
+      <LegalUpdated date="26 November 2026" />
 
       <h2>1. Who we are</h2>
       <p>
@@ -122,62 +122,45 @@ export default function TermsPage() {
         are authorised to bind that business.
       </p>
 
-      <h2>5. Your Kompleet licence (Founding Lifetime offer)</h2>
+      <h2>5. Your Kompleet plan</h2>
       <p>
-        5.1 <strong>What you get.</strong> Kompleet&apos;s Founding Lifetime
-        offer is limited to the <strong>first 10 founding businesses</strong>.
-        Each place is a one-off payment at the price shown at checkout when
-        the offer opens (<strong>VAT inclusive</strong>) and gives lifetime
-        access to Kompleet for <strong>one founding business</strong>. That
-        business may have up to 4 users, owner included, who share one set of
-        books. The licence covers Kompleet&apos;s core bookkeeping and
-        invoicing features as offered at the time (including invoicing, bank
-        statement imports, expense tracking and financial reports), and any
-        improvements we make to those core features. Future paid add-ons or
-        separately priced products are not included.
+        5.1 <strong>What you get.</strong> Kompleet is offered as plans (Free,
+        Plus, Pro and Max). A paid plan is a monthly or yearly payment at the
+        price shown at checkout or on our{" "}
+        <Link href="/products">Products</Link> page (
+        <strong>VAT inclusive</strong>) and gives access to Kompleet for one
+        business for the period you pay for. The plan covers Kompleet&apos;s
+        features as described for that plan at the time, and any improvements
+        we make to those features. Future paid add-ons or separately priced
+        products are not included unless the plan says they are.
       </p>
       <p>
-        5.2 <strong>What &quot;lifetime&quot; means.</strong>{" "}
-        &quot;Lifetime&quot; means for as long as we offer Kompleet as a
-        product, not the lifetime of a person or business. There are no monthly
-        or annual charges for the scope in 5.1. If we ever decide to
+        5.2 <strong>If we discontinue Kompleet.</strong> If we ever decide to
         discontinue Kompleet, we will give you at least{" "}
         <strong>90 days&apos; notice</strong> by email and a way to export your
         data before access ends.
       </p>
       <p>
-        5.3 <strong>Licence.</strong> We grant the founding business a
-        non-exclusive, non-transferable licence to use Kompleet for its own
-        business purposes under these Terms and Kompleet&apos;s in-product
-        terms. You may not resell, sublicense or transfer the licence. It is
-        for the one founding business in 5.1, and for up to 4 users in that
-        business, owner included.
+        5.3 <strong>Licence.</strong> We grant the business a non-exclusive,
+        non-transferable licence to use Kompleet for its own business purposes
+        under these Terms and Kompleet&apos;s in-product terms. You may not
+        resell, sublicense or transfer the licence. It is for one business,
+        for the plan and period you have paid for, or for the Free plan if you
+        have not paid.
       </p>
       <p>
-        5.4 <strong>Limited offer (first 10 founding businesses).</strong> The
-        founding price applies only to the first 10 founding businesses. Once
-        the 10th founding business has taken a place, the offer closes and the
-        website will be updated.{" "}
-        <strong>
-          Any payment we receive after the 10th founding business has taken a
-          place will be refunded in full
-        </strong>
-        , with the Paystack processing fee absorbed by Ivano, within the
-        timings in our <Link href="/refunds#section-4">Refund Policy</Link>{" "}
-        (section 4: we tell you within 2 working days and process the refund
-        within 5 working days). No licence is issued for that payment.
+        5.4 <strong>Delivery.</strong> Kompleet is a digital service. Access is
+        provided online, normally by account activation after you sign up, and
+        for a paid plan, after confirmed payment.
       </p>
       <p>
-        5.5 <strong>Delivery.</strong> Kompleet is a digital service. Access is
-        provided online, normally by email invitation or account activation
-        immediately after confirmed payment. We only sell the Founding Lifetime
-        licence once Kompleet is live, so you can start using it straight away.
-      </p>
-      <p>
-        5.6 <strong>Your data in Kompleet.</strong> You own the business data
+        5.5 <strong>Your data in Kompleet.</strong> You own the business data
         you put into Kompleet. How we handle personal data is explained in our{" "}
         <Link href="/privacy">Privacy Policy</Link> and Kompleet&apos;s own
         privacy notice.
+      </p>
+      <p>
+        5.6 Businesses that bought a founding place keep what they paid for.
       </p>
 
       <h2>6. Refunds and cancellations</h2>

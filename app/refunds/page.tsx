@@ -15,7 +15,7 @@ const supportMail = <MailLink address={SITE.supportEmail} />;
 export default function RefundsPage() {
   return (
     <LegalPage title="Refund Policy">
-      <LegalUpdated />
+      <LegalUpdated date="26 November 2026" />
 
       <p>
         This policy explains when and how you can get your money back for
@@ -30,13 +30,10 @@ export default function RefundsPage() {
       <h2>1. What this policy covers</h2>
       <p>
         This policy covers products bought on {SITE.webDisplay} or our product
-        sites and paid for through Paystack. Today that is the{" "}
-        <strong>
-          Kompleet Founding Lifetime licence (VAT inclusive, one-off payment,
-          priced as shown at checkout)
-        </strong>
-        . Work we do for clients under a separate written agreement follows the
-        refund terms in that agreement.
+        sites and paid for through Paystack. Today that is{" "}
+        <strong>Kompleet plans</strong> bought on this website or
+        getkompleet.com. Work we do for clients under a separate written
+        agreement follows the refund terms in that agreement.
       </p>
 
       <h2>2. Change your mind: 14-day refund</h2>
@@ -47,9 +44,8 @@ export default function RefundsPage() {
         reason.
       </p>
       <p>
-        After a refund, founding access for that business ends and its place
-        among the first 10 founding businesses is released. Before we close
-        your access we will give you at least 7 days to export your data.
+        After a refund, access for that business ends. Before we close your
+        access we will give you at least 7 days to export your data.
       </p>
 
       <h2>3. When we always refund, at any time</h2>
@@ -78,26 +74,7 @@ export default function RefundsPage() {
         what happens (at least 90 days&apos; notice and a data export).
       </p>
 
-      <h2 id="section-4">
-        4. Payments after the 10th founding business has joined
-      </h2>
-      <p>
-        The Kompleet Founding Lifetime offer is limited to the first 10
-        founding businesses, each with up to 4 users, owner included, sharing
-        one set of books.{" "}
-        <strong>
-          Any payment we receive after the 10th founding business has taken a
-          place is refunded in full
-        </strong>
-        , including VAT, with the Paystack processing fee absorbed by Ivano.
-        You don&apos;t need to ask: we tell you by email within{" "}
-        <strong>2 working days</strong> and process the refund within{" "}
-        <strong>5 working days</strong>. Paystack then usually returns the
-        money within 3 to 10 working days, depending on your bank. No licence
-        is issued for that payment.
-      </p>
-
-      <h2>5. When we do not refund</h2>
+      <h2>4. When we do not refund</h2>
       <ul>
         <li>
           Requests made after the 14-day period, unless section 3 applies.
@@ -112,7 +89,7 @@ export default function RefundsPage() {
         </li>
       </ul>
 
-      <h2>6. How to ask for a refund</h2>
+      <h2>5. How to ask for a refund</h2>
       <p>
         Email {supportMail} with the subject{" "}
         <strong>&quot;Refund request&quot;</strong> and include:
@@ -124,7 +101,7 @@ export default function RefundsPage() {
       </ul>
       <p>We will confirm receipt within 2 working days.</p>
 
-      <h2>7. How and when you get your money</h2>
+      <h2>6. How and when you get your money</h2>
       <ul>
         <li>
           We approve or explain a refusal within <strong>5 working days</strong>{" "}
@@ -146,7 +123,7 @@ export default function RefundsPage() {
         </li>
       </ul>
 
-      <h2>8. Please talk to us before your bank</h2>
+      <h2>7. Please talk to us before your bank</h2>
       <p>
         If something is wrong, or for any payment disputes, email {supportMail}.
         Most problems can be fixed quickly. If you open a dispute or chargeback
@@ -154,7 +131,7 @@ export default function RefundsPage() {
         for everyone.
       </p>
 
-      <h2>9. Questions</h2>
+      <h2>8. Questions</h2>
       <p>
         {mail} · Ivano Technologies Ltd · {SITE.rc} · {SITE.legalAddress}
       </p>
