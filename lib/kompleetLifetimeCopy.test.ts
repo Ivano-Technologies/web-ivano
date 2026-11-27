@@ -3,22 +3,14 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
-import {
-  KOMPLEET_FOUNDING_CTA,
-  KOMPLEET_HREF,
-  KOMPLEET_SEE_CTA,
-  PRODUCTS,
-} from "./products.ts";
+import { KOMPLEET_HREF, KOMPLEET_SEE_CTA, PRODUCTS } from "./products.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 /** Bare ₦ as the Naira symbol is allowed. Amounts (₦ plus digits, NGN plus digits, 5,000 / 5000) are not. */
 const PRICE_AMOUNT = /₦\s*[\d,]+|\bNGN\s*[\d,]+|\b5,000\b|\b5000\b/;
-const KOMPLEET_PRICE = /₦\s*5,?000|\b5,000\b|\b5000\b/;
-const NO_PRICE_ROUTES = [
-  "app/terms/page.tsx",
-  "app/refunds/page.tsx",
-  "app/products/page.tsx",
-] as const;
+const NO_PRICE_ROUTES = ["app/terms/page.tsx", "app/refunds/page.tsx"] as const;
+const FOUNDERS_CLAUSE =
+  "Businesses that bought a founding place keep what they paid for.";
 const OLD_SALE_NOW_LINES = [
   "One-off payment via Paystack",
   "Not happy?",
@@ -30,16 +22,12 @@ const OLD_SALE_NOW_LINES = [
   "one named user account",
   "the 10-seat offer",
   "first 10 licences sold",
+  "Founding lifetime offer coming soon",
+  "Founding offer",
+  "Founding Lifetime",
+  "When it opens, the founding offer",
 ];
-const FOUNDING_NOTE =
-  "When it opens, the founding offer is a one-off payment through Paystack, with lifetime meaning for as long as Kompleet is offered. See our Terms of Service and Refund Policy.";
-const LEGAL_PREFIXES = [
-  "app/terms/",
-  "app/refunds/",
-  "app/privacy/",
-  "app/cookies/",
-  "app/contact/",
-];
+const PRICE_OK_PREFIXES = ["lib/kompleetPlans.ts"] as const;
 
 function walk(dir: string, acc: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -58,36 +46,77 @@ function walk(dir: string, acc: string[] = []): string[] {
   return acc;
 }
 
-describe("Kompleet founding lifetime copy", () => {
+function visibleFoundingHits(text: string): string[] {
+  const withoutClause = text.split(FOUNDERS_CLAUSE).join(" ");
+  const hits: string[] = [];
+  const patterns: Array<[string, RegExp]> = [
+    ["founding", /\bfounding\b/i],
+    ["Founding Lifetime", /Founding Lifetime/i],
+    ["lifetime offer", /lifetime offer/i],
+  ];
+  for (const [label, pattern] of patterns) {
+    if (pattern.test(withoutClause)) {
+      hits.push(label);
+    }
+  }
+  return hits;
+}
+
+describe("Kompleet public copy", () => {
   const kompleet = PRODUCTS.find((product) => product.highlight === "kompleet");
 
-  it("uses the coming soon CTA with no price and keeps the founding framing", () => {
+  it("uses the See Kompleet CTA and a Product badge, with no founding fields", () => {
     assert.ok(kompleet);
-    assert.equal(kompleet.cta, "Founding lifetime offer coming soon");
-    assert.equal(kompleet.cta, KOMPLEET_FOUNDING_CTA);
+    assert.equal(kompleet.cta, "See Kompleet");
+    assert.equal(kompleet.cta, KOMPLEET_SEE_CTA);
     assert.equal(kompleet.href, KOMPLEET_HREF);
     assert.equal(kompleet.href, "https://getkompleet.com");
-    assert.equal(kompleet.secondaryCta, KOMPLEET_SEE_CTA);
-    assert.equal(kompleet.secondaryHref, KOMPLEET_HREF);
-    assert.equal(kompleet.secondaryHref, "https://getkompleet.com");
+    assert.equal(kompleet.badgeLabel, "Product");
     assert.equal(kompleet.price, undefined);
-    assert.equal(kompleet.badgeLabel, "Founding offer");
-    assert.equal(
-      kompleet.priceNote,
-      "For one founding business: up to 4 users, owner included, sharing one set of books. No monthly or annual fees.",
-    );
-    assert.equal(kompleet.includesLabel, "What's included, for each founding business:");
-    assert.equal((kompleet.priceNote ?? "").includes("first 25 licences"), false);
-    assert.equal((kompleet.priceNote ?? "").includes("first 10 licences"), false);
-    assert.equal((kompleet.priceNote ?? "").includes("first 10 founding"), false);
-    assert.ok((kompleet.includes?.length ?? 0) >= 3);
+    assert.equal(kompleet.priceNote, undefined);
+    assert.equal(kompleet.includesLabel, undefined);
+    assert.equal(kompleet.includes, undefined);
+    assert.equal(kompleet.secondaryCta, undefined);
+    assert.equal(kompleet.secondaryHref, undefined);
   });
 
-  it("does not publish a naira or NGN amount anywhere in source", () => {
+  it("keeps one founders clause in Terms and no other founding wording", () => {
+    const terms = readFileSync(join(ROOT, "app/terms/page.tsx"), "utf8");
+    assert.ok(
+      terms.includes(FOUNDERS_CLAUSE),
+      "missing founders clause in Terms",
+    );
+    assert.equal(terms.split(FOUNDERS_CLAUSE).length - 1, 1);
+
     const failures: string[] = [];
     for (const file of walk(ROOT)) {
       const rel = relative(ROOT, file).replaceAll("\\", "/");
       if (rel.endsWith(".test.ts") || rel.endsWith(".test.mjs")) {
+        continue;
+      }
+      const text = readFileSync(file, "utf8");
+      if (rel === "app/terms/page.tsx") {
+        const extras = visibleFoundingHits(text);
+        if (extras.length > 0) {
+          failures.push(`${rel}: ${extras.join(", ")}`);
+        }
+        continue;
+      }
+      if (visibleFoundingHits(text).length > 0 || text.includes(FOUNDERS_CLAUSE)) {
+        failures.push(rel);
+      }
+    }
+    assert.equal(failures.length, 0, failures.join("\n"));
+  });
+
+  it("does not publish a naira or NGN amount outside the plans module", () => {
+    const failures: string[] = [];
+    for (const file of walk(ROOT)) {
+      const rel = relative(ROOT, file).replaceAll("\\", "/");
+      if (rel.endsWith(".test.ts") || rel.endsWith(".test.mjs")) {
+        continue;
+      }
+      if (PRICE_OK_PREFIXES.some((prefix) => rel === prefix)) {
         continue;
       }
       if (PRICE_AMOUNT.test(readFileSync(file, "utf8"))) {
@@ -97,40 +126,30 @@ describe("Kompleet founding lifetime copy", () => {
     assert.equal(failures.length, 0, failures.join(", "));
   });
 
-  it("does not publish ₦5,000 on /terms, /refunds or /products", () => {
+  it("does not publish a naira or NGN amount on /terms or /refunds", () => {
     const failures: string[] = [];
     for (const rel of NO_PRICE_ROUTES) {
       const text = readFileSync(join(ROOT, rel), "utf8");
-      if (KOMPLEET_PRICE.test(text) || PRICE_AMOUNT.test(text)) {
+      if (PRICE_AMOUNT.test(text)) {
         failures.push(rel);
       }
     }
     assert.equal(failures.length, 0, failures.join(", "));
   });
 
-  it("uses the coming soon founding note and drops sale-now sentences", () => {
+  it("drops old sale-now and founding marketing sentences", () => {
     const page = readFileSync(join(ROOT, "app/products/page.tsx"), "utf8");
-    const fineprint = page.match(
-      /className="product-fineprint">([\s\S]*?)<\/p>/,
-    );
-    assert.ok(fineprint?.[1], "missing Products founding note");
-    const visible = fineprint[1]
-      .replace(/\{\s*" "\s*\}/g, " ")
-      .replace(/<Link href="\/terms">Terms of Service<\/Link>/g, "Terms of Service")
-      .replace(/<Link href="\/refunds">Refund Policy<\/Link>/g, "Refund Policy")
-      .replace(/\s+/g, " ")
-      .trim();
-    assert.equal(visible, FOUNDING_NOTE);
-    assert.match(page, /href="\/terms">Terms of Service</);
-    assert.match(page, /href="\/refunds">Refund Policy</);
+    const section = readFileSync(join(ROOT, "components/KompleetPlans.tsx"), "utf8");
+    assert.match(section, /href="\/terms">Terms of Service</);
+    assert.match(section, /href="\/refunds">Refund Policy</);
+    assert.equal(page.includes("founding"), false);
+    assert.equal(section.includes("founding"), false);
     assert.equal(PRICE_AMOUNT.test(page), false);
+    assert.equal(PRICE_AMOUNT.test(section), false);
 
     const failures: string[] = [];
     for (const file of walk(ROOT)) {
       const rel = relative(ROOT, file).replaceAll("\\", "/");
-      if (LEGAL_PREFIXES.some((prefix) => rel.startsWith(prefix))) {
-        continue;
-      }
       if (rel.endsWith(".test.ts") || rel.endsWith(".test.mjs")) {
         continue;
       }

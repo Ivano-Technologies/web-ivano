@@ -964,6 +964,86 @@ section { padding: 2.5rem 0; position: relative; }
   margin: 0;
 }
 .product-fineprint a { font-weight: 600; }
+.kompleet-plans-intro {
+  flex: none;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.kompleet-offer .thumb-media {
+  height: 140px;
+  min-height: 0;
+  aspect-ratio: auto;
+  flex: 0 0 auto;
+}
+.plan-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  gap: 0.35rem;
+}
+.plan-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.plan-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.plan-subline,
+.plan-everything-in,
+.plan-features {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--body);
+}
+.plan-everything-in { font-weight: 600; margin-bottom: 0.5rem; }
+.plan-features { flex: 1; }
+.plan-features ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+.plan-features li { margin-bottom: 0.35rem; }
+.plan-card .btn {
+  width: 100%;
+  margin-top: 1rem;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+.kompleet-fineprint-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+@media (min-width: 768px) {
+  .kompleet-offer .thumb-media { height: 180px; }
+  .plan-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1280px) {
+  .kompleet-offer .thumb-media { height: 220px; }
+  .plan-grid { grid-template-columns: repeat(4, 1fr); }
+}
 .products-legal-line {
   margin-top: 1.5rem;
   padding-bottom: 0;
@@ -1930,6 +2010,13 @@ html.cookie-banner-open .site-footer {
   html:not([data-theme="dark"]) .thumb-card p, html:not([data-theme="dark"]) .card p { color: var(--p3-ink-2); }
   html:not([data-theme="dark"]) .product-price { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .product-fineprint { color: var(--p3-ink-3); }
+  html:not([data-theme="dark"]) .kompleet-plans-intro { color: var(--p3-ink-2); }
+  html:not([data-theme="dark"]) .plan-card { background: var(--p3-surface); border-color: var(--p3-hairline); }
+  html:not([data-theme="dark"]) .plan-card h4,
+  html:not([data-theme="dark"]) .plan-price { color: var(--p3-ink); }
+  html:not([data-theme="dark"]) .plan-subline,
+  html:not([data-theme="dark"]) .plan-everything-in,
+  html:not([data-theme="dark"]) .plan-features { color: var(--p3-ink-2); }
   html:not([data-theme="dark"]) .contact-follow h3 { color: var(--p3-ink); }
   html:not([data-theme="dark"]) .contact-follow li,
   html:not([data-theme="dark"]) .contact-follow p,
